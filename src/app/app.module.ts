@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     MaterialModule,
       AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyD403ZxaQdODw0iVMMGG7ZparzGy2rEo8g'
     })
   ],
   providers: [],
