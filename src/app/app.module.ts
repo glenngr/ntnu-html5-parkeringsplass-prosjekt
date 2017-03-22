@@ -7,6 +7,7 @@ import { MaterialModule } from '@angular/material';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
+import { GeolocationService } from './geolocation/geolocation.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { AppComponent } from './app.component';
       apiKey: 'AIzaSyD403ZxaQdODw0iVMMGG7ZparzGy2rEo8g'
     })
   ],
-  providers: [],
+  providers: [GeolocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
