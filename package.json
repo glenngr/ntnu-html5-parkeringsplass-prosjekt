@@ -1,7 +1,13 @@
 {
   "name": "ntnu-html5-parkeringsplass-prosjekt",
-  "version": "0.0.0",
-  "license": "MIT",
+  "version": "0.0.1",
+  "description": "Prosjekt i HTML5-faget ved NTNU våren 2017",
+  "author": "Glenn Greibesland",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glenngr/ntnu-html5-parkeringsplass-prosjekt.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
