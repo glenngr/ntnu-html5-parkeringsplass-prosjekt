@@ -13,8 +13,8 @@ export class ParkingSpaceMapComponent implements OnInit {
 
   userGeoLocation: Location;
   parkingSpaces: ParkingSpace[] = [];
-  lat: number = 58.145975;
-  lng: number = 7.985508;
+  lat: number = 58.146623;
+  lng: number = 7.996178;
   mapZoom: number = 15;
 
   constructor(private geoLocationService: GeolocationService) {
