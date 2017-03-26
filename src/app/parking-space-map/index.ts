@@ -5,19 +5,24 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { ParkingSpaceMapComponent } from './parking-space-map.component';
 import { MapCircleWithInfoWindowComponent } from './map-circle-with-info-window/map-circle-with-info-window.component';
+import { ParkingSpaceInfoCircleComponent } from './parking-space-info-circle/parking-space-info-circle.component';
 import { GeolocationService } from './geolocation-service/geolocation.service';
 
 @NgModule({
   imports: [
     CommonModule,
-        AgmCoreModule.forRoot({
+    AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD403ZxaQdODw0iVMMGG7ZparzGy2rEo8g'
     }),
   ],
   providers: [
     GeolocationService
   ],
-  declarations: [ParkingSpaceMapComponent, MapCircleWithInfoWindowComponent],
+  declarations: [
+    ParkingSpaceMapComponent,
+    MapCircleWithInfoWindowComponent,
+    ParkingSpaceInfoCircleComponent,
+  ],
   exports: [ParkingSpaceMapComponent]
 })
 export class ParkingSpaceMapModule { }
