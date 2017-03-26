@@ -4,9 +4,7 @@
       Antall ledige plasser: <strong>48</strong>
     </sebm-google-map-info-window>
   </sebm-google-map-marker>
-  <div *ngFor="let userGeoLoc of userGeoLocation">
-    <gg-map-circle-with-info-window [latitude]="userGeoLoc.lat" [longitude]="userGeoLoc.long">
-    </gg-map-circle-with-info-window>
-  </div>
+  <gg-map-circle-with-info-window *ngFor="let userGeoLoc of userGeoLocation" [latitude]="userGeoLoc.lat" [longitude]="userGeoLoc.long">
+  </gg-map-circle-with-info-window>
 </sebm-google-map>
 <button md-button (click)="onButtonClick()">Vis min lokasjon</button>
