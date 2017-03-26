@@ -7,15 +7,13 @@
         Antall ledige plasser: <strong>48</strong>
       </sebm-google-map-info-window>
     </sebm-google-map-marker>
-          
-      <sebm-google-map-circle 
-          *ngFor="let userGeoLoc of userGeoLocation"
-          [latitude]="userGeoLoc.lat"
-          [longitude]="userGeoLoc.long" 
-          [radius]="300"
-          [fillColor]="'red'">
+    <div *ngFor="let userGeoLoc of userGeoLocation">
+      <sebm-google-map-circle [latitude]="userGeoLoc.lat" [longitude]="userGeoLoc.long" [radius]="300" [fillColor]="'red'">
       </sebm-google-map-circle>
-
+      <sebm-google-map-info-window [disableAutoPan]="true" [isOpen]="true" [latitude]="userGeoLoc.lat" [longitude]="userGeoLoc.long">
+        Antall ledige plasser: <strong>48</strong>
+      </sebm-google-map-info-window>
+    </div>
   </sebm-google-map>
- <button md-button (click)="onButtonClick()">Vis min lokasjon</button>
+  <button md-button (click)="onButtonClick()">Vis min lokasjon</button>
 </h1>
