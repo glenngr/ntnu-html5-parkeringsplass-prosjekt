@@ -1,9 +1,6 @@
 <sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom">
-  <sebm-google-map-marker *ngFor="let parkingSpace of parkingSpaces" [latitude]="parkingSpace.lat" [longitude]="parkingSpace.long">
-    <sebm-google-map-info-window [disableAutoPan]="true">
-      Antall ledige plasser: <strong>48</strong>
-    </sebm-google-map-info-window>
-  </sebm-google-map-marker>
+  <gg-map-circle-with-info-window *ngFor="let parkingSpace of parkingSpaces" [latitude]="parkingSpace.lat" [longitude]="parkingSpace.long">
+  </gg-map-circle-with-info-window>
   <gg-map-circle-with-info-window *ngFor="let userGeoLoc of userGeoLocation" [latitude]="userGeoLoc.lat" [longitude]="userGeoLoc.long">
   </gg-map-circle-with-info-window>
 </sebm-google-map>
