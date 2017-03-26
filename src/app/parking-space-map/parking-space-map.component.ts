@@ -15,7 +15,7 @@ export class ParkingSpaceMapComponent implements OnInit {
   parkingSpaces: ParkingSpace[] = [];
   lat: number = 58.145975;
   lng: number = 7.985508;
-  mapZoom: number = 10;
+  mapZoom: number = 15;
 
   constructor(private geoLocationService: GeolocationService) {
     this.parkingSpaces = [
