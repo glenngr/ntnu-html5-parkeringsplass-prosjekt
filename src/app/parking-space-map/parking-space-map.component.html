@@ -2,7 +2,7 @@
   <gg-parking-space-info-circle *ngFor="let parkingSpace of parkingSpaces" [latitude]="parkingSpace.location.lat" [longitude]="parkingSpace.location.long" [freeSpaces]="parkingSpace.freeSpaces" [totalSpaces]="parkingSpace.totalSpaces" [parkingSpaceName]="parkingSpace.name" [parkingSpaceRadius]="parkingSpace.size" [infoWindowOpen]="showAllInfowindows">
   </gg-parking-space-info-circle>
   <sebm-google-map-marker *ngIf="userGeoLocation" [latitude]="userGeoLocation.lat" [longitude]="userGeoLocation.long">
-    <sebm-google-map-info-window [isOpen]="true">Your approximate location</sebm-google-map-info-window>
+    <sebm-google-map-info-window [isOpen]="true">Din omtrentlige plassering</sebm-google-map-info-window>
   </sebm-google-map-marker>
 </sebm-google-map>
 <button md-button (click)="onButtonClick()">Vis min lokasjon</button>
