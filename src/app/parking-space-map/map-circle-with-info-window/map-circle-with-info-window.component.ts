@@ -11,6 +11,7 @@ export class MapCircleWithInfoWindowComponent implements OnInit {
   @Input() infoWindowText: string;
   @Input() circleFillColor: string;
   @Input() circleRadius: number;
+  @Input() infoWindowOpen: boolean;
 
   constructor() { }
 

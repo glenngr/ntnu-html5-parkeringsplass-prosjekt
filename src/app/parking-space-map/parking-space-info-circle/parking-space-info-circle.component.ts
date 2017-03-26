@@ -12,6 +12,7 @@ export class ParkingSpaceInfoCircleComponent implements OnInit {
   @Input() freeSpaces: number;
   @Input() totalSpaces: number;
   @Input() parkingSpaceName: string;
+  @Input() infoWindowOpen: boolean = true;
   circleFillColor: string = 'red';
   
   constructor() { }

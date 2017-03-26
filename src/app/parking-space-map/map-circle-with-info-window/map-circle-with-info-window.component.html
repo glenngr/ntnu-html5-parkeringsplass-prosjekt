@@ -1,2 +1,2 @@
 <sebm-google-map-circle [latitude]="latitude" [longitude]="longitude" [radius]="circleRadius" [fillColor]="circleFillColor" (circleClick)="info.open()"></sebm-google-map-circle>
-<sebm-google-map-info-window #info [latitude]="latitude" [longitude]="longitude" [isOpen]="true"><ng-content></ng-content></sebm-google-map-info-window>
+<sebm-google-map-info-window #info [latitude]="latitude" [longitude]="longitude" [isOpen]="infoWindowOpen"><ng-content></ng-content></sebm-google-map-info-window>
