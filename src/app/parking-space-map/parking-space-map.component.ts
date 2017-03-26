@@ -11,6 +11,7 @@ import { Location } from './geolocation-service/location';
 export class ParkingSpaceMapComponent implements OnInit {
 
   userGeoLocation: Location[] = [];
+  parkingSpaces: Location[] = [new Location(58.15533, 8.09309)];
   lat: number = 58.145975;
   lng: number = 7.985508;
   mapZoom: number = 10;

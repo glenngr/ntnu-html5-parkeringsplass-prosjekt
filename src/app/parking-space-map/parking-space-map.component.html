@@ -1,5 +1,5 @@
 <sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom">
-  <sebm-google-map-marker [latitude]="58.15533" [longitude]="8.09309">
+  <sebm-google-map-marker *ngFor="let parkingSpace of parkingSpaces" [latitude]="parkingSpace.lat" [longitude]="parkingSpace.long">
     <sebm-google-map-info-window [disableAutoPan]="true">
       Antall ledige plasser: <strong>48</strong>
     </sebm-google-map-info-window>
