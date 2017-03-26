@@ -1,5 +1,2 @@
-<sebm-google-map-circle [latitude]="latitude" [longitude]="longitude" [radius]="circleRadius" [fillColor]="circleFillColor" (circleClick)="info.open()">
-</sebm-google-map-circle>
-<sebm-google-map-info-window #info [latitude]="latitude" [longitude]="longitude">
-  Antall ledige plasser: <strong>48</strong>
-</sebm-google-map-info-window>
+<sebm-google-map-circle [latitude]="latitude" [longitude]="longitude" [radius]="circleRadius" [fillColor]="circleFillColor" (circleClick)="info.open()"></sebm-google-map-circle>
+<sebm-google-map-info-window #info [latitude]="latitude" [longitude]="longitude">{{infoWindowText}}</sebm-google-map-info-window>

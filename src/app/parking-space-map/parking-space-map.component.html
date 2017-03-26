@@ -1,5 +1,5 @@
 <sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom">
-  <gg-map-circle-with-info-window *ngFor="let parkingSpace of parkingSpaces" [latitude]="parkingSpace.lat" [longitude]="parkingSpace.long" [circleFillColor]="'red'" [circleRadius]="300">
+  <gg-map-circle-with-info-window *ngFor="let parkingSpace of parkingSpaces" [latitude]="parkingSpace.lat" [longitude]="parkingSpace.long" [circleFillColor]="'red'" [circleRadius]="300" [infoWindowText]="'48 ledige plasser'">
   </gg-map-circle-with-info-window>
   <sebm-google-map-marker *ngIf="userGeoLocation" [latitude]="userGeoLocation.lat" [longitude]="userGeoLocation.long">
     <sebm-google-map-info-window [isOpen]="true">Your approximate location</sebm-google-map-info-window>
