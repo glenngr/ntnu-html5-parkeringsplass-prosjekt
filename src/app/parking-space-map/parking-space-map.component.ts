@@ -19,9 +19,9 @@ export class ParkingSpaceMapComponent implements OnInit {
 
   constructor(private geoLocationService: GeolocationService) {
     this.parkingSpaces = [
-      new ParkingSpace("P1", 100, 48, new Location(58.147737, 8.006584), 20),
+      new ParkingSpace("P1", 100, 98, new Location(58.147737, 8.006584), 20),
       new ParkingSpace("P2", 200, 108, new Location(58.148561, 7.989738), 25),
-      new ParkingSpace("P3", 50, 8, new Location(58.144350, 7.991619), 15),
+      new ParkingSpace("P3", 50, 50, new Location(58.144350, 7.991619), 15),
       new ParkingSpace("P4", 70, 40, new Location(58.138972, 7.998729), 15),
     ]
   }
