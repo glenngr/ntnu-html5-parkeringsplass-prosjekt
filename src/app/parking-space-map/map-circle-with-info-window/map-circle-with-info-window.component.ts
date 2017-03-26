@@ -9,7 +9,9 @@ export class MapCircleWithInfoWindowComponent implements OnInit {
   @Input() latitude: number;
   @Input() longitude: number;
   @Input() infoWindowText: string;
-  
+  @Input() circleFillColor: string;
+  @Input() circleRadius: number;
+
   constructor() { }
 
   ngOnInit() {
