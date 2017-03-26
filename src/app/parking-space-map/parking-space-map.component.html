@@ -1,0 +1,12 @@
+<sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom">
+  <sebm-google-map-marker [latitude]="58.15533" [longitude]="8.09309">
+    <sebm-google-map-info-window [disableAutoPan]="true">
+      Antall ledige plasser: <strong>48</strong>
+    </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+  <div *ngFor="let userGeoLoc of userGeoLocation">
+    <gg-map-circle-with-info-window [latitude]="userGeoLoc.lat" [longitude]="userGeoLoc.long">
+    </gg-map-circle-with-info-window>
+  </div>
+</sebm-google-map>
+<button md-button (click)="onButtonClick()">Vis min lokasjon</button>

@@ -4,10 +4,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
-import { GeolocationService } from './geolocation/geolocation.service';
+import { ParkingSpaceMapModule } from './parking-space-map/parking-space-map.module';
 
 @NgModule({
   declarations: [
@@ -18,11 +17,8 @@ import { GeolocationService } from './geolocation/geolocation.service';
     FormsModule,
     HttpModule,
     MaterialModule,
-      AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD403ZxaQdODw0iVMMGG7ZparzGy2rEo8g'
-    })
+    ParkingSpaceMapModule
   ],
-  providers: [GeolocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
