@@ -5,7 +5,7 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { ParkingSpaceMapComponent } from './parking-space-map.component';
 import { MapCircleWithInfoWindowComponent } from './map-circle-with-info-window/map-circle-with-info-window.component';
-import { GeolocationService } from './geolocation/geolocation.service';
+import { GeolocationService } from './geolocation-service/geolocation.service';
 
 @NgModule({
   imports: [
