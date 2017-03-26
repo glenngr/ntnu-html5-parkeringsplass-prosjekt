@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { GeolocationService } from './geolocation-service/geolocation.service';
 import { Location } from './models/location.model';
+import { ParkingSpace } from './models/parkingspace.model';
 
 @Component({
   selector: 'gg-parking-space-map',
@@ -11,12 +12,19 @@ import { Location } from './models/location.model';
 export class ParkingSpaceMapComponent implements OnInit {
 
   userGeoLocation: Location;
-  parkingSpaces: Location[] = [new Location(58.15533, 8.09309)];
+  parkingSpaces: ParkingSpace[] = [];
   lat: number = 58.145975;
   lng: number = 7.985508;
   mapZoom: number = 10;
 
-  constructor(private geoLocationService: GeolocationService) { }
+  constructor(private geoLocationService: GeolocationService) {
+    this.parkingSpaces = [
+      new ParkingSpace("P1", 100, 48, new Location(58.147737, 8.006584), 20),
+      new ParkingSpace("P2", 200, 108, new Location(58.148561, 7.989738), 25),
+      new ParkingSpace("P3", 50, 8, new Location(58.144350, 7.991619), 15),
+      new ParkingSpace("P4", 70, 40, new Location(58.138972, 7.998729), 15),
+    ]
+   }
 
   onButtonClick() {
     if (this.userGeoLocation === undefined) {
