@@ -28,6 +28,8 @@ export class ParkingSpaceMapComponent implements OnInit {
       });
     }
     else {
+      /* TODO: Fix so that map automatically pans to the user 
+       * location if button for showing "my location" is pressed multiple times */
       this.lat = this.userGeoLocation.lat;
       this.lng = this.userGeoLocation.long;
       this.mapZoom = 13;
