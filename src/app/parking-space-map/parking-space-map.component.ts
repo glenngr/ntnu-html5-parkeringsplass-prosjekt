@@ -10,7 +10,7 @@ import { Location } from './geolocation-service/location';
 })
 export class ParkingSpaceMapComponent implements OnInit {
 
-  userGeoLocation: Location[] = [];
+  userGeoLocation: Location;
   parkingSpaces: Location[] = [new Location(58.15533, 8.09309)];
   lat: number = 58.145975;
   lng: number = 7.985508;
@@ -19,17 +19,17 @@ export class ParkingSpaceMapComponent implements OnInit {
   constructor(private geoLocationService: GeolocationService) { }
 
   onButtonClick() {
-    if (this.userGeoLocation.length == 0) {
+    if (this.userGeoLocation === undefined) {
       this.geoLocationService.getCurrentPosition().subscribe((newpos) => {
-        this.userGeoLocation.push(newpos);
+        this.userGeoLocation = newpos;
         this.lat = newpos.lat;
         this.lng = newpos.long;
         this.mapZoom = 13;
       });
     }
     else {
-      this.lat = this.userGeoLocation[0].lat;
-      this.lng = this.userGeoLocation[0].long;
+      this.lat = this.userGeoLocation.lat;
+      this.lng = this.userGeoLocation.long;
       this.mapZoom = 13;
     }
   }
