@@ -4,6 +4,10 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ParkingSpaceInfoCircleComponent } from './parking-space-info-circle.component';
+import { InfoCircleColorService } from './info-circle-color.service';
+import { MapCircleWithInfoWindowComponent } from '../map-circle-with-info-window/map-circle-with-info-window.component';
+
+import { AgmCoreModule, CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager, MapsAPILoader} from 'angular2-google-maps/core';
 
 describe('ParkingSpaceInfoCircleComponent', () => {
   let component: ParkingSpaceInfoCircleComponent;
@@ -11,9 +15,11 @@ describe('ParkingSpaceInfoCircleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParkingSpaceInfoCircleComponent ]
+      imports: [AgmCoreModule.forRoot()],
+      declarations: [ParkingSpaceInfoCircleComponent, MapCircleWithInfoWindowComponent],
+      providers: [CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager, InfoCircleColorService, MapsAPILoader]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

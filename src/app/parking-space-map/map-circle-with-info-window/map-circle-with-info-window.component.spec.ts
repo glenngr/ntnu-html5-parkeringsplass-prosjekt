@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { MapCircleWithInfoWindowComponent } from './map-circle-with-info-window.component';
+import { ParkingSpaceMapModule } from '../';
+import { AgmCoreModule, CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager } from 'angular2-google-maps/core';
 
 describe('MapCircleWithInfoWindowComponent', () => {
   let component: MapCircleWithInfoWindowComponent;
@@ -11,7 +13,9 @@ describe('MapCircleWithInfoWindowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MapCircleWithInfoWindowComponent ]
+      imports: [AgmCoreModule.forRoot()],
+      declarations: [MapCircleWithInfoWindowComponent],
+      providers: [CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager]
     })
     .compileComponents();
   }));

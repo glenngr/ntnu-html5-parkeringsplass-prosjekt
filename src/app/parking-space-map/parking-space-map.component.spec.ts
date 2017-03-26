@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ParkingSpaceMapComponent } from './parking-space-map.component';
+import { ParkingSpaceMapModule } from './index';
 
 describe('ParkingSpaceMapComponent', () => {
   let component: ParkingSpaceMapComponent;
@@ -11,9 +12,9 @@ describe('ParkingSpaceMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParkingSpaceMapComponent ]
+      imports: [ParkingSpaceMapModule],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
