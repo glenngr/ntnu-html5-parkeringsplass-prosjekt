@@ -10,12 +10,12 @@ import { ParkingSpace } from './models/parkingspace.model';
   styleUrls: ['./parking-space-map.component.css']
 })
 export class ParkingSpaceMapComponent implements OnInit {
-
   userGeoLocation: Location;
   parkingSpaces: ParkingSpace[] = [];
   lat: number = 58.146623;
   lng: number = 7.996178;
   mapZoom: number = 15;
+  showAllInfowindows: boolean = true;
 
   constructor(private geoLocationService: GeolocationService) {
     this.parkingSpaces = [
@@ -24,7 +24,7 @@ export class ParkingSpaceMapComponent implements OnInit {
       new ParkingSpace("P3", 50, 8, new Location(58.144350, 7.991619), 15),
       new ParkingSpace("P4", 70, 40, new Location(58.138972, 7.998729), 15),
     ]
-   }
+  }
 
   onButtonClick() {
     if (this.userGeoLocation === undefined) {
@@ -46,5 +46,16 @@ export class ParkingSpaceMapComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  mapZoomChanged(newZoomLevel: number) {
+    if (newZoomLevel < 14) {
+      console.log('Hiding info windows. Zoom level is:', newZoomLevel);
+      this.showAllInfowindows = false;
+    }
+    else {
+      console.log('Showing info windows. Zoom level is:', newZoomLevel);
+      this.showAllInfowindows = true;
+    }
   }
 }
