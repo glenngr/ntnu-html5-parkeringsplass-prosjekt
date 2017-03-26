@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { GeolocationService } from './geolocation-service/geolocation.service';
-import { Location } from './geolocation-service/location';
+import { Location } from './models/location.model';
 
 @Component({
   selector: 'gg-parking-space-map',

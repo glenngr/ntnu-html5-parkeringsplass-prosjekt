@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';
-import { Location } from './location';
+import { Location } from '../models/location.model';
 
 @Injectable()
 export class GeolocationService {
