@@ -10,9 +10,8 @@ export class ParkingSpaceInfoCircleComponent implements OnInit {
   @Input() longitude: number;
   @Input() freeSpaces: number;
   @Input() totalSpaces: number;
-  infoWindowText: string;
-  circleFillColor: string;
-  circleRadius: number;
+  circleFillColor: string = 'red';
+  circleRadius: number = 300;
   
   constructor() { }
 
