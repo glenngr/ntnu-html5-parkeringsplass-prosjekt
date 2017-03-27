@@ -12,7 +12,6 @@ export class InfoCircleColorService {
     constructor() { }
 
     getColor(occupiedSpaces: number, totalSpaces: number): string {
-        debugger;
         let freeSpaces = totalSpaces - occupiedSpaces;
         if (freeSpaces === 0) {
             return this.fullColor; 
