@@ -55,4 +55,8 @@ export class ParkingSpaceMapComponent implements OnInit {
       this.showAllInfowindows = true;
     }
   }
+
+  trackByIdAndOccupiedSpaces(index, item: ParkingSpace) {
+    return item.name + '-' + item.occupiedSpaces;
+  }
 }
