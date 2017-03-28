@@ -1,5 +1,7 @@
 <app-parking-space-toolbar>
   <app-range-filter maxValue="100" minValue="0" (valueChanged)="freeSpacesFilterChanged($event)" title="Filtrer parkeringsplasser etter antall ledige plasser"></app-range-filter>
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
   <button md-raised-button color="secondary" (click)="onButtonClick()">Vis min lokasjon</button>
 </app-parking-space-toolbar>
 <sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom" (zoomChange)="mapZoomChanged($event)">
