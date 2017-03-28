@@ -7,7 +7,7 @@ import { ParkingSpace } from '../models/parkingspace.model';
 
 @Injectable()
 export class ParkingSpaceWebsocketService {
-    public messages: Observable<any>;
+    public messages: Observable<ParkingSpace[]>;
     private inputStream: Subject<any>;
 
     constructor() { }
