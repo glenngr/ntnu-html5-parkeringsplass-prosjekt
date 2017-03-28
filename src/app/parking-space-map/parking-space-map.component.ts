@@ -54,11 +54,12 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
     this.parkingSpaceWsService.connect();
     Observable.combineLatest(
       this.parkingSpaceWsService.messages.distinctUntilChanged(),
-      this.freeParkingSpacesFilterValue$
+      this.freeParkingSpacesFilterValue$.distinctUntilChanged()
     ).takeUntil(this.destroyed$)
     .subscribe(([parkingSpaces, minFreeSpaces]) => {
       this.parkingSpaces = parkingSpaces.filter(ps => ps.totalSpaces - ps.occupiedSpaces >= minFreeSpaces);
     });
+    this.freeParkingSpacesFilterValue$.next(0); // Default filter value is 0
   }
 
   ngOnDestroy() {
