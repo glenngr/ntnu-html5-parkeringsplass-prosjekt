@@ -9,9 +9,13 @@
       <md-icon>view_agenda</md-icon>
       <span>Show parking space toolbar</span>
     </button>
-      <button md-menu-item (click)="map.showParkingSpaceToolbar=false;" *ngIf="map.showParkingSpaceToolbar">
+    <button md-menu-item (click)="map.showParkingSpaceToolbar=false;" *ngIf="map.showParkingSpaceToolbar">
       <md-icon>view_agenda</md-icon>
       <span>Hide parking space toolbar</span>
+    </button>
+    <button md-menu-item (click)="openThemeDialog()">
+      <md-icon>palette</md-icon>
+      <span>Velg fargetema</span>
     </button>
   </md-menu>
 </md-toolbar>

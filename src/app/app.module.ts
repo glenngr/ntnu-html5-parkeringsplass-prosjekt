@@ -6,11 +6,16 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { ChooseThemeDialogComponent } from './choose-theme-dialog/choose-theme-dialog.component';
 import { ParkingSpaceMapModule } from './parking-space-map/';
 
 @NgModule({
+  entryComponents: [
+    ChooseThemeDialogComponent
+  ],
   declarations: [
     AppComponent,
+    ChooseThemeDialogComponent,
   ],
   imports: [
     BrowserModule,
