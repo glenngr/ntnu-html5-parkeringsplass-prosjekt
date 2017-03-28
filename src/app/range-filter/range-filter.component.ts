@@ -10,12 +10,10 @@ export class RangeFilterComponent implements OnInit {
   @Input() maxValue: number;
   @Input() title: string;
   @Output() valueChanged = new EventEmitter<number>();
-  value: number;
 
   constructor() { }
 
   ngOnInit() {
-    this.value = this.maxValue;
   }
 
   onSliderchange(event) {
