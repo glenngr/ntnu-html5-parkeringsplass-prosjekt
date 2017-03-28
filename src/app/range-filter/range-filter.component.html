@@ -1,4 +1,4 @@
 <md-card>
-  Filtrer parkeringsplasser etter antall ledige plasser:
-  <md-slider min="0" max="100" step="1" value="100" thumb-label="true"></md-slider>
+  <ng-content></ng-content>
+  <md-slider [min]="minValue" [max]="maxValue" step="1" [(value)]="value" thumb-label="true" (change)="onSliderchange($event)"></md-slider>
 </md-card>

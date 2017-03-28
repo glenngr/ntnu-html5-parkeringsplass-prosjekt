@@ -7,7 +7,6 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ParkingSpaceMapModule } from './parking-space-map/';
-import { RangeFilterModule } from './range-filter/';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { RangeFilterModule } from './range-filter/';
     HttpModule,
     MaterialModule,
     ParkingSpaceMapModule,
-    RangeFilterModule,
   ],
   bootstrap: [AppComponent]
 })

@@ -9,6 +9,7 @@ import { ParkingSpaceInfoCircleComponent } from './parking-space-info-circle/par
 import { InfoCircleColorService } from './parking-space-info-circle/info-circle-color.service';
 import { GeolocationService } from './geolocation-service/geolocation.service';
 import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-websocket.service';
+import { RangeFilterModule } from '../range-filter/';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD403ZxaQdODw0iVMMGG7ZparzGy2rEo8g'
     }),
+    RangeFilterModule,
   ],
   providers: [
     GeolocationService,
