@@ -7,6 +7,7 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ParkingSpaceMapModule } from './parking-space-map/';
+import { ParkingSpaceFilterModule } from './parking-space-filter/';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ParkingSpaceMapModule } from './parking-space-map/';
     FormsModule,
     HttpModule,
     MaterialModule,
-    ParkingSpaceMapModule
+    ParkingSpaceMapModule,
+    ParkingSpaceFilterModule,
   ],
   bootstrap: [AppComponent]
 })
