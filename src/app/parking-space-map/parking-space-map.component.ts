@@ -27,13 +27,18 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   lng = 7.996178;
   mapZoom = 15;
   showAllInfowindows = true;
+  showingUserLocation = false;
+  private previousMapLocation: PreviousMapLocation;
 
   constructor(private geoLocationService: GeolocationService, private parkingSpaceWsService: ParkingSpaceWebsocketService) {
     this.freeParkingSpacesFilterValue$ = new Subject<number>();
     this.destroyed$ = new Subject<any>();
   }
 
-  onButtonClick() {
+  onShowMyLocationButtonClick() {
+    this.showingUserLocation = true;
+    this.previousMapLocation = new PreviousMapLocation(this.lat, this.lng, this.mapZoom);
+
     if (this.userGeoLocation === undefined) {
       this.geoLocationService.getCurrentPosition().subscribe((newpos) => {
         this.userGeoLocation = newpos;
@@ -50,15 +55,22 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
     }
   }
 
+  onHideMyLocationButtonClick() {
+    this.showingUserLocation = false;
+    this.lat = this.previousMapLocation.lat;
+    this.lng = this.previousMapLocation.long;
+    this.mapZoom = this.previousMapLocation.zoomLevel;
+  }
+
   ngOnInit() {
     this.parkingSpaceWsService.connect();
     Observable.combineLatest(
       this.parkingSpaceWsService.messages.distinctUntilChanged(),
       this.freeParkingSpacesFilterValue$.distinctUntilChanged()
     ).takeUntil(this.destroyed$)
-    .subscribe(([parkingSpaces, minFreeSpaces]) => {
-      this.parkingSpaces = parkingSpaces.filter(ps => ps.totalSpaces - ps.occupiedSpaces >= minFreeSpaces);
-    });
+      .subscribe(([parkingSpaces, minFreeSpaces]) => {
+        this.parkingSpaces = parkingSpaces.filter(ps => ps.totalSpaces - ps.occupiedSpaces >= minFreeSpaces);
+      });
     this.freeParkingSpacesFilterValue$.next(0); // Default filter value is 0
   }
 
@@ -84,4 +96,8 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   trackByIdAndOccupiedSpaces(index, item: ParkingSpace) {
     return item.name + '-' + item.occupiedSpaces;
   }
+}
+
+class PreviousMapLocation {
+  constructor(public lat: number, public long: number, public zoomLevel: number) { }
 }
