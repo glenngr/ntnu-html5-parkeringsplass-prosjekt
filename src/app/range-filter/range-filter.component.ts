@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class RangeFilterComponent implements OnInit {
   @Input() minValue: number;
   @Input() maxValue: number;
-  @Input() title: number;
+  @Input() title: string;
   @Output() valueChanged = new EventEmitter<number>();
   value: number;
 

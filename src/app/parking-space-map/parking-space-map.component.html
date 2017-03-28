@@ -1,6 +1,4 @@
-<app-range-filter maxValue="100" minValue="0" (valueChanged)="freeSpacesFilterChanged($event)">
-  Filtrer parkeringsplasser etter antall ledige plasser:
-</app-range-filter>
+<app-range-filter maxValue="100" minValue="0" (valueChanged)="freeSpacesFilterChanged($event)" title="Filtrer parkeringsplasser etter antall ledige plasser"></app-range-filter>
 
 <sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom" (zoomChange)="mapZoomChanged($event)">
   <gg-parking-space-info-circle *ngFor="let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces" [latitude]="parkingSpace.location.lat" [longitude]="parkingSpace.location.long" [occupiedSpaces]="parkingSpace.occupiedSpaces" [totalSpaces]="parkingSpace.totalSpaces" [parkingSpaceName]="parkingSpace.name" [parkingSpaceRadius]="parkingSpace.size" [infoWindowOpen]="showAllInfowindows">
