@@ -1,4 +1,4 @@
 <md-card>
   <ng-content></ng-content>
-  <md-slider [min]="minValue" [max]="maxValue" step="1" [(value)]="value" thumb-label="true" (change)="onSliderchange($event)"></md-slider>
+  <md-slider [min]="minValue" [max]="maxValue" step="1" [(value)]="value" thumb-label="true" tick-interval="1" (input)="onSliderchange($event)"></md-slider>
 </md-card>
