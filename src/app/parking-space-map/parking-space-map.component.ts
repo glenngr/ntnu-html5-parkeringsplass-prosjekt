@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 import { GeolocationService } from './geolocation-service/geolocation.service';
 import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-websocket.service';
@@ -43,7 +44,10 @@ export class ParkingSpaceMapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.parkingSpaces = this.parkingSpaceWsService.connect();
+    this.parkingSpaceWsService.connect();
+    this.parkingSpaces = this.parkingSpaceWsService
+      .messages
+      .distinctUntilChanged();
   }
 
   mapZoomChanged(newZoomLevel: number) {

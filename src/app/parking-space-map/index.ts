@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
-import { WebSocketService } from 'angular2-websocket-service';
 
 import { ParkingSpaceMapComponent } from './parking-space-map.component';
 import { MapCircleWithInfoWindowComponent } from './map-circle-with-info-window/map-circle-with-info-window.component';
@@ -21,7 +20,6 @@ import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-
   providers: [
     GeolocationService,
     InfoCircleColorService,
-    WebSocketService,
     ParkingSpaceWebsocketService,
   ],
   declarations: [
