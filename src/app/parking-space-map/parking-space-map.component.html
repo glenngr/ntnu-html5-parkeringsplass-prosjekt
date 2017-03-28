@@ -1,5 +1,7 @@
-<app-range-filter maxValue="100" minValue="0" (valueChanged)="freeSpacesFilterChanged($event)" title="Filtrer parkeringsplasser etter antall ledige plasser"></app-range-filter>
-
+<app-parking-space-toolbar>
+  <app-range-filter maxValue="100" minValue="0" (valueChanged)="freeSpacesFilterChanged($event)" title="Filtrer parkeringsplasser etter antall ledige plasser"></app-range-filter>
+  <button md-raised-button color="secondary" (click)="onButtonClick()">Vis min lokasjon</button>
+</app-parking-space-toolbar>
 <sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom" (zoomChange)="mapZoomChanged($event)">
   <gg-parking-space-info-circle *ngFor="let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces" [latitude]="parkingSpace.location.lat" [longitude]="parkingSpace.location.long" [occupiedSpaces]="parkingSpace.occupiedSpaces" [totalSpaces]="parkingSpace.totalSpaces" [parkingSpaceName]="parkingSpace.name" [parkingSpaceRadius]="parkingSpace.size" [infoWindowOpen]="showAllInfowindows">
   </gg-parking-space-info-circle>
@@ -7,4 +9,3 @@
     <sebm-google-map-info-window [isOpen]="true">Din omtrentlige plassering</sebm-google-map-info-window>
   </sebm-google-map-marker>
 </sebm-google-map>
-<button md-button (click)="onButtonClick()">Vis min lokasjon</button>

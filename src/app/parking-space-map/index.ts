@@ -10,6 +10,8 @@ import { InfoCircleColorService } from './parking-space-info-circle/info-circle-
 import { GeolocationService } from './geolocation-service/geolocation.service';
 import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-websocket.service';
 import { RangeFilterModule } from '../range-filter/';
+import { ParkingSpaceToolbarComponent } from './parking-space-toolbar/parking-space-toolbar.component';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -18,6 +20,7 @@ import { RangeFilterModule } from '../range-filter/';
       apiKey: 'AIzaSyD403ZxaQdODw0iVMMGG7ZparzGy2rEo8g'
     }),
     RangeFilterModule,
+    MaterialModule,
   ],
   providers: [
     GeolocationService,
@@ -28,6 +31,7 @@ import { RangeFilterModule } from '../range-filter/';
     ParkingSpaceMapComponent,
     MapCircleWithInfoWindowComponent,
     ParkingSpaceInfoCircleComponent,
+    ParkingSpaceToolbarComponent,
   ],
   exports: [ParkingSpaceMapComponent]
 })
