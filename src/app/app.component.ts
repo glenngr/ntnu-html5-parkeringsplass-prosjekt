@@ -9,10 +9,7 @@ import { ParkingSpaceMapComponent } from './parking-space-map/parking-space-map.
 })
 export class AppComponent {
   title: string = 'Oversikt over parkeringsplasser';
-  @ViewChild(ParkingSpaceMapComponent) private parkingSpaceMap: ParkingSpaceMapComponent;
 
   constructor() { }
-  onShowParkingSpaceToolbarClick() {
-    this.parkingSpaceMap.showParkingSpaceToolbar = true;
-  }
+
 }
