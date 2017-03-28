@@ -6,3 +6,11 @@
   // Every toolbar row uses a flexbox row layout.
   flex: 1 1 auto;
 }
+app-parking-space-toolbar {
+  .filter-icon {
+    margin-right: 10px;
+  }
+  .mat-icon-button {
+    margin: 5px;
+  }
+}

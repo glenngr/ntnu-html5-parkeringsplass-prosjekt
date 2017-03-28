@@ -28,6 +28,7 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   mapZoom = 15;
   showAllInfowindows = true;
   showingUserLocation = false;
+  showParkingSpaceToolbar = true;
   private previousMapLocation: PreviousMapLocation;
 
   constructor(private geoLocationService: GeolocationService, private parkingSpaceWsService: ParkingSpaceWebsocketService) {
