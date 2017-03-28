@@ -1,4 +1,14 @@
 <md-toolbar>
   <span>{{title}}</span>
+  <span class="fill-remaining-space"></span>
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+  <md-icon>more_vert</md-icon>
+</button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item (click)="onShowParkingSpaceToolbarClick()">
+    <md-icon>view_agenda</md-icon>
+    <span>Show parking space toolbar</span>
+  </button>
+  </md-menu>
 </md-toolbar>
 <gg-parking-space-map></gg-parking-space-map>

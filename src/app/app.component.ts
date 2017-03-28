@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+
+import { ParkingSpaceMapComponent } from './parking-space-map/parking-space-map.component';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'Oversikt over parkeringsplasser';
+  @ViewChild(ParkingSpaceMapComponent) private parkingSpaceMap: ParkingSpaceMapComponent;
 
   constructor() { }
-
+  onShowParkingSpaceToolbarClick() {
+    this.parkingSpaceMap.showParkingSpaceToolbar = true;
+  }
 }
