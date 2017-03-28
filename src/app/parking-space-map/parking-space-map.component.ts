@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/combineLatest';
-import 'rxjs/add/operator/withLatestFrom';
+import 'rxjs/add/operator/takeUntil';
 
 import { GeolocationService } from './geolocation-service/geolocation.service';
 import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-websocket.service';
@@ -17,17 +17,20 @@ import { ParkingSpace } from './models/parkingspace.model';
   templateUrl: './parking-space-map.component.html',
   styleUrls: ['./parking-space-map.component.css']
 })
-export class ParkingSpaceMapComponent implements OnInit {
+export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   socketSubscription: Subscription;
   userGeoLocation: Location;
   parkingSpaces: ParkingSpace[];
-  freeParkingSpacesFilterValue: Subject<number>;
+  freeParkingSpacesFilterValue$: Subject<number>;
+  destroyed$: Subject<any>;
   lat = 58.146623;
   lng = 7.996178;
   mapZoom = 15;
   showAllInfowindows = true;
 
   constructor(private geoLocationService: GeolocationService, private parkingSpaceWsService: ParkingSpaceWebsocketService) {
+    this.freeParkingSpacesFilterValue$ = new Subject<number>();
+    this.destroyed$ = new Subject<any>();
   }
 
   onButtonClick() {
@@ -48,14 +51,19 @@ export class ParkingSpaceMapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.freeParkingSpacesFilterValue = new Subject<number>();
     this.parkingSpaceWsService.connect();
     Observable.combineLatest(
       this.parkingSpaceWsService.messages.distinctUntilChanged(),
-      this.freeParkingSpacesFilterValue
-    ).subscribe(([parkingSpaces, minFreeSpaces]) => {
+      this.freeParkingSpacesFilterValue$
+    ).takeUntil(this.destroyed$)
+    .subscribe(([parkingSpaces, minFreeSpaces]) => {
       this.parkingSpaces = parkingSpaces.filter(ps => ps.totalSpaces - ps.occupiedSpaces >= minFreeSpaces);
     });
+  }
+
+  ngOnDestroy() {
+    this.destroyed$.next();
+    this.destroyed$.complete();
   }
 
   mapZoomChanged(newZoomLevel: number) {
@@ -69,7 +77,7 @@ export class ParkingSpaceMapComponent implements OnInit {
   }
 
   freeSpacesFilterChanged(newValue) {
-    this.freeParkingSpacesFilterValue.next(newValue);
+    this.freeParkingSpacesFilterValue$.next(newValue);
   }
 
   trackByIdAndOccupiedSpaces(index, item: ParkingSpace) {
