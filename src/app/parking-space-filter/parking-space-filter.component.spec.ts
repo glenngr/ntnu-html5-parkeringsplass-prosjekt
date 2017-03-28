@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ParkingSpaceFilterComponent } from './parking-space-filter.component';
+import { ParkingSpaceFilterModule } from './index';
 
 describe('ParkingSpaceFilterComponent', () => {
   let component: ParkingSpaceFilterComponent;
@@ -11,7 +12,7 @@ describe('ParkingSpaceFilterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParkingSpaceFilterComponent ]
+      imports: [ParkingSpaceFilterModule],
     })
     .compileComponents();
   }));
