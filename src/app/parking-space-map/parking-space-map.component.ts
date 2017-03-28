@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/observable/combineLatest';
+import 'rxjs/add/operator/withLatestFrom';
 
 import { GeolocationService } from './geolocation-service/geolocation.service';
 import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-websocket.service';
@@ -17,7 +20,8 @@ import { ParkingSpace } from './models/parkingspace.model';
 export class ParkingSpaceMapComponent implements OnInit {
   socketSubscription: Subscription;
   userGeoLocation: Location;
-  parkingSpaces: Observable<ParkingSpace[]>;
+  parkingSpaces: ParkingSpace[];
+  freeParkingSpacesFilterValue: Subject<number>;
   lat = 58.146623;
   lng = 7.996178;
   mapZoom = 15;
@@ -44,10 +48,14 @@ export class ParkingSpaceMapComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.freeParkingSpacesFilterValue = new Subject<number>();
     this.parkingSpaceWsService.connect();
-    this.parkingSpaces = this.parkingSpaceWsService
-      .messages
-      .distinctUntilChanged();
+    Observable.combineLatest(
+      this.parkingSpaceWsService.messages.distinctUntilChanged(),
+      this.freeParkingSpacesFilterValue
+    ).subscribe(([parkingSpaces, minFreeSpaces]) => {
+      this.parkingSpaces = parkingSpaces.filter(ps => ps.totalSpaces - ps.occupiedSpaces >= minFreeSpaces);
+    });
   }
 
   mapZoomChanged(newZoomLevel: number) {
@@ -58,6 +66,10 @@ export class ParkingSpaceMapComponent implements OnInit {
       console.log('Showing info windows. Zoom level is:', newZoomLevel);
       this.showAllInfowindows = true;
     }
+  }
+
+  freeSpacesFilterChanged(newValue) {
+    this.freeParkingSpacesFilterValue.next(newValue);
   }
 
   trackByIdAndOccupiedSpaces(index, item: ParkingSpace) {
