@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 
-import { ParkingSpaceFilterComponent } from './parking-space-filter.component';
+import { RangeFilterComponent } from './range-filter.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
   ],
-  exports: [ParkingSpaceFilterComponent],
-  declarations: [ParkingSpaceFilterComponent]
+  exports: [RangeFilterComponent],
+  declarations: [RangeFilterComponent]
 })
-export class ParkingSpaceFilterModule { }
+export class RangeFilterModule { }

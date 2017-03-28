@@ -3,22 +3,22 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ParkingSpaceFilterComponent } from './parking-space-filter.component';
-import { ParkingSpaceFilterModule } from './index';
+import { RangeFilterComponent } from './range-filter.component';
+import { RangeFilterModule } from './index';
 
 describe('ParkingSpaceFilterComponent', () => {
-  let component: ParkingSpaceFilterComponent;
-  let fixture: ComponentFixture<ParkingSpaceFilterComponent>;
+  let component: RangeFilterComponent;
+  let fixture: ComponentFixture<RangeFilterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ParkingSpaceFilterModule],
+      imports: [RangeFilterModule],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ParkingSpaceFilterComponent);
+    fixture = TestBed.createComponent(RangeFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
