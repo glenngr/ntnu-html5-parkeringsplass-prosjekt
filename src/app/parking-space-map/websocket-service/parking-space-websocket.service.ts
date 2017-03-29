@@ -5,7 +5,7 @@ import websocketConnect from 'rxjs-websockets';
 
 import { ParkingSpace } from '../models/parkingspace.model';
 
-const serverUrl = 'ws://remote.glenng.no:3006/';
+const serverUrl = 'wss://remote.glenng.no:3006/';
 
 @Injectable()
 export class ParkingSpaceWebsocketService {
