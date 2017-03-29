@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/timeout';
 import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/takeUntil';
 import { LocalStorage } from 'angular2-localstorage';
@@ -30,6 +31,7 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   showAllInfowindows = true;
   showingUserLocation = false;
   showParkingSpaceToolbar = true;
+  connectionError = false;
   private previousMapLocation: PreviousMapLocation;
   @LocalStorage() private freeParkingSpacesLocalStorageValue = 0;
 
@@ -70,9 +72,14 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
     Observable.combineLatest(
       this.parkingSpaceWsService.messages.distinctUntilChanged(),
       this.freeParkingSpacesFilterValue$.distinctUntilChanged()
-    ).takeUntil(this.destroyed$)
+    ).timeout(30000)
+      .takeUntil(this.destroyed$)
       .subscribe(([parkingSpaces, minFreeSpaces]) => {
         this.parkingSpaces = parkingSpaces.filter(ps => ps.totalSpaces - ps.occupiedSpaces >= minFreeSpaces);
+      },
+      (err) => {
+        this.connectionError = true;
+        console.error(err);
       });
     this.freeParkingSpacesFilterValue$.next(this.freeParkingSpacesLocalStorageValue); // Emit the last value from LocalStorage
   }
