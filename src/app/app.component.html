@@ -1,4 +1,5 @@
-<md-toolbar>
+<div [class.deep-purple-theme]="theme === 'deep-purple-theme'" [class.dark-theme]="theme === 'dark-theme'" [class.unicorn-dark-theme]="theme === 'unicorn-dark-theme'">
+<md-toolbar color="primary">
   <span>{{title}}</span>
   <span class="fill-remaining-space"></span>
   <button md-icon-button [mdMenuTriggerFor]="menu">
@@ -20,3 +21,4 @@
   </md-menu>
 </md-toolbar>
 <gg-parking-space-map #map></gg-parking-space-map>
+</div>
