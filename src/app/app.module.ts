@@ -24,11 +24,11 @@ import { ParkingSpaceMapModule } from './parking-space-map/';
     FormsModule,
     HttpModule,
     MaterialModule,
-    WebStorageModule,
     ParkingSpaceMapModule,
   ],
   providers: [
     LocalStorageService,
+    WebStorageModule
   ],
   bootstrap: [AppComponent]
 })

@@ -15,6 +15,7 @@ export class AppComponent {
   @LocalStorage() theme = 'default';
 
   constructor(public dialog: MdDialog) { }
+
   openThemeDialog() {
     const dialogRef = this.dialog.open(ChooseThemeDialogComponent);
     dialogRef.componentInstance.selectedTheme = this.theme;
