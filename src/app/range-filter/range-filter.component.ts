@@ -9,6 +9,7 @@ export class RangeFilterComponent implements OnInit {
   @Input() minValue: number;
   @Input() maxValue: number;
   @Input() title: string;
+  @Input() value: number;
   @Output() valueChanged = new EventEmitter<number>();
 
   constructor() { }
