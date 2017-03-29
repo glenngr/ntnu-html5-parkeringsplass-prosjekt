@@ -1,1 +1,8 @@
-<p> Hi, I'm a dialog! </p>
+<h6>
+    Velg fargetema
+</h6>
+<md-radio-group [(ngModel)]="selectedTheme">
+  <md-radio-button *ngFor="let theme of themes" [value]="themeDict[theme]" (click)="dialogRef.close(themeDict[theme])">
+    {{theme}}
+  </md-radio-button>
+</md-radio-group>
