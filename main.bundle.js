@@ -204,7 +204,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var serverUrl = 'ws://remote.glenng.no:3006/';
+var serverUrl = 'wss://remote.glenng.no:3006/';
 var ParkingSpaceWebsocketService = (function () {
     function ParkingSpaceWebsocketService() {
     }
