@@ -1,6 +1,11 @@
 .sebm-google-map-container {
-  height: calc(100vh - 150px);
+  height: calc(100vh - 64px);
 }
+
+:host-context(.showingParkingSpaceToolbar) .sebm-google-map-container {
+  height: calc(100vh - 64px * 2);
+}
+
 .fill-remaining-space {
   // This fills the remaining space, by using flexbox. 
   // Every toolbar row uses a flexbox row layout.
