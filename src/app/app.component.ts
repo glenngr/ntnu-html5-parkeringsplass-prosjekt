@@ -15,7 +15,7 @@ export class AppComponent {
 
   constructor(public dialog: MdDialog) { }
   openThemeDialog() {
-    let dialogRef = this.dialog.open(ChooseThemeDialogComponent);
+    const dialogRef = this.dialog.open(ChooseThemeDialogComponent);
     dialogRef.componentInstance.selectedTheme = this.theme;
     dialogRef.afterClosed().subscribe(chosenTheme => {
       if (chosenTheme) {

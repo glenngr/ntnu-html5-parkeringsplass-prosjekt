@@ -2,7 +2,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-//import { MaterialModule } from '@anglar/material';
 
 import { ParkingSpaceToolbarComponent } from './parking-space-toolbar.component';
 
@@ -12,7 +11,6 @@ fdescribe('ParkingSpaceToolbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      //imports: [MaterialModule],
       declarations: [ ParkingSpaceToolbarComponent ]
     })
     .compileComponents();

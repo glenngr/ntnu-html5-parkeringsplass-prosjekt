@@ -13,7 +13,7 @@ import { Location } from './models/location.model';
 import { ParkingSpace } from './models/parkingspace.model';
 
 @Component({
-  selector: 'gg-parking-space-map',
+  selector: 'app-parking-space-map',
   templateUrl: './parking-space-map.component.html',
   styleUrls: ['./parking-space-map.component.css']
 })
@@ -48,7 +48,7 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
         this.mapZoom = 13;
       });
     } else {
-      /* TODO: Fix so that map automatically pans to the user 
+      /* TODO: Fix so that map automatically pans to the user
        * location if button for showing "my location" is pressed multiple times */
       this.lat = this.userGeoLocation.lat;
       this.lng = this.userGeoLocation.long;

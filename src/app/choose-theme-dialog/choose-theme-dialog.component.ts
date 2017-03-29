@@ -16,7 +16,7 @@ export class ChooseThemeDialogComponent {
         this.themeDict['Dark theme'] = 'dark-theme';
         this.themeDict['Unicorn dark theme'] = 'unicorn-dark-theme';
         this.themeDict['Deep purple theme'] = 'deep-purple-theme';
-        for (let property in this.themeDict) {
+        for (const property in this.themeDict) {
             if (this.themeDict.hasOwnProperty(property)) {
                 this.themes.push(property);
             }

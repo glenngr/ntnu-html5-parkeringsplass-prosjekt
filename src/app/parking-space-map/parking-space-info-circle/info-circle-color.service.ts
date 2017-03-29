@@ -12,11 +12,11 @@ export class InfoCircleColorService {
     constructor() { }
 
     getColor(occupiedSpaces: number, totalSpaces: number): string {
-        let freeSpaces = totalSpaces - occupiedSpaces;
+        const freeSpaces = totalSpaces - occupiedSpaces;
         if (freeSpaces === 0) {
-            return this.fullColor; 
+            return this.fullColor;
         }
-        let freeSpacePercent = freeSpaces * 100 / totalSpaces;
+        const freeSpacePercent = freeSpaces * 100 / totalSpaces;
         console.log('Free space is: ', freeSpacePercent);
         if (freeSpacePercent <= this.lowFreeSpace) {
             return this.lowColor;
@@ -24,5 +24,4 @@ export class InfoCircleColorService {
 
         return this.normalColor;
     }
-
 }
