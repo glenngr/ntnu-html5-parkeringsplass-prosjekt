@@ -5,6 +5,8 @@ import websocketConnect from 'rxjs-websockets';
 
 import { ParkingSpace } from '../models/parkingspace.model';
 
+const serverUrl = 'ws://remote.glenng.no:3006/';
+
 @Injectable()
 export class ParkingSpaceWebsocketService {
     public messages: Observable<ParkingSpace[]>;
@@ -20,7 +22,7 @@ export class ParkingSpaceWebsocketService {
         // observer subscribes. This socket is shared with subsequent observers
         // and closed when the observer count falls to zero.
         this.messages = websocketConnect(
-            'ws://127.0.0.1:3006/',
+            serverUrl,
             this.inputStream = new Subject<any>()
         ).messages.share();
     }
