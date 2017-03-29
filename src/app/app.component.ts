@@ -10,13 +10,17 @@ import { ChooseThemeDialogComponent } from './choose-theme-dialog/choose-theme-d
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: string = 'Oversikt over parkeringsplasser';
+  title = 'Oversikt over parkeringsplasser';
+  theme = 'default';
 
   constructor(public dialog: MdDialog) { }
   openThemeDialog() {
     let dialogRef = this.dialog.open(ChooseThemeDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+    dialogRef.componentInstance.selectedTheme = this.theme;
+    dialogRef.afterClosed().subscribe(chosenTheme => {
+      if (chosenTheme) {
+        this.theme = chosenTheme;
+      }
     });
   }
 }
