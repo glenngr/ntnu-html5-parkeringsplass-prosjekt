@@ -5,6 +5,7 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/takeUntil';
+import { LocalStorage } from 'angular2-localstorage';
 
 import { GeolocationService } from './geolocation-service/geolocation.service';
 import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-websocket.service';
@@ -30,6 +31,7 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   showingUserLocation = false;
   showParkingSpaceToolbar = true;
   private previousMapLocation: PreviousMapLocation;
+  @LocalStorage() private freeParkingSpacesLocalStorageValue = 0;
 
   constructor(private geoLocationService: GeolocationService, private parkingSpaceWsService: ParkingSpaceWebsocketService) {
     this.freeParkingSpacesFilterValue$ = new Subject<number>();
@@ -72,7 +74,7 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
       .subscribe(([parkingSpaces, minFreeSpaces]) => {
         this.parkingSpaces = parkingSpaces.filter(ps => ps.totalSpaces - ps.occupiedSpaces >= minFreeSpaces);
       });
-    this.freeParkingSpacesFilterValue$.next(0); // Default filter value is 0
+    this.freeParkingSpacesFilterValue$.next(this.freeParkingSpacesLocalStorageValue); // Emit the last value from LocalStorage
   }
 
   ngOnDestroy() {
@@ -91,6 +93,7 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   }
 
   freeSpacesFilterChanged(newValue) {
+    this.freeParkingSpacesLocalStorageValue = newValue;
     this.freeParkingSpacesFilterValue$.next(newValue);
   }
 

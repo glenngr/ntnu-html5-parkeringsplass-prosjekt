@@ -1,5 +1,5 @@
 <app-parking-space-toolbar *ngIf="showParkingSpaceToolbar">
-  <md-icon class="filter-icon">filter_list</md-icon><app-range-filter maxValue="100" minValue="0" (valueChanged)="freeSpacesFilterChanged($event)" title="Filtrer parkeringsplasser etter antall ledige plasser"></app-range-filter>
+  <md-icon class="filter-icon">filter_list</md-icon><app-range-filter maxValue="100" minValue="0" [value]="freeParkingSpacesLocalStorageValue" (valueChanged)="freeSpacesFilterChanged($event)" title="Filtrer parkeringsplasser etter antall ledige plasser"></app-range-filter>
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
   <button md-raised-button color="secondary" *ngIf="!showingUserLocation" (click)="onShowMyLocationButtonClick()">Vis min lokasjon</button>
