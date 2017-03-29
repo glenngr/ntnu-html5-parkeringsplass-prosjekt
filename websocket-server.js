@@ -3,10 +3,10 @@ const serverPort = 3006;
 
 
 const testData = [
-    { "name": "P1", "totalSpaces": 100, "occupiedSpaces": 98, "location": { "lat": 58.147737, "long": 8.006584 }, "size": 20 },
-    { "name": "P2", "totalSpaces": 200, "occupiedSpaces": 108, "location": { "lat": 58.148561, "long": 7.989738 }, "size": 25 },
-    { "name": "P3", "totalSpaces": 50, "occupiedSpaces": 50, "location": { "lat": 58.14435, "long": 7.991619 }, "size": 15 },
-    { "name": "P4", "totalSpaces": 70, "occupiedSpaces": 40, "location": { "lat": 58.138972, "long": 7.998729 }, "size": 15 }
+    { "name": "P1", "totalSpaces": 100, "occupiedSpaces": 98, "location": { "lat": 58.147737, "long": 8.006584 }, "size": 20, "hourlyRate": 34, "description": "Ved snadderkiosken" },
+    { "name": "P2", "totalSpaces": 200, "occupiedSpaces": 108, "location": { "lat": 58.148561, "long": 7.989738 }, "size": 25, "hourlyRate": 21, "description": "Grusplass ved slottskvartalet"  },
+    { "name": "P3", "totalSpaces": 50, "occupiedSpaces": 50, "location": { "lat": 58.14435, "long": 7.991619 }, "size": 15, "hourlyRate": 14, "description": "Ved vestre kiosk" },
+    { "name": "P4", "totalSpaces": 70, "occupiedSpaces": 40, "location": { "lat": 58.138972, "long": 7.998729 }, "size": 15, "hourlyRate": 26, "description": "Parkeringshus ved Kilden"  }
 ];
 
 var wsServer = ws.createServer(function (conn) {
@@ -23,7 +23,7 @@ var wsServer = ws.createServer(function (conn) {
         }
     })
 }).listen(serverPort, function () {
-    console.log('Random number server running on localhost:' + serverPort);
+    console.log('Websocket server running on localhost:' + serverPort);
 });
 
 // Send parking space data every 5th second
