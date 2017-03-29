@@ -1,11 +1,11 @@
 $toolbar-height: 64px;
 
-.sebm-google-map-container {
-  height: calc(100vh - $toolbar-height);
-}
-
 :host-context(.showingParkingSpaceToolbar) .sebm-google-map-container {
   height: calc(100vh - #{$toolbar-height} * 2);
+}
+
+.sebm-google-map-container {
+  height: calc(100vh - #{$toolbar-height});
 }
 
 md-spinner {
