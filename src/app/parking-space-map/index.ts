@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@angular/material';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
@@ -11,7 +12,7 @@ import { GeolocationService } from './geolocation-service/geolocation.service';
 import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-websocket.service';
 import { RangeFilterModule } from '../range-filter/';
 import { ParkingSpaceToolbarComponent } from './parking-space-toolbar/parking-space-toolbar.component';
-import { MaterialModule } from '@angular/material';
+import { ParkingSpaceInfoDialogComponent } from './parking-space-info-dialog/parking-space-info-dialog.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,10 @@ import { MaterialModule } from '@angular/material';
     MapCircleWithInfoWindowComponent,
     ParkingSpaceInfoCircleComponent,
     ParkingSpaceToolbarComponent,
+    ParkingSpaceInfoDialogComponent,
+  ],
+  entryComponents: [
+    ParkingSpaceInfoDialogComponent,
   ],
   exports: [ParkingSpaceMapComponent]
 })

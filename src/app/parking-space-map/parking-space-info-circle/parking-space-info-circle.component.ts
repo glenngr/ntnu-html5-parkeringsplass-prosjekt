@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 import { InfoCircleColorService } from './info-circle-color.service'
+import { ParkingSpaceInfoDialogComponent } from '../parking-space-info-dialog/parking-space-info-dialog.component';
 
 @Component({
   selector: 'gg-parking-space-info-circle',
@@ -18,7 +20,7 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
   circleFillColor: string = 'red';
   freeSpaces: number;
 
-  constructor(private colorService: InfoCircleColorService) { }
+  constructor(private colorService: InfoCircleColorService, public dialog: MdDialog) { }
 
   ngOnInit() {
     this.updateCircleFillColor();
@@ -34,6 +36,17 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
       this.updateCircleFillColor();
       this.updateFreeSpaces();
     }
+  }
+
+  onMapCircleClick() {
+    const dialogRef = this.dialog.open(ParkingSpaceInfoDialogComponent);
+    const dialogInstance = dialogRef.componentInstance;
+    dialogInstance.name = this.parkingSpaceName;
+    dialogInstance.occupiedSpaces = this.occupiedSpaces;
+    dialogInstance.totalSpaces = this.totalSpaces;
+    dialogInstance.freeSpaces = this.freeSpaces;
+    dialogInstance.description = this.parkingSpaceName;
+    dialogInstance.hourlyRate = 34;
   }
 
   private updateCircleFillColor() {
