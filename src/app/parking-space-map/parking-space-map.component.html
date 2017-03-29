@@ -7,7 +7,7 @@
   <button md-icon-button (click)="showParkingSpaceToolbar = false;" title="Lukk denne menyen"><md-icon>close</md-icon></button>
 </app-parking-space-toolbar>
 <sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom" (zoomChange)="mapZoomChanged($event)">
-  <gg-parking-space-info-circle *ngFor="let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces" [latitude]="parkingSpace.location.lat" [longitude]="parkingSpace.location.long" [occupiedSpaces]="parkingSpace.occupiedSpaces" [totalSpaces]="parkingSpace.totalSpaces" [parkingSpaceName]="parkingSpace.name" [parkingSpaceRadius]="parkingSpace.size" [infoWindowOpen]="showAllInfowindows">
+  <gg-parking-space-info-circle *ngFor="let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces" [latitude]="parkingSpace.location.lat" [longitude]="parkingSpace.location.long" [occupiedSpaces]="parkingSpace.occupiedSpaces" [totalSpaces]="parkingSpace.totalSpaces" [parkingSpaceName]="parkingSpace.name" [parkingSpaceDescription]="parkingSpace.description" [hourlyRate]="parkingSpace.hourlyRate" [parkingSpaceRadius]="parkingSpace.size" [infoWindowOpen]="showAllInfowindows">
   </gg-parking-space-info-circle>
   <sebm-google-map-marker *ngIf="userGeoLocation" [latitude]="userGeoLocation.lat" [longitude]="userGeoLocation.long">
     <sebm-google-map-info-window [isOpen]="true">Din omtrentlige plassering</sebm-google-map-info-window>

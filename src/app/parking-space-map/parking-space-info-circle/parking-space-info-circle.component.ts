@@ -16,6 +16,8 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
   @Input() occupiedSpaces: number;
   @Input() totalSpaces: number;
   @Input() parkingSpaceName: string;
+  @Input() parkingSpaceDescription: string;
+  @Input() hourlyRate: number;
   @Input() infoWindowOpen: boolean = true;
   circleFillColor: string = 'red';
   freeSpaces: number;
@@ -45,8 +47,8 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
     dialogInstance.occupiedSpaces = this.occupiedSpaces;
     dialogInstance.totalSpaces = this.totalSpaces;
     dialogInstance.freeSpaces = this.freeSpaces;
-    dialogInstance.description = this.parkingSpaceName;
-    dialogInstance.hourlyRate = 34;
+    dialogInstance.description = this.parkingSpaceDescription;
+    dialogInstance.hourlyRate = this.hourlyRate;
   }
 
   private updateCircleFillColor() {
