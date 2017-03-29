@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
+import { LocalStorage } from 'angular2-localstorage';
 
 import { ParkingSpaceMapComponent } from './parking-space-map/parking-space-map.component';
 import { ChooseThemeDialogComponent } from './choose-theme-dialog/choose-theme-dialog.component';
@@ -11,7 +12,7 @@ import { ChooseThemeDialogComponent } from './choose-theme-dialog/choose-theme-d
 })
 export class AppComponent {
   title = 'Oversikt over parkeringsplasser';
-  theme = 'default';
+  @LocalStorage() theme = 'default';
 
   constructor(public dialog: MdDialog) { }
   openThemeDialog() {
