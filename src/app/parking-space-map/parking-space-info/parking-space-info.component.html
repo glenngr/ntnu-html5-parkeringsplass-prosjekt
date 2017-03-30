@@ -1,10 +1,10 @@
-<div class="clearfix">
+<md-spinner *ngIf="!parkingSpace"></md-spinner>
+<div *ngIf="parkingSpace" class="clearfix">
   <h6>
     {{parkingSpace.name}}
   </h6>
   <hr>
-  <md-spinner *ngIf="!parkingSpace"></md-spinner>
-  <div *ngIf="parkingSpace" class="info-content">
+  <div class="info-content">
     <div class="category-row">
       <span class="category-title">Beskrivelse:</span><span class="category-text">{{parkingSpace.description}}</span>
     </div>
@@ -15,7 +15,7 @@
       <span class="category-title">Plasser opptatt:</span><span class="category-text">{{parkingSpace.occupiedSpaces}}</span>
     </div>
     <div class="category-row">
-      <span class="category-title">Plasser ledig:</span><span class="category-text">{{parkingSpace.freeSpaces}}</span>
+      <span class="category-title">Plasser ledig:</span><span class="category-text">{{parkingSpace.totalSpaces - parkingSpace.occupiedSpaces}}</span>
     </div>
     <div class="category-row">
       <span class="category-title">Timerate:</span><span class="category-text">{{parkingSpace.hourlyRate}}</span>
