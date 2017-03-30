@@ -1,4 +1,4 @@
-var https = require ('https');
+var https = require('https');
 var express = require('express');
 var WebSocketServerConstructor = require('websocket').server;
 const serverPort = 3006;
@@ -7,16 +7,16 @@ const options = config.getConfig();
 
 var testData = [
     { "name": "P1", "totalSpaces": 100, "occupiedSpaces": 98, "location": { "lat": 58.147737, "long": 8.006584 }, "size": 20, "hourlyRate": 34, "description": "Ved snadderkiosken" },
-    { "name": "P2", "totalSpaces": 200, "occupiedSpaces": 108, "location": { "lat": 58.148561, "long": 7.989738 }, "size": 25, "hourlyRate": 21, "description": "Grusplass ved slottskvartalet"  },
+    { "name": "P2", "totalSpaces": 200, "occupiedSpaces": 108, "location": { "lat": 58.148561, "long": 7.989738 }, "size": 25, "hourlyRate": 21, "description": "Grusplass ved slottskvartalet" },
     { "name": "P3", "totalSpaces": 50, "occupiedSpaces": 50, "location": { "lat": 58.14435, "long": 7.991619 }, "size": 15, "hourlyRate": 14, "description": "Ved vestre kiosk" },
-    { "name": "P4", "totalSpaces": 70, "occupiedSpaces": 40, "location": { "lat": 58.138972, "long": 7.998729 }, "size": 15, "hourlyRate": 26, "description": "Parkeringshus ved Kilden"  }
+    { "name": "P4", "totalSpaces": 70, "occupiedSpaces": 40, "location": { "lat": 58.138972, "long": 7.998729 }, "size": 15, "hourlyRate": 26, "description": "Parkeringshus ved Kilden" }
 ];
 
 const testDataChangeChance = {};
-testDataChangeChance["P1"] = 0.15;
-testDataChangeChance["P2"] = 0.25;
-testDataChangeChance["P3"] = 0.2;
-testDataChangeChance["P4"] = 0.2;
+testDataChangeChance["P1"] = 0.005;
+testDataChangeChance["P2"] = 0.007;
+testDataChangeChance["P3"] = 0.01;
+testDataChangeChance["P4"] = 0.008;
 
 
 const parkingspaceChangeLog = {}
@@ -35,19 +35,31 @@ var app = express();
 var server = https.createServer(options, app);
 
 var wsServer = new WebSocketServerConstructor({
-	httpServer: server,
-	autoAcceptConnections: true
+    httpServer: server,
+    autoAcceptConnections: true
 });
-    wsServer.on('close', function (code, reason) {
-        console.log('Data connection closed.', new Date().toLocaleTimeString(), 'code: ', code);
-    });
 
-    wsServer.on('error', function (err) {
-        // only throw if something else happens than Connection Reset
-        if (err.code !== 'ECONNRESET') {
-            console.log('Server error:', err);
-        }
-    });
+wsServer.on('open', function open() {
+    console.log('new incoming websocket connection. Greeting with data:', testData);
+    wsServer.send(serialize(testData));
+});
+
+wsServer.on('message', function incoming(data, flags) {
+    // flags.binary will be set if a binary data is received.
+    // flags.masked will be set if the data was masked.
+    console.log('incoming message received. data:', data, 'flags:', flags);
+});
+
+wsServer.on('close', function (code, reason) {
+    console.log('Data connection closed.', new Date().toLocaleTimeString(), 'code: ', code);
+});
+
+wsServer.on('error', function (err) {
+    // only throw if something else happens than Connection Reset
+    if (err.code !== 'ECONNRESET') {
+        console.log('Server error:', err);
+    }
+});
 
 server.listen(serverPort);
 
@@ -95,7 +107,6 @@ function shouldApplyRandomData(parkingSpaceName) {
     return testDataChangeChance[parkingSpaceName] > chance;
 }
 
-function randomIntFromBetween(min,max)
-{
-    return Math.floor(Math.random()*(max-min+1)+min);
+function randomIntFromBetween(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
