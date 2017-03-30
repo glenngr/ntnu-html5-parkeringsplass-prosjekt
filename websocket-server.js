@@ -39,6 +39,16 @@ app.get('/history', function (request, response) {
     response.send(JSON.stringify(parkingspaceChangeLog));
 });
 
+app.get('/history/:spot', function (request, response, next) {
+    if (parkingspaceChangeLog.hasOwnProperty(request.params.spot)) {
+        response.end(JSON.stringify(parkingspaceChangeLog[request.params.spot]));
+    }
+    else {
+        console.log("Received request for unknown spot:", request.params.spot)
+        next();
+    }
+});
+
 var wsServer = new WebSocketServerConstructor({
     httpServer: server,
     autoAcceptConnections: true
