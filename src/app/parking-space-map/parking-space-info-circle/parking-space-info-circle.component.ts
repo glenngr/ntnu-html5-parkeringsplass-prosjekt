@@ -36,9 +36,6 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
   }
 
   onMapCircleClick() {
-    // const dialogRef = this.dialog.open(ParkingSpaceInfoDialogComponent);
-    // const dialogInstance = dialogRef.componentInstance;
-    // dialogInstance.parkingSpace = this.parkingSpace;
     this.circleClick.emit(this.parkingSpace.name);
   }
 
@@ -47,6 +44,6 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
   }
 
   private updateFreeSpaces() {
-    this.freeSpaces = this.parkingSpace.totalSpaces - this.parkingSpace.occupiedSpaces;
+     this.freeSpaces = this.parkingSpace.totalSpaces - this.parkingSpace.occupiedSpaces;
   }
 }
