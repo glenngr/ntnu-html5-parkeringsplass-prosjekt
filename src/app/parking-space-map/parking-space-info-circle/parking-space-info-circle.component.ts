@@ -12,9 +12,9 @@ import { ParkingSpace } from '../models/parkingspace.model';
 })
 export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
   @Input() parkingSpace: ParkingSpace;
-  @Input() infoWindowOpen: boolean = true;
+  @Input() infoWindowOpen = true;
   @Output() circleClick: EventEmitter<string> = new EventEmitter<string>();
-  circleFillColor: string = 'red';
+  circleFillColor = 'red';
   freeSpaces: number;
 
   constructor(private colorService: InfoCircleColorService, public dialog: MdDialog) { }
