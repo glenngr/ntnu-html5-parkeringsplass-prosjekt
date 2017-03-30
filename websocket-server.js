@@ -1,6 +1,7 @@
 var https = require('https');
 var express = require('express');
 var WebSocketServerConstructor = require('websocket').server;
+var cors = require('cors');
 const serverPort = 3006;
 const config = require('./server-config.js');
 const options = config.getConfig();
@@ -31,6 +32,7 @@ for (ps of testData) {
 }
 
 var app = express();
+app.use(cors());
 var server = https.createServer(options, app);
 app.get('/history', function (request, response) {
     response.setHeader('Content-Type', 'application/json');
