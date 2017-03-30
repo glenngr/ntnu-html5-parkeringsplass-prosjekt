@@ -57,6 +57,7 @@ setInterval(function () {
     if (hasConnections()) {
         testData = applyRandomOccupiedSpaces(testData);
         console.log('emitting:', testData);
+        console.log('current changelog:', parkingspaceChangeLog);
         emitToAll(serialize(testData));
     }
 }, 5000);
