@@ -1236,7 +1236,7 @@ exports = module.exports = __webpack_require__(23)();
 
 
 // module
-exports.push([module.i, ".sebm-google-map-container{height:calc(100vh - $toolbar-height)}:host-context(.showingParkingSpaceToolbar) .sebm-google-map-container{height:calc(100vh - 64px * 2)}md-spinner{max-height:58px}.fill-remaining-space{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto}app-parking-space-toolbar .filter-icon{margin-right:10px}app-parking-space-toolbar .mat-icon-button{margin:5px}\n", ""]);
+exports.push([module.i, ":host-context(.showingParkingSpaceToolbar) .sebm-google-map-container{height:calc(100vh - 64px * 2)}.sebm-google-map-container{height:calc(100vh - 64px)}md-spinner{max-height:58px}.fill-remaining-space{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto}app-parking-space-toolbar .filter-icon{margin-right:10px}app-parking-space-toolbar .mat-icon-button{margin:5px}md-sidenav{padding:20px}md-sidenav .mat-icon-button{float:right;margin-bottom:10px}\n", ""]);
 
 // exports
 
