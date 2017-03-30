@@ -31,8 +31,11 @@ for (ps of testData) {
 }
 
 var app = express();
-
 var server = https.createServer(options, app);
+app.get('/history', function (request, response) {
+    response.setHeader('Content-Type', 'application/json');
+    response.send(JSON.stringify(parkingspaceChangeLog));
+});
 
 var wsServer = new WebSocketServerConstructor({
     httpServer: server,
@@ -42,12 +45,6 @@ var wsServer = new WebSocketServerConstructor({
 wsServer.on('open', function open() {
     console.log('new incoming websocket connection. Greeting with data:', testData);
     wsServer.send(serialize(testData));
-});
-
-wsServer.on('message', function incoming(data, flags) {
-    // flags.binary will be set if a binary data is received.
-    // flags.masked will be set if the data was masked.
-    console.log('incoming message received. data:', data, 'flags:', flags);
 });
 
 wsServer.on('close', function (code, reason) {
