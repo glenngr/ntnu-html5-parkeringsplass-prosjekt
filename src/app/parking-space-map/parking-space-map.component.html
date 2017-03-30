@@ -1,5 +1,7 @@
 <app-parking-space-toolbar *ngIf="showParkingSpaceToolbar">
-  <md-icon class="filter-icon">filter_list</md-icon><app-range-filter maxValue="100" minValue="0" [value]="freeParkingSpacesLocalStorageValue" (valueChanged)="freeSpacesFilterChanged($event)" title="Filtrer parkeringsplasser etter antall ledige plasser"></app-range-filter>
+  <md-icon class="filter-icon">filter_list</md-icon>
+  <app-range-filter maxValue="100" minValue="0" [value]="freeParkingSpacesLocalStorageValue" (valueChanged)="freeSpacesFilterChanged($event)"
+    title="Filtrer parkeringsplasser etter antall ledige plasser"></app-range-filter>
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
   <md-icon *ngIf="connectionError" color="warn" mdTooltip="Ingen kontakt med server">signal_wifi_off</md-icon>
@@ -8,10 +10,17 @@
   <button md-raised-button color="secondary" *ngIf="showingUserLocation" (click)="onHideMyLocationButtonClick()">Fjern min lokasjon</button>
   <button md-icon-button (click)="showParkingSpaceToolbar = false;" mdTooltip="Lukk"><md-icon>close</md-icon></button>
 </app-parking-space-toolbar>
-<sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom" (zoomChange)="mapZoomChanged($event)" #map>
-  <gg-parking-space-info-circle *ngFor="let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces" [latitude]="parkingSpace.location.lat" [longitude]="parkingSpace.location.long" [occupiedSpaces]="parkingSpace.occupiedSpaces" [totalSpaces]="parkingSpace.totalSpaces" [parkingSpaceName]="parkingSpace.name" [parkingSpaceDescription]="parkingSpace.description" [hourlyRate]="parkingSpace.hourlyRate" [parkingSpaceRadius]="parkingSpace.size" [infoWindowOpen]="showAllInfowindows">
-  </gg-parking-space-info-circle>
-  <sebm-google-map-marker *ngIf="userGeoLocation" [latitude]="userGeoLocation.lat" [longitude]="userGeoLocation.long">
-    <sebm-google-map-info-window [isOpen]="true">Din omtrentlige plassering</sebm-google-map-info-window>
-  </sebm-google-map-marker>
-</sebm-google-map>
+<md-sidenav-container class="example-sidenav-fab-container">
+  <md-sidenav #sidenav mode="over">
+    <button md-icon-button (click)="sidenav.close()" mdTooltip="Lukk sidemeny"><md-icon>close</md-icon></button>
+    <app-parking-space-info [parkingSpace]="sidenavData"></app-parking-space-info>
+  </md-sidenav>
+  <sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom" (zoomChange)="mapZoomChanged($event)" #map>
+    <gg-parking-space-info-circle *ngFor="let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces" (circleClick)="onCircleClick($event)"
+      [parkingSpace]="parkingSpace" [infoWindowOpen]="showAllInfowindows">
+    </gg-parking-space-info-circle>
+    <sebm-google-map-marker *ngIf="userGeoLocation" [latitude]="userGeoLocation.lat" [longitude]="userGeoLocation.long">
+      <sebm-google-map-info-window [isOpen]="true">Din omtrentlige plassering</sebm-google-map-info-window>
+    </sebm-google-map-marker>
+  </sebm-google-map>
+</md-sidenav-container>

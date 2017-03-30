@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChange, EventEmitter, Output } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 
-import { InfoCircleColorService } from './info-circle-color.service'
+import { InfoCircleColorService } from './info-circle-color.service';
 import { ParkingSpaceInfoDialogComponent } from '../parking-space-info-dialog/parking-space-info-dialog.component';
 import { ParkingSpace } from '../models/parkingspace.model';
 
@@ -13,6 +13,7 @@ import { ParkingSpace } from '../models/parkingspace.model';
 export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
   @Input() parkingSpace: ParkingSpace;
   @Input() infoWindowOpen: boolean = true;
+  @Output() circleClick: EventEmitter<string> = new EventEmitter<string>();
   circleFillColor: string = 'red';
   freeSpaces: number;
 
@@ -35,9 +36,10 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
   }
 
   onMapCircleClick() {
-    const dialogRef = this.dialog.open(ParkingSpaceInfoDialogComponent);
-    const dialogInstance = dialogRef.componentInstance;
-    dialogInstance.parkingSpace = this.parkingSpace;
+    // const dialogRef = this.dialog.open(ParkingSpaceInfoDialogComponent);
+    // const dialogInstance = dialogRef.componentInstance;
+    // dialogInstance.parkingSpace = this.parkingSpace;
+    this.circleClick.emit(this.parkingSpace.name);
   }
 
   private updateCircleFillColor() {
@@ -45,6 +47,6 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
   }
 
   private updateFreeSpaces() {
-     this.freeSpaces = this.parkingSpace.totalSpaces - this.parkingSpace.occupiedSpaces;
+    this.freeSpaces = this.parkingSpace.totalSpaces - this.parkingSpace.occupiedSpaces;
   }
 }

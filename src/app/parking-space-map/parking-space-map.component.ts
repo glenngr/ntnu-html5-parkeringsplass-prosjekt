@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { MdSidenav } from '@angular/material';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -10,6 +11,7 @@ import { LocalStorage } from 'angular2-localstorage';
 
 import { GeolocationService } from './geolocation-service/geolocation.service';
 import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-websocket.service';
+import { HistoryService } from './history-service/history.service';
 
 import { Location } from './models/location.model';
 import { ParkingSpace } from './models/parkingspace.model';
@@ -32,12 +34,30 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   showingUserLocation = false;
   showParkingSpaceToolbar = true;
   connectionError = false;
+  sidenavData: ParkingSpace;
   private previousMapLocation: PreviousMapLocation;
   @LocalStorage() private freeParkingSpacesLocalStorageValue = 0;
+  @ViewChild(MdSidenav) private sideNav: MdSidenav;
 
-  constructor(private geoLocationService: GeolocationService, private parkingSpaceWsService: ParkingSpaceWebsocketService) {
+  constructor(
+    private geoLocationService: GeolocationService,
+    private parkingSpaceWsService: ParkingSpaceWebsocketService,
+    private historyService: HistoryService
+  ) {
     this.freeParkingSpacesFilterValue$ = new Subject<number>();
     this.destroyed$ = new Subject<any>();
+  }
+
+  onGetData() {
+    this.historyService.getHistory('P3').subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  onCircleClick(event) {
+    this.sideNav.open();
+    console.log(event);
+    this.sidenavData = this.parkingSpaces.find(ps => ps.name === event);
   }
 
   onShowMyLocationButtonClick() {

@@ -25,3 +25,11 @@ app-parking-space-toolbar {
     margin: 5px;
   }
 }
+
+md-sidenav {
+  padding: 20px;
+  .mat-icon-button {
+    float: right;
+    margin-bottom: 10px;
+  }
+}
