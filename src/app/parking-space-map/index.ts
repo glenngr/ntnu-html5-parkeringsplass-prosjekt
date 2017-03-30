@@ -15,6 +15,7 @@ import { RangeFilterModule } from '../range-filter/';
 import { ParkingSpaceToolbarComponent } from './parking-space-toolbar/parking-space-toolbar.component';
 import { ParkingSpaceInfoDialogComponent } from './parking-space-info-dialog/parking-space-info-dialog.component';
 import { HistoryService } from './history-service/history.service';
+import { ParkingSpaceInfoComponent } from './parking-space-info/parking-space-info.component';
 
 @NgModule({
   imports: [
@@ -38,10 +39,11 @@ import { HistoryService } from './history-service/history.service';
     ParkingSpaceInfoCircleComponent,
     ParkingSpaceToolbarComponent,
     ParkingSpaceInfoDialogComponent,
+    ParkingSpaceInfoComponent,
   ],
   entryComponents: [
     ParkingSpaceInfoDialogComponent,
   ],
-  exports: [ParkingSpaceMapComponent]
+  exports: [ParkingSpaceMapComponent, ParkingSpaceInfoComponent]
 })
 export class ParkingSpaceMapModule { }
