@@ -1,6 +1,10 @@
-var ws = require('nodejs-websocket');
+var https = require ('https');
+var express = require('express');
+var WebSocketServerConstructor = require('websocket').server;
+// var ws = require('nodejs-websocket');
 const serverPort = 3006;
-
+const config = require('./server-config.js');
+const options = config.getConfig();
 
 const testData = [
     { "name": "P1", "totalSpaces": 100, "occupiedSpaces": 98, "location": { "lat": 58.147737, "long": 8.006584 }, "size": 20, "hourlyRate": 34, "description": "Ved snadderkiosken" },
@@ -9,22 +13,26 @@ const testData = [
     { "name": "P4", "totalSpaces": 70, "occupiedSpaces": 40, "location": { "lat": 58.138972, "long": 7.998729 }, "size": 15, "hourlyRate": 26, "description": "Parkeringshus ved Kilden"  }
 ];
 
-var wsServer = ws.createServer(function (conn) {
-    console.log('New client connection established, ', new Date().toLocaleTimeString());
+var app = express();
 
-    conn.on('close', function (code, reason) {
+var server = https.createServer(options, app);
+
+var wsServer = new WebSocketServerConstructor({
+	httpServer: server,
+	autoAcceptConnections: true
+});
+    wsServer.on('close', function (code, reason) {
         console.log('Data connection closed.', new Date().toLocaleTimeString(), 'code: ', code);
     });
 
-    conn.on('error', function (err) {
+    wsServer.on('error', function (err) {
         // only throw if something else happens than Connection Reset
         if (err.code !== 'ECONNRESET') {
             console.log('Server error:', err);
         }
-    })
-}).listen(serverPort, function () {
-    console.log('Websocket server running on localhost:' + serverPort);
-});
+    });
+
+server.listen(serverPort);
 
 // Send parking space data every 5th second
 setInterval(function () {
