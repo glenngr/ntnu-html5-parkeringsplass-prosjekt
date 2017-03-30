@@ -57,8 +57,8 @@ var ChooseThemeDialogComponent = (function () {
     ChooseThemeDialogComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-theme-dialog',
-            template: __webpack_require__(664),
-            styles: [__webpack_require__(653)]
+            template: __webpack_require__(665),
+            styles: [__webpack_require__(654)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */]) === 'function' && _a) || Object])
     ], ChooseThemeDialogComponent);
@@ -76,7 +76,7 @@ var ChooseThemeDialogComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_location_model__ = __webpack_require__(585);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_location_model__ = __webpack_require__(586);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GeolocationService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -258,7 +258,7 @@ var InfoCircleColorService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_websockets__ = __webpack_require__(672);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_websockets__ = __webpack_require__(673);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_websockets___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_websockets__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParkingSpaceWebsocketService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -273,6 +273,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var serverUrl = 'wss://remote.glenng.no:3006/';
 var ParkingSpaceWebsocketService = (function () {
     function ParkingSpaceWebsocketService() {
     }
@@ -283,7 +284,7 @@ var ParkingSpaceWebsocketService = (function () {
         // Using share() causes a single websocket to be created when the first
         // observer subscribes. This socket is shared with subsequent observers
         // and closed when the observer count falls to zero.
-        this.messages = __WEBPACK_IMPORTED_MODULE_2_rxjs_websockets___default()('wss://remote.glenng.no:3006/', this.inputStream = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]()).messages.share();
+        this.messages = __WEBPACK_IMPORTED_MODULE_2_rxjs_websockets___default()(serverUrl, this.inputStream = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]()).messages.share();
     };
     ParkingSpaceWebsocketService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
@@ -295,7 +296,7 @@ var ParkingSpaceWebsocketService = (function () {
 
 /***/ }),
 
-/***/ 435:
+/***/ 436:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -304,20 +305,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 435;
+webpackEmptyContext.id = 436;
 
 
 /***/ }),
 
-/***/ 436:
+/***/ 437:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(561);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(582);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(593);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(562);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(583);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(594);
 
 
 
@@ -330,7 +331,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 581:
+/***/ 582:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -376,8 +377,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(663),
-            styles: [__webpack_require__(652)]
+            template: __webpack_require__(664),
+            styles: [__webpack_require__(653)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialog */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialog */]) === 'function' && _a) || Object])
     ], AppComponent);
@@ -388,11 +389,11 @@ var AppComponent = (function () {
 
 /***/ }),
 
-/***/ 582:
+/***/ 583:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hammerjs__ = __webpack_require__(661);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hammerjs__ = __webpack_require__(662);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hammerjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
@@ -401,9 +402,9 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_localstorage__ = __webpack_require__(239);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_localstorage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_localstorage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(581);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(582);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__choose_theme_dialog_choose_theme_dialog_component__ = __webpack_require__(402);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__parking_space_map___ = __webpack_require__(583);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__parking_space_map___ = __webpack_require__(584);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -458,7 +459,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 583:
+/***/ 584:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -468,17 +469,17 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular2_google_maps_core__ = __webpack_require__(413);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular2_google_maps_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_angular2_google_maps_core__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__parking_space_map_component__ = __webpack_require__(589);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__map_circle_with_info_window_map_circle_with_info_window_component__ = __webpack_require__(584);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__parking_space_info_circle_parking_space_info_circle_component__ = __webpack_require__(586);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__parking_space_map_component__ = __webpack_require__(590);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__map_circle_with_info_window_map_circle_with_info_window_component__ = __webpack_require__(585);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__parking_space_info_circle_parking_space_info_circle_component__ = __webpack_require__(587);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__parking_space_info_circle_info_circle_color_service__ = __webpack_require__(405);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__geolocation_service_geolocation_service__ = __webpack_require__(403);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__websocket_service_parking_space_websocket_service__ = __webpack_require__(406);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__range_filter___ = __webpack_require__(591);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__parking_space_toolbar_parking_space_toolbar_component__ = __webpack_require__(590);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__parking_space_info_dialog_parking_space_info_dialog_component__ = __webpack_require__(587);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__range_filter___ = __webpack_require__(592);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__parking_space_toolbar_parking_space_toolbar_component__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__parking_space_info_dialog_parking_space_info_dialog_component__ = __webpack_require__(588);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__history_service_history_service__ = __webpack_require__(404);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__parking_space_info_parking_space_info_component__ = __webpack_require__(588);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__parking_space_info_parking_space_info_component__ = __webpack_require__(589);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParkingSpaceMapModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -546,7 +547,7 @@ var ParkingSpaceMapModule = (function () {
 
 /***/ }),
 
-/***/ 584:
+/***/ 585:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -611,8 +612,8 @@ var MapCircleWithInfoWindowComponent = (function () {
     MapCircleWithInfoWindowComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'gg-map-circle-with-info-window',
-            template: __webpack_require__(665),
-            styles: [__webpack_require__(654)]
+            template: __webpack_require__(666),
+            styles: [__webpack_require__(655)]
         }), 
         __metadata('design:paramtypes', [])
     ], MapCircleWithInfoWindowComponent);
@@ -623,7 +624,7 @@ var MapCircleWithInfoWindowComponent = (function () {
 
 /***/ }),
 
-/***/ 585:
+/***/ 586:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -639,7 +640,7 @@ var Location = (function () {
 
 /***/ }),
 
-/***/ 586:
+/***/ 587:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -709,8 +710,8 @@ var ParkingSpaceInfoCircleComponent = (function () {
     ParkingSpaceInfoCircleComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'gg-parking-space-info-circle',
-            template: __webpack_require__(666),
-            styles: [__webpack_require__(655)]
+            template: __webpack_require__(667),
+            styles: [__webpack_require__(656)]
         }), 
         __metadata('design:paramtypes', [(typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__info_circle_color_service__["a" /* InfoCircleColorService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__info_circle_color_service__["a" /* InfoCircleColorService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialog */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MdDialog */]) === 'function' && _d) || Object])
     ], ParkingSpaceInfoCircleComponent);
@@ -721,7 +722,7 @@ var ParkingSpaceInfoCircleComponent = (function () {
 
 /***/ }),
 
-/***/ 587:
+/***/ 588:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -752,8 +753,8 @@ var ParkingSpaceInfoDialogComponent = (function () {
     ParkingSpaceInfoDialogComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-parking-space-info-dialog',
-            template: __webpack_require__(667),
-            styles: [__webpack_require__(656)]
+            template: __webpack_require__(668),
+            styles: [__webpack_require__(657)]
         }), 
         __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialogRef */]) === 'function' && _b) || Object])
     ], ParkingSpaceInfoDialogComponent);
@@ -764,7 +765,7 @@ var ParkingSpaceInfoDialogComponent = (function () {
 
 /***/ }),
 
-/***/ 588:
+/***/ 589:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -794,8 +795,8 @@ var ParkingSpaceInfoComponent = (function () {
     ParkingSpaceInfoComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-parking-space-info',
-            template: __webpack_require__(668),
-            styles: [__webpack_require__(657)]
+            template: __webpack_require__(669),
+            styles: [__webpack_require__(658)]
         }), 
         __metadata('design:paramtypes', [])
     ], ParkingSpaceInfoComponent);
@@ -806,7 +807,7 @@ var ParkingSpaceInfoComponent = (function () {
 
 /***/ }),
 
-/***/ 589:
+/***/ 590:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -816,17 +817,19 @@ var ParkingSpaceInfoComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(683);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_distinctUntilChanged__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_combineLatest__ = __webpack_require__(677);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_combineLatest___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_combineLatest__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_takeUntil__ = __webpack_require__(688);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_takeUntil__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_localstorage__ = __webpack_require__(239);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_localstorage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angular2_localstorage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__geolocation_service_geolocation_service__ = __webpack_require__(403);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__websocket_service_parking_space_websocket_service__ = __webpack_require__(406);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__history_service_history_service__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_timeout__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_timeout___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_timeout__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_combineLatest__ = __webpack_require__(678);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_combineLatest___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_combineLatest__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_takeUntil__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_takeUntil__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_localstorage__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_localstorage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_angular2_localstorage__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__geolocation_service_geolocation_service__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__websocket_service_parking_space_websocket_service__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__history_service_history_service__ = __webpack_require__(404);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParkingSpaceMapComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -837,6 +840,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -859,6 +863,7 @@ var ParkingSpaceMapComponent = (function () {
         this.showAllInfowindows = true;
         this.showingUserLocation = false;
         this.showParkingSpaceToolbar = true;
+        this.connectionError = false;
         this.freeParkingSpacesLocalStorageValue = 0;
         this.freeParkingSpacesFilterValue$ = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
         this.destroyed$ = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
@@ -902,10 +907,14 @@ var ParkingSpaceMapComponent = (function () {
     ParkingSpaceMapComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.parkingSpaceWsService.connect();
-        __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].combineLatest(this.parkingSpaceWsService.messages.distinctUntilChanged(), this.freeParkingSpacesFilterValue$.distinctUntilChanged()).takeUntil(this.destroyed$)
+        __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].combineLatest(this.parkingSpaceWsService.messages.distinctUntilChanged(), this.freeParkingSpacesFilterValue$.distinctUntilChanged()).timeout(30000)
+            .takeUntil(this.destroyed$)
             .subscribe(function (_a) {
             var parkingSpaces = _a[0], minFreeSpaces = _a[1];
             _this.parkingSpaces = parkingSpaces.filter(function (ps) { return ps.totalSpaces - ps.occupiedSpaces >= minFreeSpaces; });
+        }, function (err) {
+            _this.connectionError = true;
+            console.error(err);
         });
         this.freeParkingSpacesFilterValue$.next(this.freeParkingSpacesLocalStorageValue); // Emit the last value from LocalStorage
     };
@@ -931,7 +940,7 @@ var ParkingSpaceMapComponent = (function () {
         return item.name + '-' + item.occupiedSpaces;
     };
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_angular2_localstorage__["LocalStorage"])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_angular2_localstorage__["LocalStorage"])(), 
         __metadata('design:type', Object)
     ], ParkingSpaceMapComponent.prototype, "freeParkingSpacesLocalStorageValue", void 0);
     __decorate([
@@ -941,10 +950,10 @@ var ParkingSpaceMapComponent = (function () {
     ParkingSpaceMapComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-parking-space-map',
-            template: __webpack_require__(669),
-            styles: [__webpack_require__(658)]
+            template: __webpack_require__(670),
+            styles: [__webpack_require__(659)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_8__geolocation_service_geolocation_service__["a" /* GeolocationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_8__geolocation_service_geolocation_service__["a" /* GeolocationService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_9__websocket_service_parking_space_websocket_service__["a" /* ParkingSpaceWebsocketService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_9__websocket_service_parking_space_websocket_service__["a" /* ParkingSpaceWebsocketService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_10__history_service_history_service__["a" /* HistoryService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_10__history_service_history_service__["a" /* HistoryService */]) === 'function' && _d) || Object])
+        __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_9__geolocation_service_geolocation_service__["a" /* GeolocationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_9__geolocation_service_geolocation_service__["a" /* GeolocationService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_10__websocket_service_parking_space_websocket_service__["a" /* ParkingSpaceWebsocketService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_10__websocket_service_parking_space_websocket_service__["a" /* ParkingSpaceWebsocketService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_11__history_service_history_service__["a" /* HistoryService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_11__history_service_history_service__["a" /* HistoryService */]) === 'function' && _d) || Object])
     ], ParkingSpaceMapComponent);
     return ParkingSpaceMapComponent;
     var _a, _b, _c, _d;
@@ -961,7 +970,7 @@ var PreviousMapLocation = (function () {
 
 /***/ }),
 
-/***/ 590:
+/***/ 591:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -985,8 +994,8 @@ var ParkingSpaceToolbarComponent = (function () {
     ParkingSpaceToolbarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-parking-space-toolbar',
-            template: __webpack_require__(670),
-            styles: [__webpack_require__(659)]
+            template: __webpack_require__(671),
+            styles: [__webpack_require__(660)]
         }), 
         __metadata('design:paramtypes', [])
     ], ParkingSpaceToolbarComponent);
@@ -996,14 +1005,14 @@ var ParkingSpaceToolbarComponent = (function () {
 
 /***/ }),
 
-/***/ 591:
+/***/ 592:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__range_filter_component__ = __webpack_require__(592);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__range_filter_component__ = __webpack_require__(593);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RangeFilterModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1038,7 +1047,7 @@ var RangeFilterModule = (function () {
 
 /***/ }),
 
-/***/ 592:
+/***/ 593:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1087,8 +1096,8 @@ var RangeFilterComponent = (function () {
     RangeFilterComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-range-filter',
-            template: __webpack_require__(671),
-            styles: [__webpack_require__(660)]
+            template: __webpack_require__(672),
+            styles: [__webpack_require__(661)]
         }), 
         __metadata('design:paramtypes', [])
     ], RangeFilterComponent);
@@ -1098,7 +1107,7 @@ var RangeFilterComponent = (function () {
 
 /***/ }),
 
-/***/ 593:
+/***/ 594:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1114,7 +1123,7 @@ var environment = {
 
 /***/ }),
 
-/***/ 652:
+/***/ 653:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(23)();
@@ -1132,24 +1141,6 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 653:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(23)();
-// imports
-
-
-// module
-exports.push([module.i, "md-radio-group md-radio-button{display:inline}md-radio-group md-radio-button:after{content:\"\\A\";white-space:pre}\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
 /***/ 654:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1158,7 +1149,7 @@ exports = module.exports = __webpack_require__(23)();
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "md-radio-group md-radio-button{display:inline}md-radio-group md-radio-button:after{content:\"\\A\";white-space:pre}\n", ""]);
 
 // exports
 
@@ -1194,7 +1185,7 @@ exports = module.exports = __webpack_require__(23)();
 
 
 // module
-exports.push([module.i, ".category-title{font-weight:bold}.category-text{float:right}hr{min-width:300px}\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -1212,7 +1203,7 @@ exports = module.exports = __webpack_require__(23)();
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".category-title{font-weight:bold}.category-text{float:right}hr{min-width:300px}\n", ""]);
 
 // exports
 
@@ -1230,7 +1221,7 @@ exports = module.exports = __webpack_require__(23)();
 
 
 // module
-exports.push([module.i, ".sebm-google-map-container{height:calc(100vh - $toolbar-height)}:host-context(.showingParkingSpaceToolbar) .sebm-google-map-container{height:calc(100vh - 64px * 2)}md-spinner{max-height:58px}.fill-remaining-space{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto}app-parking-space-toolbar .filter-icon{margin-right:10px}app-parking-space-toolbar .mat-icon-button{margin:5px}md-sidenav{padding:20px}md-sidenav .mat-icon-button{float:right;margin-bottom:10px}\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -1248,7 +1239,7 @@ exports = module.exports = __webpack_require__(23)();
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".sebm-google-map-container{height:calc(100vh - $toolbar-height)}:host-context(.showingParkingSpaceToolbar) .sebm-google-map-container{height:calc(100vh - 64px * 2)}md-spinner{max-height:58px}.fill-remaining-space{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto}app-parking-space-toolbar .filter-icon{margin-right:10px}app-parking-space-toolbar .mat-icon-button{margin:5px}\n", ""]);
 
 // exports
 
@@ -1276,76 +1267,94 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 663:
-/***/ (function(module, exports) {
+/***/ 661:
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<div [class.showingParkingSpaceToolbar]=\"map.showParkingSpaceToolbar\" [class.deep-purple-theme]=\"theme === 'deep-purple-theme'\" [class.dark-theme]=\"theme === 'dark-theme'\" [class.unicorn-dark-theme]=\"theme === 'unicorn-dark-theme'\">\r\n<md-toolbar color=\"primary\">\r\n  <span>{{title}}</span>\r\n  <span class=\"fill-remaining-space\"></span>\r\n  <button md-icon-button [mdMenuTriggerFor]=\"menu\">\r\n  <md-icon>more_vert</md-icon>\r\n</button>\r\n  <md-menu #menu=\"mdMenu\">\r\n    <button md-menu-item (click)=\"map.showParkingSpaceToolbar=true;\" *ngIf=\"!map.showParkingSpaceToolbar\">\r\n      <md-icon>view_agenda</md-icon>\r\n      <span>Vis verktøylinjen</span>\r\n    </button>\r\n    <button md-menu-item (click)=\"map.showParkingSpaceToolbar=false;\" *ngIf=\"map.showParkingSpaceToolbar\">\r\n      <md-icon>view_agenda</md-icon>\r\n      <span>Skjul verktøylinjen</span>\r\n    </button>\r\n    <button md-menu-item (click)=\"openThemeDialog()\">\r\n      <md-icon>palette</md-icon>\r\n      <span>Velg fargetema</span>\r\n    </button>\r\n  </md-menu>\r\n</md-toolbar>\r\n<app-parking-space-map #map></app-parking-space-map>\r\n</div>"
+exports = module.exports = __webpack_require__(23)();
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
 /***/ 664:
 /***/ (function(module, exports) {
 
-module.exports = "<h6>\r\n    Velg fargetema\r\n</h6>\r\n<md-radio-group [(ngModel)]=\"selectedTheme\">\r\n  <md-radio-button *ngFor=\"let theme of themes\" [value]=\"themeDict[theme]\" (click)=\"dialogRef.close(themeDict[theme])\">\r\n    {{theme}}\r\n  </md-radio-button>\r\n</md-radio-group>"
+module.exports = "<div [class.showingParkingSpaceToolbar]=\"map.showParkingSpaceToolbar\" [class.deep-purple-theme]=\"theme === 'deep-purple-theme'\" [class.dark-theme]=\"theme === 'dark-theme'\" [class.unicorn-dark-theme]=\"theme === 'unicorn-dark-theme'\">\r\n<md-toolbar color=\"primary\">\r\n  <span>{{title}}</span>\r\n  <span class=\"fill-remaining-space\"></span>\r\n  <button md-icon-button [mdMenuTriggerFor]=\"menu\">\r\n  <md-icon>more_vert</md-icon>\r\n</button>\r\n  <md-menu #menu=\"mdMenu\">\r\n    <button md-menu-item (click)=\"map.showParkingSpaceToolbar=true;\" *ngIf=\"!map.showParkingSpaceToolbar\">\r\n      <md-icon>view_agenda</md-icon>\r\n      <span>Vis verktøylinjen</span>\r\n    </button>\r\n    <button md-menu-item (click)=\"map.showParkingSpaceToolbar=false;\" *ngIf=\"map.showParkingSpaceToolbar\">\r\n      <md-icon>view_agenda</md-icon>\r\n      <span>Skjul verktøylinjen</span>\r\n    </button>\r\n    <button md-menu-item (click)=\"openThemeDialog()\">\r\n      <md-icon>palette</md-icon>\r\n      <span>Velg fargetema</span>\r\n    </button>\r\n  </md-menu>\r\n</md-toolbar>\r\n<app-parking-space-map #map></app-parking-space-map>\r\n</div>"
 
 /***/ }),
 
 /***/ 665:
 /***/ (function(module, exports) {
 
-module.exports = "<sebm-google-map-circle [latitude]=\"latitude\" [longitude]=\"longitude\" [radius]=\"circleRadius\" [fillColor]=\"circleFillColor\" (circleClick)=\"onCircleClick()\"></sebm-google-map-circle>\r\n<sebm-google-map-info-window #info [latitude]=\"latitude\" [longitude]=\"longitude\" [isOpen]=\"infoWindowOpen\"><ng-content></ng-content></sebm-google-map-info-window>"
+module.exports = "<h6>\r\n    Velg fargetema\r\n</h6>\r\n<md-radio-group [(ngModel)]=\"selectedTheme\">\r\n  <md-radio-button *ngFor=\"let theme of themes\" [value]=\"themeDict[theme]\" (click)=\"dialogRef.close(themeDict[theme])\">\r\n    {{theme}}\r\n  </md-radio-button>\r\n</md-radio-group>"
 
 /***/ }),
 
 /***/ 666:
 /***/ (function(module, exports) {
 
-module.exports = "  <gg-map-circle-with-info-window [latitude]=\"parkingSpace.location.lat\" [longitude]=\"parkingSpace.location.long\" [circleFillColor]=\"circleFillColor\" [circleRadius]=\"parkingSpace.size\" [infoWindowOpen]=\"infoWindowOpen\" (circleClick)=onMapCircleClick()>\r\n  <strong>{{parkingSpace.parkingSpaceName}}</strong> Ledige plasser: <i>{{freeSpaces}}</i> av totalt <i>{{parkingSpace.totalSpaces}}</i>\r\n  </gg-map-circle-with-info-window>"
+module.exports = "<sebm-google-map-circle [latitude]=\"latitude\" [longitude]=\"longitude\" [radius]=\"circleRadius\" [fillColor]=\"circleFillColor\" (circleClick)=\"onCircleClick()\"></sebm-google-map-circle>\r\n<sebm-google-map-info-window #info [latitude]=\"latitude\" [longitude]=\"longitude\" [isOpen]=\"infoWindowOpen\"><ng-content></ng-content></sebm-google-map-info-window>"
 
 /***/ }),
 
 /***/ 667:
 /***/ (function(module, exports) {
 
-module.exports = "<app-parking-space-info [parkingSpace]=\"parkingSpace\"></app-parking-space-info>"
+module.exports = "  <gg-map-circle-with-info-window [latitude]=\"parkingSpace.location.lat\" [longitude]=\"parkingSpace.location.long\" [circleFillColor]=\"circleFillColor\" [circleRadius]=\"parkingSpace.size\" [infoWindowOpen]=\"infoWindowOpen\" (circleClick)=onMapCircleClick()>\r\n  <strong>{{parkingSpace.parkingSpaceName}}</strong> Ledige plasser: <i>{{freeSpaces}}</i> av totalt <i>{{parkingSpace.totalSpaces}}</i>\r\n  </gg-map-circle-with-info-window>"
 
 /***/ }),
 
 /***/ 668:
 /***/ (function(module, exports) {
 
-module.exports = "<md-spinner *ngIf=\"!parkingSpace\"></md-spinner>\n<div *ngIf=\"parkingSpace\" class=\"clearfix\">\n  <h6>\n    {{parkingSpace.name}}\n  </h6>\n  <hr>\n  <div class=\"info-content\">\n    <div class=\"category-row\">\n      <span class=\"category-title\">Beskrivelse:</span><span class=\"category-text\">{{parkingSpace.description}}</span>\n    </div>\n    <div class=\"category-row\">\n      <span class=\"category-title\">Plasser totalt:</span><span class=\"category-text\">{{parkingSpace.totalSpaces}}</span>\n    </div>\n    <div class=\"category-row\">\n      <span class=\"category-title\">Plasser opptatt:</span><span class=\"category-text\">{{parkingSpace.occupiedSpaces}}</span>\n    </div>\n    <div class=\"category-row\">\n      <span class=\"category-title\">Plasser ledig:</span><span class=\"category-text\">{{parkingSpace.freeSpaces}}</span>\n    </div>\n    <div class=\"category-row\">\n      <span class=\"category-title\">Timerate:</span><span class=\"category-text\">{{parkingSpace.hourlyRate}}</span>\n    </div>\n  </div>\n</div>"
+module.exports = "<app-parking-space-info [parkingSpace]=\"parkingSpace\"></app-parking-space-info>"
 
 /***/ }),
 
 /***/ 669:
 /***/ (function(module, exports) {
 
-module.exports = "<app-parking-space-toolbar *ngIf=\"showParkingSpaceToolbar\">\r\n  <md-icon class=\"filter-icon\">filter_list</md-icon>\r\n  <app-range-filter maxValue=\"100\" minValue=\"0\" [value]=\"freeParkingSpacesLocalStorageValue\" (valueChanged)=\"freeSpacesFilterChanged($event)\"\r\n    title=\"Filtrer parkeringsplasser etter antall ledige plasser\"></app-range-filter>\r\n  <!-- This fills the remaining space of the current row -->\r\n  <span class=\"fill-remaining-space\"></span>\r\n  <md-spinner mdTooltip=\"Laster inn data fra server\" *ngIf=\"!parkingSpaces\"></md-spinner>\r\n  <button md-raised-button color=\"secondary\" *ngIf=\"!showingUserLocation\" (click)=\"onShowMyLocationButtonClick()\">Vis min lokasjon</button>\r\n  <button md-raised-button color=\"secondary\" *ngIf=\"showingUserLocation\" (click)=\"onHideMyLocationButtonClick()\">Fjern min lokasjon</button>\r\n  <button md-icon-button (click)=\"showParkingSpaceToolbar = false;\" mdTooltip=\"Lukk\"><md-icon>close</md-icon></button>\r\n</app-parking-space-toolbar>\r\n<md-sidenav-container class=\"example-sidenav-fab-container\">\r\n  <md-sidenav #sidenav mode=\"over\">\r\n    <button md-icon-button (click)=\"sidenav.close()\" mdTooltip=\"Lukk sidemeny\"><md-icon>close</md-icon></button>\r\n    <app-parking-space-info [parkingSpace]=\"sidenavData\"></app-parking-space-info>\r\n  </md-sidenav>\r\n  <sebm-google-map [latitude]=\"lat\" [longitude]=\"lng\" [(zoom)]=\"mapZoom\" (zoomChange)=\"mapZoomChanged($event)\" #map>\r\n    <gg-parking-space-info-circle *ngFor=\"let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces\" (circleClick)=\"onCircleClick($event)\"\r\n      [parkingSpace]=\"parkingSpace\" [infoWindowOpen]=\"showAllInfowindows\">\r\n    </gg-parking-space-info-circle>\r\n    <sebm-google-map-marker *ngIf=\"userGeoLocation\" [latitude]=\"userGeoLocation.lat\" [longitude]=\"userGeoLocation.long\">\r\n      <sebm-google-map-info-window [isOpen]=\"true\">Din omtrentlige plassering</sebm-google-map-info-window>\r\n    </sebm-google-map-marker>\r\n  </sebm-google-map>\r\n</md-sidenav-container>"
+module.exports = "<<<<<<< HEAD\r\n<md-spinner *ngIf=\"!parkingSpace\"></md-spinner>\r\n<div *ngIf=\"parkingSpace\" class=\"clearfix\">\r\n=======\r\n<div class=\"clearfix\">\r\n>>>>>>> 29afe5a20ce78b206c087056f5a82dcd5075e524\r\n  <h6>\r\n    {{parkingSpace.name}}\r\n  </h6>\r\n  <hr>\r\n<<<<<<< HEAD\r\n  <div class=\"info-content\">\r\n=======\r\n  <md-spinner *ngIf=\"!parkingSpace\"></md-spinner>\r\n  <div *ngIf=\"parkingSpace\" class=\"info-content\">\r\n>>>>>>> 29afe5a20ce78b206c087056f5a82dcd5075e524\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Beskrivelse:</span><span class=\"category-text\">{{parkingSpace.description}}</span>\r\n    </div>\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Plasser totalt:</span><span class=\"category-text\">{{parkingSpace.totalSpaces}}</span>\r\n    </div>\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Plasser opptatt:</span><span class=\"category-text\">{{parkingSpace.occupiedSpaces}}</span>\r\n    </div>\r\n    <div class=\"category-row\">\r\n<<<<<<< HEAD\r\n      <span class=\"category-title\">Plasser ledig:</span><span class=\"category-text\">{{parkingSpace.totalSpaces - parkingSpace.occupiedSpaces}}</span>\r\n=======\r\n      <span class=\"category-title\">Plasser ledig:</span><span class=\"category-text\">{{parkingSpace.freeSpaces}}</span>\r\n>>>>>>> 29afe5a20ce78b206c087056f5a82dcd5075e524\r\n    </div>\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Timerate:</span><span class=\"category-text\">{{parkingSpace.hourlyRate}}</span>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 670:
 /***/ (function(module, exports) {
 
-module.exports = "<md-toolbar>\r\n  <ng-content></ng-content>\r\n</md-toolbar>"
+module.exports = "<app-parking-space-toolbar *ngIf=\"showParkingSpaceToolbar\">\r\n  <md-icon class=\"filter-icon\">filter_list</md-icon>\r\n  <app-range-filter maxValue=\"100\" minValue=\"0\" [value]=\"freeParkingSpacesLocalStorageValue\" (valueChanged)=\"freeSpacesFilterChanged($event)\"\r\n    title=\"Filtrer parkeringsplasser etter antall ledige plasser\"></app-range-filter>\r\n  <!-- This fills the remaining space of the current row -->\r\n  <span class=\"fill-remaining-space\"></span>\r\n  <md-icon *ngIf=\"connectionError\" color=\"warn\" mdTooltip=\"Ingen kontakt med server\">signal_wifi_off</md-icon>\r\n  <md-spinner mdTooltip=\"Laster inn data fra server\" *ngIf=\"!parkingSpaces\"></md-spinner>\r\n  <button md-raised-button color=\"secondary\" *ngIf=\"!showingUserLocation\" (click)=\"onShowMyLocationButtonClick()\">Vis min lokasjon</button>\r\n  <button md-raised-button color=\"secondary\" *ngIf=\"showingUserLocation\" (click)=\"onHideMyLocationButtonClick()\">Fjern min lokasjon</button>\r\n  <button md-icon-button (click)=\"showParkingSpaceToolbar = false;\" mdTooltip=\"Lukk\"><md-icon>close</md-icon></button>\r\n</app-parking-space-toolbar>\r\n<md-sidenav-container class=\"example-sidenav-fab-container\">\r\n  <md-sidenav #sidenav mode=\"over\">\r\n    <button md-icon-button (click)=\"sidenav.close()\" mdTooltip=\"Lukk sidemeny\"><md-icon>close</md-icon></button>\r\n    <app-parking-space-info [parkingSpace]=\"sidenavData\"></app-parking-space-info>\r\n  </md-sidenav>\r\n  <sebm-google-map [latitude]=\"lat\" [longitude]=\"lng\" [(zoom)]=\"mapZoom\" (zoomChange)=\"mapZoomChanged($event)\" #map>\r\n    <gg-parking-space-info-circle *ngFor=\"let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces\" (circleClick)=\"onCircleClick($event)\"\r\n      [parkingSpace]=\"parkingSpace\" [infoWindowOpen]=\"showAllInfowindows\">\r\n    </gg-parking-space-info-circle>\r\n    <sebm-google-map-marker *ngIf=\"userGeoLocation\" [latitude]=\"userGeoLocation.lat\" [longitude]=\"userGeoLocation.long\">\r\n      <sebm-google-map-info-window [isOpen]=\"true\">Din omtrentlige plassering</sebm-google-map-info-window>\r\n    </sebm-google-map-marker>\r\n  </sebm-google-map>\r\n</md-sidenav-container>"
 
 /***/ }),
 
 /***/ 671:
 /***/ (function(module, exports) {
 
+module.exports = "<md-toolbar>\r\n  <ng-content></ng-content>\r\n</md-toolbar>"
+
+/***/ }),
+
+/***/ 672:
+/***/ (function(module, exports) {
+
 module.exports = "  {{title}}: <md-slider [min]=\"minValue\" [max]=\"maxValue\" step=\"1\" thumb-label=\"true\" tick-interval=\"1\" [(value)]=\"value\" (input)=\"onSliderchange($event)\"></md-slider>"
 
 /***/ }),
 
-/***/ 728:
+/***/ 732:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(436);
+module.exports = __webpack_require__(437);
 
 
 /***/ })
 
-},[728]);
+},[732]);
 //# sourceMappingURL=main.bundle.js.map
