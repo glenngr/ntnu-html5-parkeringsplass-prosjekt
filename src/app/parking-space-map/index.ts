@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
+import { HttpModule } from '@angular/http';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
@@ -13,6 +14,7 @@ import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-
 import { RangeFilterModule } from '../range-filter/';
 import { ParkingSpaceToolbarComponent } from './parking-space-toolbar/parking-space-toolbar.component';
 import { ParkingSpaceInfoDialogComponent } from './parking-space-info-dialog/parking-space-info-dialog.component';
+import { HistoryService } from './history-service/history.service';
 
 @NgModule({
   imports: [
@@ -22,11 +24,13 @@ import { ParkingSpaceInfoDialogComponent } from './parking-space-info-dialog/par
     }),
     RangeFilterModule,
     MaterialModule,
+    HttpModule,
   ],
   providers: [
     GeolocationService,
     InfoCircleColorService,
     ParkingSpaceWebsocketService,
+    HistoryService
   ],
   declarations: [
     ParkingSpaceMapComponent,
