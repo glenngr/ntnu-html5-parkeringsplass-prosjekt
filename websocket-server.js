@@ -1,17 +1,23 @@
 var https = require ('https');
 var express = require('express');
 var WebSocketServerConstructor = require('websocket').server;
-// var ws = require('nodejs-websocket');
 const serverPort = 3006;
 const config = require('./server-config.js');
 const options = config.getConfig();
 
-const testData = [
+let testData = [
     { "name": "P1", "totalSpaces": 100, "occupiedSpaces": 98, "location": { "lat": 58.147737, "long": 8.006584 }, "size": 20, "hourlyRate": 34, "description": "Ved snadderkiosken" },
     { "name": "P2", "totalSpaces": 200, "occupiedSpaces": 108, "location": { "lat": 58.148561, "long": 7.989738 }, "size": 25, "hourlyRate": 21, "description": "Grusplass ved slottskvartalet"  },
     { "name": "P3", "totalSpaces": 50, "occupiedSpaces": 50, "location": { "lat": 58.14435, "long": 7.991619 }, "size": 15, "hourlyRate": 14, "description": "Ved vestre kiosk" },
     { "name": "P4", "totalSpaces": 70, "occupiedSpaces": 40, "location": { "lat": 58.138972, "long": 7.998729 }, "size": 15, "hourlyRate": 26, "description": "Parkeringshus ved Kilden"  }
 ];
+
+const testDataChangeChance = {};
+testDataChangeChance["P1"] = 0.15;
+testDataChangeChance["P2"] = 0.25;
+testDataChangeChance["P3"] = 0.2;
+testDataChangeChance["P4"] = 0.2;
+
 
 var app = express();
 
@@ -38,9 +44,9 @@ server.listen(serverPort);
 setInterval(function () {
     // Only emit numbers if there are active connections
     if (hasConnections()) {
-        var data = getParkingSpaceData();
-        console.log(data);
-        emitToAll(data);
+        testData = applyRandomOccupiedSpaces(testData);
+        console.log('emitting:', testData);
+        emitToAll(serialize(testData));
     }
 }, 5000);
 
@@ -54,7 +60,28 @@ function emitToAll(message) {
     }));
 }
 
-function getParkingSpaceData() {
-    //(Math.floor(Math.random() * 10000) + 1).toString();
+function serialize() {
     return JSON.stringify(testData);
+}
+
+
+function applyRandomOccupiedSpaces(data) {
+    for (ps of testData) {
+        if (shouldApplyRandomData(ps.name)) {
+            var occupiedSpaces = randomIntFromBetween(0, ps.totalSpaces);
+            ps.occupiedSpaces = occupiedSpaces;
+        }
+    }
+
+    return data;
+}
+
+function shouldApplyRandomData(parkingSpaceName) {
+    var chance = Math.random();
+    return testDataChangeChance[parkingSpaceName] > chance;
+}
+
+function randomIntFromBetween(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
 }
