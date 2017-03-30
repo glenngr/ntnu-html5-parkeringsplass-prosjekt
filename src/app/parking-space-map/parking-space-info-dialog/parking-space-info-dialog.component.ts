@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
+import { ParkingSpace } from '../models/parkingspace.model';
 
 @Component({
     selector: 'app-parking-space-info-dialog',
@@ -7,12 +8,7 @@ import { MdDialog, MdDialogRef } from '@angular/material';
     styleUrls: ['parking-space-info-dialog.component.css']
 })
 export class ParkingSpaceInfoDialogComponent {
-    name: string;
-    description: string;
-    totalSpaces: number;
-    occupiedSpaces: number;
-    freeSpaces: number;
-    hourlyRate: number;
+    @Input() public parkingSpace: ParkingSpace;
 
     constructor(public dialogRef: MdDialogRef<ParkingSpaceInfoDialogComponent>) {
     }

@@ -3,6 +3,7 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 
 import { InfoCircleColorService } from './info-circle-color.service'
 import { ParkingSpaceInfoDialogComponent } from '../parking-space-info-dialog/parking-space-info-dialog.component';
+import { ParkingSpace } from '../models/parkingspace.model';
 
 @Component({
   selector: 'gg-parking-space-info-circle',
@@ -10,14 +11,7 @@ import { ParkingSpaceInfoDialogComponent } from '../parking-space-info-dialog/pa
   styleUrls: ['./parking-space-info-circle.component.css']
 })
 export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
-  @Input() latitude: number;
-  @Input() longitude: number;
-  @Input() parkingSpaceRadius: number = 100;
-  @Input() occupiedSpaces: number;
-  @Input() totalSpaces: number;
-  @Input() parkingSpaceName: string;
-  @Input() parkingSpaceDescription: string;
-  @Input() hourlyRate: number;
+  @Input() parkingSpace: ParkingSpace;
   @Input() infoWindowOpen: boolean = true;
   circleFillColor: string = 'red';
   freeSpaces: number;
@@ -31,7 +25,7 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: { [key: string]: SimpleChange }) {
     if (changes['occupiedSpaces']) {
-      if (this.occupiedSpaces === undefined || this.totalSpaces === undefined) {
+      if (this.parkingSpace.occupiedSpaces === undefined || this.parkingSpace.totalSpaces === undefined) {
         return;
       }
 
@@ -43,19 +37,14 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
   onMapCircleClick() {
     const dialogRef = this.dialog.open(ParkingSpaceInfoDialogComponent);
     const dialogInstance = dialogRef.componentInstance;
-    dialogInstance.name = this.parkingSpaceName;
-    dialogInstance.occupiedSpaces = this.occupiedSpaces;
-    dialogInstance.totalSpaces = this.totalSpaces;
-    dialogInstance.freeSpaces = this.freeSpaces;
-    dialogInstance.description = this.parkingSpaceDescription;
-    dialogInstance.hourlyRate = this.hourlyRate;
+    dialogInstance.parkingSpace = this.parkingSpace;
   }
 
   private updateCircleFillColor() {
-    this.circleFillColor = this.colorService.getColor(this.occupiedSpaces, this.totalSpaces);
+    this.circleFillColor = this.colorService.getColor(this.parkingSpace.occupiedSpaces, this.parkingSpace.totalSpaces);
   }
 
   private updateFreeSpaces() {
-     this.freeSpaces = this.totalSpaces - this.occupiedSpaces;
+     this.freeSpaces = this.parkingSpace.totalSpaces - this.parkingSpace.occupiedSpaces;
   }
 }
