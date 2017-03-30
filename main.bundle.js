@@ -684,9 +684,6 @@ var ParkingSpaceInfoCircleComponent = (function () {
         }
     };
     ParkingSpaceInfoCircleComponent.prototype.onMapCircleClick = function () {
-        // const dialogRef = this.dialog.open(ParkingSpaceInfoDialogComponent);
-        // const dialogInstance = dialogRef.componentInstance;
-        // dialogInstance.parkingSpace = this.parkingSpace;
         this.circleClick.emit(this.parkingSpace.name);
     };
     ParkingSpaceInfoCircleComponent.prototype.updateCircleFillColor = function () {
@@ -1323,7 +1320,7 @@ module.exports = "<app-parking-space-info [parkingSpace]=\"parkingSpace\"></app-
 /***/ 669:
 /***/ (function(module, exports) {
 
-module.exports = "<<<<<<< HEAD\r\n<md-spinner *ngIf=\"!parkingSpace\"></md-spinner>\r\n<div *ngIf=\"parkingSpace\" class=\"clearfix\">\r\n=======\r\n<div class=\"clearfix\">\r\n>>>>>>> 29afe5a20ce78b206c087056f5a82dcd5075e524\r\n  <h6>\r\n    {{parkingSpace.name}}\r\n  </h6>\r\n  <hr>\r\n<<<<<<< HEAD\r\n  <div class=\"info-content\">\r\n=======\r\n  <md-spinner *ngIf=\"!parkingSpace\"></md-spinner>\r\n  <div *ngIf=\"parkingSpace\" class=\"info-content\">\r\n>>>>>>> 29afe5a20ce78b206c087056f5a82dcd5075e524\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Beskrivelse:</span><span class=\"category-text\">{{parkingSpace.description}}</span>\r\n    </div>\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Plasser totalt:</span><span class=\"category-text\">{{parkingSpace.totalSpaces}}</span>\r\n    </div>\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Plasser opptatt:</span><span class=\"category-text\">{{parkingSpace.occupiedSpaces}}</span>\r\n    </div>\r\n    <div class=\"category-row\">\r\n<<<<<<< HEAD\r\n      <span class=\"category-title\">Plasser ledig:</span><span class=\"category-text\">{{parkingSpace.totalSpaces - parkingSpace.occupiedSpaces}}</span>\r\n=======\r\n      <span class=\"category-title\">Plasser ledig:</span><span class=\"category-text\">{{parkingSpace.freeSpaces}}</span>\r\n>>>>>>> 29afe5a20ce78b206c087056f5a82dcd5075e524\r\n    </div>\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Timerate:</span><span class=\"category-text\">{{parkingSpace.hourlyRate}}</span>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<md-spinner *ngIf=\"!parkingSpace\"></md-spinner>\r\n<div *ngIf=\"parkingSpace\" class=\"clearfix\">\r\n  <h6>\r\n    {{parkingSpace.name}}\r\n  </h6>\r\n  <hr>\r\n  <div class=\"info-content\">\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Beskrivelse:</span><span class=\"category-text\">{{parkingSpace.description}}</span>\r\n    </div>\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Plasser totalt:</span><span class=\"category-text\">{{parkingSpace.totalSpaces}}</span>\r\n    </div>\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Plasser opptatt:</span><span class=\"category-text\">{{parkingSpace.occupiedSpaces}}</span>\r\n    </div>\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Plasser ledig:</span><span class=\"category-text\">{{parkingSpace.totalSpaces - parkingSpace.occupiedSpaces}}</span>\r\n    </div>\r\n    <div class=\"category-row\">\r\n      <span class=\"category-title\">Timerate:</span><span class=\"category-text\">{{parkingSpace.hourlyRate}}</span>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
