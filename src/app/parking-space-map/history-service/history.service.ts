@@ -5,13 +5,15 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
+import { HistoryCollection, HistoryData } from '../models/history-collection.model';
+
 @Injectable()
 export class HistoryService {
     private historyUrl = 'https://remote.glenng.no:3006/history';  // URL to web API
 
     constructor(private http: Http) { }
 
-    getHistory(parkingSpaceName: string): Observable<HistoryCollection[]> {
+    getHistory(parkingSpaceName: string): Observable<HistoryCollection> {
         return this.http.get(this.historyUrl + '/' + parkingSpaceName)
             .map(this.extractData)
             .map((history: HistoryData[]) => this.toHistoryCollection(parkingSpaceName, history))
@@ -19,13 +21,15 @@ export class HistoryService {
     }
 
     private toHistoryCollection(parkingSpaceName: string, history: HistoryData[]) {
-        return new HistoryCollection(parkingSpaceName, history);
+        let hist = new HistoryCollection(parkingSpaceName, history);
+        console.log(hist);
+        return hist;
     }
 
     private extractData(res: Response) {
         console.log('Response', res);
         const history = <HistoryData[]>res.json();
-        console.log('history', history);
+        console.log('history', [...history]);
         return history || {};
     }
     private handleError(error: Response | any) {
@@ -41,16 +45,4 @@ export class HistoryService {
         console.error(errMsg);
         return Observable.throw(errMsg);
     }
-}
-
-class HistoryCollection {
-    constructor(
-        public parkingSpaceName: string,
-        public history: HistoryData[],
-    ) {}
-}
-
-class HistoryData {
-    date: Date;
-    occupiedSpaces: number;
 }
