@@ -5,7 +5,7 @@
   <div class="clearfix">
     <span class="date header">Dato/tid</span><span class="occupied-spaces header">Opptatte plasser</span>
     <div class="trend-row" *ngFor="let data of (trendData | async)?.history | reversearray | slice:-20">
-      <span class="date">{{data.date | date:'dd/MM yyyy hh:mm'}}</span><span class="occupied-spaces">{{data.occupiedSpaces}}</span>
+      <span class="date">{{data.date | date:'d/M y H:m'}}</span><span class="occupied-spaces">{{data.occupiedSpaces}}</span>
     </div>
   </div>
 </div>
