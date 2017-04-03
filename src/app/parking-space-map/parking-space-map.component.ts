@@ -15,6 +15,7 @@ import { HistoryService } from './history-service/history.service';
 
 import { Location } from './models/location.model';
 import { ParkingSpace } from './models/parkingspace.model';
+import { HistoryCollection } from './models/history-collection.model';
 
 @Component({
   selector: 'app-parking-space-map',
@@ -22,6 +23,7 @@ import { ParkingSpace } from './models/parkingspace.model';
   styleUrls: ['./parking-space-map.component.css']
 })
 export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
+  sidenavTrend: Observable<HistoryCollection>;
   socketSubscription: Subscription;
   userGeoLocation: Location;
   parkingSpaces: ParkingSpace[];
@@ -33,6 +35,7 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   showAllInfowindows = true;
   showingUserLocation = false;
   showParkingSpaceToolbar = true;
+  showSidenavParkingSpaceTrend = false;
   connectionError = false;
   sidenavData: ParkingSpace;
   private previousMapLocation: PreviousMapLocation;
@@ -46,12 +49,6 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   ) {
     this.freeParkingSpacesFilterValue$ = new Subject<number>();
     this.destroyed$ = new Subject<any>();
-  }
-
-  onGetData() {
-    this.historyService.getHistory('P3').subscribe(data => {
-      console.log(data);
-    });
   }
 
   onCircleClick(event) {
@@ -85,6 +82,18 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
     this.lat = this.previousMapLocation.lat;
     this.lng = this.previousMapLocation.long;
     this.mapZoom = this.previousMapLocation.zoomLevel;
+  }
+
+  onShowTrend() {
+    this.showSidenavParkingSpaceTrend = true;
+    const pname = this.sidenavData.name;
+    this.sidenavTrend = this.historyService.getHistory(pname);
+  }
+
+  onSidenavClose() {
+    this.showSidenavParkingSpaceTrend = false;
+    this.sidenavTrend = undefined;
+    this.sidenavData = undefined;
   }
 
   ngOnInit() {

@@ -28,8 +28,11 @@ app-parking-space-toolbar {
 
 md-sidenav {
   padding: 20px;
-  .mat-icon-button {
+  .close-button {
     float: right;
     margin-bottom: 10px;
+  }
+  .trend-button {
+    margin-top: 30px;
   }
 }

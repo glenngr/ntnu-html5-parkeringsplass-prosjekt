@@ -11,9 +11,11 @@
   <button md-icon-button (click)="showParkingSpaceToolbar = false;" mdTooltip="Lukk"><md-icon>close</md-icon></button>
 </app-parking-space-toolbar>
 <md-sidenav-container class="example-sidenav-fab-container">
-  <md-sidenav #sidenav mode="over">
-    <button md-icon-button (click)="sidenav.close()" mdTooltip="Lukk sidemeny"><md-icon>close</md-icon></button>
+  <md-sidenav #sidenav mode="over" (close)="onSidenavClose()">
+    <button md-icon-button class="close-button" (click)="sidenav.close()" mdTooltip="Lukk sidemeny"><md-icon>close</md-icon></button>
     <app-parking-space-info [parkingSpace]="sidenavData"></app-parking-space-info>
+    <button md-raised-button color="accent" class="trend-button" (click)="onShowTrend()"><md-icon>trending_up</md-icon>Statistikk for parkeringsplassen</button>
+    <app-parking-space-text-trend [trendData]="sidenavTrend" *ngIf="showSidenavParkingSpaceTrend"></app-parking-space-text-trend>
   </md-sidenav>
   <sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom" (zoomChange)="mapZoomChanged($event)" #map>
     <gg-parking-space-info-circle *ngFor="let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces" (circleClick)="onCircleClick($event)"
