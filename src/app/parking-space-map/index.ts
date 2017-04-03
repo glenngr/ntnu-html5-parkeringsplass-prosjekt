@@ -17,7 +17,7 @@ import { ParkingSpaceInfoDialogComponent } from './parking-space-info-dialog/par
 import { HistoryService } from './history-service/history.service';
 import { ParkingSpaceInfoComponent } from './parking-space-info/parking-space-info.component';
 import { ParkingSpaceTextTrendComponent } from './parking-space-text-trend/parking-space-text-trend.component';
-
+import { ReverseArrayPipe } from '../reverse-array-pipe/reverse-array.pipe';
 @NgModule({
   imports: [
     CommonModule,
@@ -42,6 +42,7 @@ import { ParkingSpaceTextTrendComponent } from './parking-space-text-trend/parki
     ParkingSpaceInfoDialogComponent,
     ParkingSpaceInfoComponent,
     ParkingSpaceTextTrendComponent,
+    ReverseArrayPipe,
   ],
   entryComponents: [
     ParkingSpaceInfoDialogComponent,
