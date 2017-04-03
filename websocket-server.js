@@ -21,15 +21,16 @@ testDataChangeChance["P4"] = 0.008;
 
 
 const parkingspaceChangeLog = {}
-parkingspaceChangeLog["P1"] = {};
-parkingspaceChangeLog["P2"] = {};
-parkingspaceChangeLog["P3"] = {};
-parkingspaceChangeLog["P4"] = {};
+parkingspaceChangeLog["P1"] = [];
+parkingspaceChangeLog["P2"] = [];
+parkingspaceChangeLog["P3"] = [];
+parkingspaceChangeLog["P4"] = [];
 
 var now = new Date().toLocaleString();
 for (ps of testData) {
-    parkingspaceChangeLog[ps.name][now] = ps.occupiedSpaces;
+    addToParkingSpaceChangeLog(ps.name, now, ps.occupiedSpaces);
 }
+
 
 var app = express();
 app.use(cors());
@@ -97,6 +98,11 @@ function serialize() {
     return JSON.stringify(testData);
 }
 
+function addToParkingSpaceChangeLog(parkingSpaceName, dateTime, occupiedSpaces) {
+    var obj = {};
+    obj[dateTime] = occupiedSpaces;
+    parkingspaceChangeLog[parkingSpaceName].push(obj);
+}
 
 function applyRandomOccupiedSpaces(data) {
     var now = new Date().toLocaleString();
@@ -104,7 +110,7 @@ function applyRandomOccupiedSpaces(data) {
         if (shouldApplyRandomData(ps.name)) {
             var occupiedSpaces = randomIntFromBetween(0, ps.totalSpaces);
             ps.occupiedSpaces = occupiedSpaces;
-            parkingspaceChangeLog[ps.name][now] = ps.occupiedSpaces;
+            addToParkingSpaceChangeLog(ps.name, now, ps.occupiedSpaces);
         }
     }
 
