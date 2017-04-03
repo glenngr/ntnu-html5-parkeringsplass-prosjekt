@@ -100,7 +100,8 @@ function serialize() {
 
 function addToParkingSpaceChangeLog(parkingSpaceName, dateTime, occupiedSpaces) {
     var obj = {};
-    obj[dateTime] = occupiedSpaces;
+    obj['date'] = dateTime;
+    obj['occupiedSpaces'] = occupiedSpaces;
     parkingspaceChangeLog[parkingSpaceName].push(obj);
 }
 
