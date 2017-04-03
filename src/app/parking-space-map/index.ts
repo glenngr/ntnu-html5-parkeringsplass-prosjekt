@@ -16,6 +16,7 @@ import { ParkingSpaceToolbarComponent } from './parking-space-toolbar/parking-sp
 import { ParkingSpaceInfoDialogComponent } from './parking-space-info-dialog/parking-space-info-dialog.component';
 import { HistoryService } from './history-service/history.service';
 import { ParkingSpaceInfoComponent } from './parking-space-info/parking-space-info.component';
+import { ParkingSpaceTextTrendComponent } from './parking-space-text-trend/parking-space-text-trend.component';
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { ParkingSpaceInfoComponent } from './parking-space-info/parking-space-in
     ParkingSpaceToolbarComponent,
     ParkingSpaceInfoDialogComponent,
     ParkingSpaceInfoComponent,
+    ParkingSpaceTextTrendComponent,
   ],
   entryComponents: [
     ParkingSpaceInfoDialogComponent,

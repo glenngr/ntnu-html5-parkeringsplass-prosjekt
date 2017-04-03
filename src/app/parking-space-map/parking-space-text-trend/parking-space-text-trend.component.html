@@ -1,0 +1,9 @@
+<md-spinner *ngIf="!parkingSpaceTrendData"></md-spinner>
+<h6 *ngIf="name">Statistikk for {{name}}</h6>
+<hr>
+<div *ngIf="history" class="clearfix">
+  <span class="date header">Dato/tid</span><span class="occupied-spaces header">Opptatte plasser</span>
+  <div class="trend-row" *ngFor="let data of history">
+    <span class="date">{{data.date | date:'dd/MM yyyy hh:mm'}}</span><span class="occupied-spaces">{{data.occupiedSpaces}}</span>
+  </div>
+</div>
