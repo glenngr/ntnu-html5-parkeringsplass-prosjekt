@@ -21,7 +21,7 @@ export class HistoryService {
     }
 
     private toHistoryCollection(parkingSpaceName: string, history: HistoryData[]) {
-        let hist = new HistoryCollection(parkingSpaceName, history);
+        const hist = new HistoryCollection(parkingSpaceName, history);
         console.log(hist);
         return hist;
     }

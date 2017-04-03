@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angu
 import { SebmGoogleMapInfoWindow } from 'angular2-google-maps/core';
 
 @Component({
-  selector: 'gg-map-circle-with-info-window',
+  selector: 'app-map-circle-with-info-window',
   templateUrl: './map-circle-with-info-window.component.html',
   styleUrls: ['./map-circle-with-info-window.component.css']
 })
