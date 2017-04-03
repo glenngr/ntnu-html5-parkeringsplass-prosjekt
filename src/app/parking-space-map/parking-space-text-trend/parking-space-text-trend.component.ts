@@ -10,20 +10,10 @@ import { HistoryCollection, HistoryData } from '../models/history-collection.mod
 })
 export class ParkingSpaceTextTrendComponent implements OnInit {
 
-  @Input() parkingSpaceTrendData: Observable<HistoryCollection>;
-
-  name: string;
-  history: HistoryData[];
-
+  @Input() trendData: Observable<HistoryCollection>;
   constructor() { }
 
   ngOnInit() {
-    console.log('onninit', this.parkingSpaceTrendData);
-    this.parkingSpaceTrendData.subscribe(data => {
-      console.log('from trend comp', data);
-      this.name = data.parkingSpaceName;
-      this.history = data.history;
-    });
   }
 
 }
