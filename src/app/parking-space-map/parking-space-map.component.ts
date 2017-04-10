@@ -10,8 +10,7 @@ import 'rxjs/add/operator/takeUntil';
 import { LocalStorage } from 'angular2-localstorage';
 
 import { GeolocationService } from './geolocation-service/geolocation.service';
-import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-websocket.service';
-import { HistoryService } from './history-service/history.service';
+import { ParkingSpaceBackendService } from './parking-space-backend-service/';
 
 import { Location } from './models/location.model';
 import { ParkingSpace } from './models/parkingspace.model';
@@ -43,8 +42,7 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
 
   constructor(
     private geoLocationService: GeolocationService,
-    private parkingSpaceWsService: ParkingSpaceWebsocketService,
-    private historyService: HistoryService
+    private backendService: ParkingSpaceBackendService,
   ) {
     this.freeParkingSpacesFilterValue$ = new Subject<number>();
     this.destroyed$ = new Subject<any>();
@@ -86,7 +84,7 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   onShowTrend() {
     this.showSidenavParkingSpaceTrend = true;
     const pname = this.sidenavData.name;
-    this.sidenavTrend = this.historyService.getHistory(pname);
+    this.sidenavTrend = this.backendService.getHistory(pname);
   }
 
   onSidenavClose() {
@@ -96,9 +94,9 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.parkingSpaceWsService.connect();
+    this.backendService.connect();
     Observable.combineLatest(
-      this.parkingSpaceWsService.messages.distinctUntilChanged(),
+      this.backendService.messages.distinctUntilChanged(),
       this.freeParkingSpacesFilterValue$.distinctUntilChanged()
     ).timeout(30000)
       .takeUntil(this.destroyed$)

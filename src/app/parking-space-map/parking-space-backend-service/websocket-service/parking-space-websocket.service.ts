@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import websocketConnect from 'rxjs-websockets';
 
-import { ParkingSpace } from '../models/parkingspace.model';
+import { ParkingSpace } from '../../models/parkingspace.model';
 
 const serverUrl = 'wss://remote.glenng.no:3006/';
 
