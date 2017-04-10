@@ -6,7 +6,7 @@
     <span class="fill-remaining-space"></span>
     <md-icon *ngIf="connectionError" color="warn" mdTooltip="Ingen kontakt med server">signal_wifi_off</md-icon>
     <md-spinner mdTooltip="Laster inn data fra server" *ngIf="!parkingSpaces"></md-spinner>
-    <button md-raised-button color="secondary" class="statistics-button"><md-icon>trending_up</md-icon> Statistikk for parkeringsplasser</button>
+    <button md-raised-button color="secondary" class="statistics-button" routerLink="/stats"><md-icon>trending_up</md-icon> Statistikk for parkeringsplasser</button>
     <button md-raised-button color="secondary" *ngIf="!showingUserLocation" (click)="onShowMyLocationButtonClick()"><md-icon>location_on</md-icon> Vis min lokasjon</button>
     <button md-raised-button color="secondary" *ngIf="showingUserLocation" (click)="onHideMyLocationButtonClick()"><md-icon>location_off</md-icon> Fjern min lokasjon</button>
   </app-parking-space-toolbar>
