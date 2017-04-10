@@ -12,7 +12,7 @@ import { InfoCircleColorService } from './parking-space-info-circle/info-circle-
 import { GeolocationService } from './geolocation-service/geolocation.service';
 import { ParkingSpaceWebsocketService } from './websocket-service/parking-space-websocket.service';
 import { RangeFilterModule } from '../range-filter/';
-import { ParkingSpaceToolbarComponent } from './parking-space-toolbar/parking-space-toolbar.component';
+import { ParkingSpaceToolbarModule } from './parking-space-toolbar/';
 import { ParkingSpaceInfoDialogComponent } from './parking-space-info-dialog/parking-space-info-dialog.component';
 import { HistoryService } from './history-service/history.service';
 import { ParkingSpaceInfoComponent } from './parking-space-info/parking-space-info.component';
@@ -32,6 +32,7 @@ import { ParkingSpaceStatsComponent } from './parking-space-stats/parking-space-
     MaterialModule,
     HttpModule,
     ParkingSpaceMapRoutingModule,
+    ParkingSpaceToolbarModule,
   ],
   providers: [
     GeolocationService,
@@ -43,7 +44,6 @@ import { ParkingSpaceStatsComponent } from './parking-space-stats/parking-space-
     ParkingSpaceMapComponent,
     MapCircleWithInfoWindowComponent,
     ParkingSpaceInfoCircleComponent,
-    ParkingSpaceToolbarComponent,
     ParkingSpaceInfoDialogComponent,
     ParkingSpaceInfoComponent,
     ParkingSpaceTextTrendComponent,
@@ -54,6 +54,6 @@ import { ParkingSpaceStatsComponent } from './parking-space-stats/parking-space-
   entryComponents: [
     ParkingSpaceInfoDialogComponent,
   ],
-  exports: [ParkingSpaceMapComponent, ParkingSpaceInfoComponent]
+  //exports: [ParkingSpaceMapComponent, ParkingSpaceInfoComponent]
 })
 export class ParkingSpaceMapModule { }
