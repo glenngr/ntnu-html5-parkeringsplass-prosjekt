@@ -18,6 +18,10 @@ import { HistoryService } from './history-service/history.service';
 import { ParkingSpaceInfoComponent } from './parking-space-info/parking-space-info.component';
 import { ParkingSpaceTextTrendComponent } from './parking-space-text-trend/parking-space-text-trend.component';
 import { ReverseArrayPipe } from '../reverse-array-pipe/reverse-array.pipe';
+import { ParkingSpaceMapRoutingModule } from './parking-space-map-routing.module';
+import { ParkingSpaceMapHomeComponent } from './parking-space-map-home.component';
+import { ParkingSpaceStatsComponent } from './parking-space-stats/parking-space-stats.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -27,6 +31,7 @@ import { ReverseArrayPipe } from '../reverse-array-pipe/reverse-array.pipe';
     RangeFilterModule,
     MaterialModule,
     HttpModule,
+    ParkingSpaceMapRoutingModule,
   ],
   providers: [
     GeolocationService,
@@ -42,6 +47,8 @@ import { ReverseArrayPipe } from '../reverse-array-pipe/reverse-array.pipe';
     ParkingSpaceInfoDialogComponent,
     ParkingSpaceInfoComponent,
     ParkingSpaceTextTrendComponent,
+    ParkingSpaceMapHomeComponent,
+    ParkingSpaceStatsComponent,
     ReverseArrayPipe,
   ],
   entryComponents: [
