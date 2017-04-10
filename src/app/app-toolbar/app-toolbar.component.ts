@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { LocalStorage } from 'angular2-localstorage';
 
-import { ParkingSpaceMapComponent } from '../parking-space-map/parking-space-map.component';
 import { ChooseThemeDialogComponent } from '../choose-theme-dialog/choose-theme-dialog.component';
 
 @Component({
