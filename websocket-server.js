@@ -40,6 +40,11 @@ app.get('/history', function (request, response) {
     response.send(JSON.stringify(parkingspaceChangeLog));
 });
 
+app.get('/parkingspaces', function (request, response) {
+    response.setHeader('Content-Type', 'application/json');
+    response.send(JSON.stringify(testData.map(d => d.name)));
+});
+
 app.get('/history/:spot', function (request, response, next) {
     if (parkingspaceChangeLog.hasOwnProperty(request.params.spot)) {
         response.end(JSON.stringify(parkingspaceChangeLog[request.params.spot]));
