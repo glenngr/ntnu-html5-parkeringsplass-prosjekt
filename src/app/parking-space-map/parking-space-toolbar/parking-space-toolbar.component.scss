@@ -1,0 +1,9 @@
+button {
+    &.show-toolbar {
+        position: fixed;
+        right: 0;
+        margin-right: 20px;
+        margin-top: 12px;
+        z-index: 99;
+    }
+}

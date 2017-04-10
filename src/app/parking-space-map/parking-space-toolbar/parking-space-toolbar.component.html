@@ -1,3 +1,5 @@
-<md-toolbar>
+<md-toolbar *ngIf="visible">
   <ng-content></ng-content>
+  <button md-icon-button (click)="visible = false;" mdTooltip="Lukk"><md-icon>close</md-icon></button>
 </md-toolbar>
+<button *ngIf="!visible" class="show-toolbar" md-mini-fab mdTooltip="Vis verktøylinjen" mdTooltipPosition="before" (click)="visible = true;"><md-icon>expand_more</md-icon></button>

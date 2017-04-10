@@ -34,7 +34,6 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   mapZoom = 15;
   showAllInfowindows = true;
   showingUserLocation = false;
-  showParkingSpaceToolbar = true;
   showSidenavParkingSpaceTrend = false;
   connectionError = false;
   sidenavData: ParkingSpace;
