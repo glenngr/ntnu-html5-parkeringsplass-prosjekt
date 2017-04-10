@@ -12,10 +12,11 @@ import { GetParkingSpaceList } from './parking-space-http.service.interface';
 @Injectable()
 export class ParkingSpaceHttpService implements GetParkingSpaceList {
     private baseBackendUrl: string;
-    private parkingSpacesResource = this.baseBackendUrl + 'parkingSpaces';  // URL to web API
+    private parkingSpacesResource: string;
 
     constructor(private baseHttpService: BaseHttpService) {
         this.baseBackendUrl = baseHttpService.baseBackendUrl;
+        this.parkingSpacesResource = this.baseBackendUrl + 'parkingSpaces';  // URL to web API
     }
 
     getParkingSpaceList(): Observable<string[]> {

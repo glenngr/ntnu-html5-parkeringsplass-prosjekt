@@ -12,11 +12,13 @@ import { BaseHttpService } from '../base-http.service';
 @Injectable()
 export class HistoryService implements GetHistory {
     private baseBackendUrl: string;
-    private historyResource = this.baseBackendUrl + 'history';  // URL to web API
+    private historyResource: string;
 
     constructor(private baseHttpService: BaseHttpService) {
         this.baseBackendUrl = baseHttpService.baseBackendUrl;
+        this.historyResource = this.baseBackendUrl + 'history';
     }
+
     getHistory(parkingSpaceName: string): Observable<HistoryCollection> {
         return this.baseHttpService.http.get(this.historyResource + '/' + parkingSpaceName)
             .map(this.extractData)
