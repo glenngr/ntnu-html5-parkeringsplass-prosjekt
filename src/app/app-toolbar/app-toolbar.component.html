@@ -1,0 +1,13 @@
+<md-toolbar color="primary">
+  <span>{{appTitle}}</span>
+  <span class="fill-remaining-space"></span>
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+  <md-icon>more_vert</md-icon>
+</button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item (click)="openThemeDialog()">
+      <md-icon>palette</md-icon>
+      <span>Velg fargetema</span>
+    </button>
+  </md-menu>
+</md-toolbar>

@@ -12,17 +12,4 @@ import { ChooseThemeDialogComponent } from './choose-theme-dialog/choose-theme-d
 })
 export class AppComponent {
   title = 'Oversikt over parkeringsplasser';
-  @LocalStorage() theme = 'default';
-
-  constructor(public dialog: MdDialog) { }
-
-  openThemeDialog() {
-    const dialogRef = this.dialog.open(ChooseThemeDialogComponent);
-    dialogRef.componentInstance.selectedTheme = this.theme;
-    dialogRef.afterClosed().subscribe(chosenTheme => {
-      if (chosenTheme) {
-        this.theme = chosenTheme;
-      }
-    });
-  }
 }

@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { ChooseThemeDialogComponent } from './choose-theme-dialog/choose-theme-dialog.component';
 import { ParkingSpaceMapModule } from './parking-space-map/';
 import { AppRoutingModule } from './app-routing.module';
+import { AppToolbarComponent } from './app-toolbar/app-toolbar.component';
 
 @NgModule({
   entryComponents: [
@@ -19,7 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     ChooseThemeDialogComponent,
-  ],
+    AppToolbarComponent,
+],
   imports: [
     BrowserModule,
     FormsModule,

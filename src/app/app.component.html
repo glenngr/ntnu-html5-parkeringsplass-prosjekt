@@ -1,16 +1,4 @@
-<div [class.deep-purple-theme]="theme === 'deep-purple-theme'" [class.dark-theme]="theme === 'dark-theme'" [class.unicorn-dark-theme]="theme === 'unicorn-dark-theme'">
-<md-toolbar color="primary">
-  <span>{{title}}</span>
-  <span class="fill-remaining-space"></span>
-  <button md-icon-button [mdMenuTriggerFor]="menu">
-  <md-icon>more_vert</md-icon>
-</button>
-  <md-menu #menu="mdMenu">
-    <button md-menu-item (click)="openThemeDialog()">
-      <md-icon>palette</md-icon>
-      <span>Velg fargetema</span>
-    </button>
-  </md-menu>
-</md-toolbar>
+<div [class.deep-purple-theme]="toolbar.theme === 'deep-purple-theme'" [class.dark-theme]="toolbar.theme === 'dark-theme'" [class.unicorn-dark-theme]="toolbar.theme === 'unicorn-dark-theme'">
+<app-toolbar [appTitle]="title" #toolbar></app-toolbar>
 <router-outlet></router-outlet>
 </div>
