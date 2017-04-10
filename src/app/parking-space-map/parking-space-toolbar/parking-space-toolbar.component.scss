@@ -1,3 +1,5 @@
+$toolbar-height: 64px;
+
 button {
     &.show-toolbar {
         position: fixed;
@@ -6,4 +8,12 @@ button {
         margin-top: 12px;
         z-index: 99;
     }
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+md-spinner {
+  max-height: $toolbar-height - 6px;
 }

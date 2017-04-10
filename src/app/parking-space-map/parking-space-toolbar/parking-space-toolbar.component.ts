@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-parking-space-toolbar',
@@ -7,6 +7,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class ParkingSpaceToolbarComponent implements OnInit {
   visible = true;
+  @Input() connectionError = false;
+  @Input() loading = false;
 
   constructor() { }
 

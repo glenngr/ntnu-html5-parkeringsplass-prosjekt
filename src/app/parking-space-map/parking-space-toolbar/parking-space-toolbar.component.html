@@ -1,5 +1,10 @@
 <md-toolbar *ngIf="visible">
   <ng-content></ng-content>
+  <ng-content select="app-parking-space-toolbar-left-align"></ng-content>
+  <span class="fill-remaining-space"></span>
+  <md-icon *ngIf="connectionError" color="warn" mdTooltip="Ingen kontakt med server">signal_wifi_off</md-icon>
+  <md-spinner mdTooltip="Laster inn data fra server" *ngIf="loading"></md-spinner>
+  <ng-content select="app-parking-space-toolbar-right-align"></ng-content>
   <button md-icon-button (click)="visible = false;" mdTooltip="Lukk"><md-icon>close</md-icon></button>
 </md-toolbar>
 <button *ngIf="!visible" class="show-toolbar" md-mini-fab mdTooltip="Vis verktøylinjen" mdTooltipPosition="before" (click)="visible = true;"><md-icon>expand_more</md-icon></button>
