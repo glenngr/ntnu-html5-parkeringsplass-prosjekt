@@ -7,6 +7,11 @@ import { ParkingSpaceStatsComponent } from './parking-space-stats/parking-space-
 const parkingSpaceMapRoutes: Routes = [
     {
         path: '',
+        redirectTo: 'map',
+        pathMatch: 'full'
+    },
+    {
+        path: 'map',
         component: ParkingSpaceMapComponent,
     },
     {

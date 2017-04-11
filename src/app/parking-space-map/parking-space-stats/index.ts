@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
 
 import { ParkingSpaceStatsComponent } from './parking-space-stats.component';
 import { BarchartDirective } from './parking-space-barchart/barchart.directive';
@@ -11,7 +12,8 @@ import { ParkingSpaceToolbarModule } from '../parking-space-toolbar/';
     imports: [
         ParkingSpaceToolbarModule,
         MaterialModule,
-        CommonModule
+        CommonModule,
+        RouterModule
     ],
     exports: [ParkingSpaceStatsComponent],
     declarations: [
