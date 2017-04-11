@@ -4,12 +4,11 @@
     <md-button-toggle-group multiple>
       <md-button-toggle color="accent" *ngFor="let ps of parkingSpaces | async" (change)="onSelectionChanged($event)" [value]="ps">{{ps}}</md-button-toggle>
     </md-button-toggle-group>
-
   </app-parking-space-toolbar-left-align>
   <app-parking-space-toolbar-right-align>
     <button md-raised-button color="secondary" class="map-button" routerLink="/"><md-icon>trending_up</md-icon> Kart over parkeringsplasser</button>
   </app-parking-space-toolbar-right-align>
 </app-parking-space-toolbar>
 <div *ngIf="barChartData">
-  <canvas *ngFor="let data of barChartData" width="800" height="350" [appBarChartData]="data.barChartData" [appBarChartTitle]="data.name"></canvas>
+  <app-parking-space-barchart *ngFor="let data of barChartData" [data]="data.barChartData" [title]="data.name"></app-parking-space-barchart>
 </div>
