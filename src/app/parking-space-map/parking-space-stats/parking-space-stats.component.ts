@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { ParkingSpaceBackendService } from '../parking-space-backend-service/';
 import { HistoryCollection } from '../models/history-collection.model';
+import { BarChartData } from './barchart-models';
 
 @Component({
   selector: 'app-parking-space-stats',
@@ -12,7 +13,7 @@ import { HistoryCollection } from '../models/history-collection.model';
 })
 export class ParkingSpaceStatsComponent implements OnInit {
   parkingSpaces: Observable<string[]>;
-  historyData: HistoryCollection;
+  barChartData: BarChartData[];
   loadingHistory: boolean;
   private historyDataSubscription: Subscription;
 
@@ -33,9 +34,19 @@ export class ParkingSpaceStatsComponent implements OnInit {
 
     this.historyDataSubscription = this.backendService
       .getHistory(paringSpaceName)
+      .map(this.convertToBarChartData)
       .subscribe(data => {
-        this.historyData = data;
+        this.barChartData = data;
         this.loadingHistory = false;
       });
   }
+
+  private convertToBarChartData(data: HistoryCollection): BarChartData[] {
+    const barData: BarChartData[] = [];
+    data.history.forEach(historicData => {
+      barData.push(new BarChartData(historicData.date.toLocaleTimeString(), historicData.occupiedSpaces, 'plasser', 'blue'));
+    });
+    return barData;
+  }
+
 }
