@@ -19,6 +19,7 @@ import { ReverseArrayPipe } from '../reverse-array-pipe/reverse-array.pipe';
 import { ParkingSpaceMapRoutingModule } from './parking-space-map-routing.module';
 import { ParkingSpaceMapHomeComponent } from './parking-space-map-home.component';
 import { ParkingSpaceStatsComponent } from './parking-space-stats/parking-space-stats.component';
+import { BarchartDirective } from './parking-space-stats/barchart.directive';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import { ParkingSpaceStatsComponent } from './parking-space-stats/parking-space-
     ParkingSpaceMapHomeComponent,
     ParkingSpaceStatsComponent,
     ReverseArrayPipe,
+    BarchartDirective,
   ],
   entryComponents: [
     ParkingSpaceInfoDialogComponent,
