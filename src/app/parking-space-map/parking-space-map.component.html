@@ -17,12 +17,12 @@
       <button md-raised-button color="accent" class="trend-button" (click)="onShowTrend()"><md-icon>trending_up</md-icon>Statistikk for parkeringsplassen</button>
       <app-parking-space-text-trend [trendData]="sidenavTrend" *ngIf="showSidenavParkingSpaceTrend"></app-parking-space-text-trend>
     </md-sidenav>
-    <sebm-google-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom" (zoomChange)="mapZoomChanged($event)" [class.showingParkingSpaceToolbar]="toolbar.visible" #map>
+    <agm-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom" (zoomChange)="mapZoomChanged($event)" [class.showingParkingSpaceToolbar]="toolbar.visible" #map>
       <gg-parking-space-info-circle *ngFor="let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces" (circleClick)="onCircleClick($event)"
         [parkingSpace]="parkingSpace" [infoWindowOpen]="showAllInfowindows">
       </gg-parking-space-info-circle>
-      <sebm-google-map-marker *ngIf="userGeoLocation" [latitude]="userGeoLocation.lat" [longitude]="userGeoLocation.long">
-        <sebm-google-map-info-window [isOpen]="true">Din omtrentlige plassering</sebm-google-map-info-window>
-      </sebm-google-map-marker>
-    </sebm-google-map>
+      <agm-marker *ngIf="userGeoLocation" [latitude]="userGeoLocation.lat" [longitude]="userGeoLocation.long">
+        <agm-info-window [isOpen]="true">Din omtrentlige plassering</agm-info-window>
+      </agm-marker>
+    </agm-map>
   </md-sidenav-container>

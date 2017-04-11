@@ -7,7 +7,7 @@ import { ParkingSpaceInfoCircleComponent } from './parking-space-info-circle.com
 import { InfoCircleColorService } from './info-circle-color.service';
 import { MapCircleWithInfoWindowComponent } from '../map-circle-with-info-window/map-circle-with-info-window.component';
 
-import { AgmCoreModule, CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager, MapsAPILoader} from 'angular2-google-maps/core';
+import { AgmCoreModule, CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager, MapsAPILoader} from '@agm/core';
 
 describe('ParkingSpaceInfoCircleComponent', () => {
   let component: ParkingSpaceInfoCircleComponent;

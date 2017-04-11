@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { MapCircleWithInfoWindowComponent } from './map-circle-with-info-window.component';
-import { AgmCoreModule, CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager } from 'angular2-google-maps/core';
+import { AgmCoreModule, CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager } from '@agm/core';
 
 describe('MapCircleWithInfoWindowComponent', () => {
   let component: MapCircleWithInfoWindowComponent;

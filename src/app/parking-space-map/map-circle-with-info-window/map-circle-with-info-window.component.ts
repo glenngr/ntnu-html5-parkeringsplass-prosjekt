@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angular/core';
-import { SebmGoogleMapInfoWindow } from 'angular2-google-maps/core';
+import { AgmInfoWindow } from '@agm/core';
 
 @Component({
   selector: 'app-map-circle-with-info-window',
@@ -14,7 +14,7 @@ export class MapCircleWithInfoWindowComponent implements OnInit {
   @Input() circleRadius: number;
   @Input() infoWindowOpen: boolean;
   @Output() circleClick: EventEmitter<any> = new EventEmitter<any>();
-  @ViewChild(SebmGoogleMapInfoWindow) infoWindow: SebmGoogleMapInfoWindow;
+  @ViewChild(AgmInfoWindow) infoWindow: AgmInfoWindow;
 
   constructor() { }
 
