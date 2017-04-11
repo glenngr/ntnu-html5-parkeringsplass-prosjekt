@@ -6,3 +6,7 @@ export class BarChartData {
         public barColor: string,
     ) { }
 }
+
+export class BarChartDataCollection {
+    constructor(public name: string, public barChartData: BarChartData[]) {}
+}

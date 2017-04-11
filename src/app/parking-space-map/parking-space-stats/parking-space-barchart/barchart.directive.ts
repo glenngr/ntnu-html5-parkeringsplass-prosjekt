@@ -4,7 +4,7 @@
  */
 
 import { Directive, ElementRef, HostListener, Input, OnInit, HostBinding, OnChanges, SimpleChanges } from '@angular/core';
-import { BarChartData } from './barchart-models';
+import { BarChartData, BarChartDataCollection } from './barchart-models';
 
 @Directive({
   selector: '[appBarChartData]',

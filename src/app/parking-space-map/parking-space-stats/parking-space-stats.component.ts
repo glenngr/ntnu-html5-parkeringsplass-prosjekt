@@ -7,7 +7,7 @@ import { MdButtonToggleChange } from '@angular/material';
 
 import { ParkingSpaceBackendService } from '../parking-space-backend-service/';
 import { HistoryCollection } from '../models/history-collection.model';
-import { BarChartData, BarChartDataCollection } from './barchart-models';
+import { BarChartData, BarChartDataCollection } from './parking-space-barchart/barchart-models';
 
 const MAXBARSFORONEPARKINGSPACE = 7;
 
