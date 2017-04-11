@@ -32,6 +32,7 @@ export class BarchartDirective implements OnInit, OnChanges {
   private yMargin: number;
   private barMaxHeight: number;
   private yLabelStartPoint: any;
+  private yLabelSeparator: number;
 
   private showPercentageFreeSpaces = false;
 
@@ -46,7 +47,7 @@ export class BarchartDirective implements OnInit, OnChanges {
     this.canvasWidth = this.canvasElRef.nativeElement.width;
     this.canvasHeight = this.canvasElRef.nativeElement.height;
     this.canvasContext = this.canvasElRef.nativeElement.getContext('2d');
-    this.yMargin = 25; // margin on top and bottom
+    this.yMargin = 35; // margin on top and bottom
     this.xMargin = 10; // margin left and right and beetween bars
 
     this.configureCanvasFonts();
@@ -73,7 +74,8 @@ export class BarchartDirective implements OnInit, OnChanges {
     this.barMaxHeight = this.canvasHeight - this.yMargin * 2; // maximum bar height depending on canvas height
     this.barWidth = (this.canvasWidth - (values.length + 2) * this.xMargin) / values.length; // width of bar depending on canvas width
     this.yBarStartPoint = this.canvasHeight - this.yMargin; // position where the bars start
-    this.yLabelStartPoint = this.yBarStartPoint + 5; // middle of each bar for
+    this.yLabelStartPoint = this.yBarStartPoint + 20;
+    this.yLabelSeparator = this.yBarStartPoint + 10;
     this.xMiddleOfDiagram = (this.xMargin + this.xMargin * values.length + this.barWidth * values.length) / 2;
 
     this.canvasContext.shadowOffsetX = 3;
@@ -117,6 +119,15 @@ export class BarchartDirective implements OnInit, OnChanges {
       this.addBarWithLabels(element, barNumber);
       barNumber++;
     });
+    this.addLabelSeparator();
+  }
+
+  private addLabelSeparator() {
+    this.canvasContext.fillStyle = 'lightgray';
+    this.canvasContext.beginPath();
+    this.canvasContext.moveTo(0, this.yLabelSeparator);
+    this.canvasContext.lineTo(this.canvasWidth, this.yLabelSeparator);
+    this.canvasContext.stroke();
   }
 
   private addBarWithLabels(barChartData: BarChartData, barNumber) {
