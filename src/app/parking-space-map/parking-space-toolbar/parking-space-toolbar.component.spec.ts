@@ -4,14 +4,15 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ParkingSpaceToolbarComponent } from './parking-space-toolbar.component';
+import { ParkingSpaceToolbarModule } from './';
 
-fdescribe('ParkingSpaceToolbarComponent', () => {
+describe('ParkingSpaceToolbarComponent', () => {
   let component: ParkingSpaceToolbarComponent;
   let fixture: ComponentFixture<ParkingSpaceToolbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParkingSpaceToolbarComponent ]
+      imports: [ParkingSpaceToolbarModule],
     })
     .compileComponents();
   }));
