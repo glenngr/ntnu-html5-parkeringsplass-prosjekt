@@ -4,10 +4,11 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/debounceTime';
 import { MdButtonToggleChange } from '@angular/material';
+import { LocalStorage } from 'angular2-localstorage';
 
 import { ParkingSpaceBackendService } from '../parking-space-backend-service/';
 import { HistoryCollection } from '../models/history-collection.model';
-import { BarChartData, BarChartDataCollection } from './parking-space-barchart/barchart-models';
+import { BarChartData, BarChartDataCollection, BarChartSelectedColorChange } from './parking-space-barchart/barchart-models';
 
 const MAXBARSFORONEPARKINGSPACE = 7;
 
@@ -23,6 +24,7 @@ export class ParkingSpaceStatsComponent implements OnInit {
   loadingHistory: boolean;
   private historyDataSubscription: Subscription;
   private selectedParkingspaces: string[] = [];
+  @LocalStorage() public barChartColorPreferences: BarChartColorPreference[] = [];
 
   constructor(
     private backendService: ParkingSpaceBackendService,
@@ -65,7 +67,9 @@ export class ParkingSpaceStatsComponent implements OnInit {
       .debounceTime(700)
       .map(this.convertToBarChartData)
       .subscribe(data => {
-        this.barChartData.push(new BarChartDataCollection(parkingSpaceName, data));
+        const colorPreference = BarChartColorPreferenceTools.getColorPreferenceFor(parkingSpaceName, this.barChartColorPreferences);
+        const barData = new BarChartDataCollection(parkingSpaceName, data, colorPreference);
+        this.barChartData.push(barData);
         this.loadingHistory = false;
       });
   }
@@ -81,5 +85,26 @@ export class ParkingSpaceStatsComponent implements OnInit {
       this.barChartData = this.barChartData.filter(bcd => bcd.name !== e.value);
       this.loadingHistory = false;
     }
+  }
+
+  onBarChartSelectedColorChange(event: BarChartSelectedColorChange) {
+    this.barChartColorPreferences = this.barChartColorPreferences.filter(p => p.barChartTitle !== event.chartTitle);
+    this.barChartColorPreferences.push(new BarChartColorPreference(event.chartTitle, event.newColor));
+    console.log(event, this.barChartColorPreferences);
+  }
+}
+
+class BarChartColorPreference {
+  constructor(public barChartTitle: string, public color: string) { }
+}
+
+class BarChartColorPreferenceTools {
+  public static hasColorPreferenceFor(key: string, list: BarChartColorPreference[]): boolean {
+    return this.getColorPreferenceFor(key, list) !== undefined;
+  }
+
+  public static getColorPreferenceFor(key: string, list: BarChartColorPreference[]): string {
+    const pref = list.find(p => p.barChartTitle === key);
+    return pref === undefined ? undefined : pref.color;
   }
 }

@@ -8,5 +8,9 @@ export class BarChartData {
 }
 
 export class BarChartDataCollection {
-    constructor(public name: string, public barChartData: BarChartData[]) {}
+    constructor(public name: string, public barChartData: BarChartData[], public barChartColor?: string) {}
+}
+
+export class BarChartSelectedColorChange {
+  constructor(public newColor: string, public chartTitle) { }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MdSelectChange } from '@angular/material';
 
-import { BarChartData } from './barchart-models';
+import { BarChartData, BarChartSelectedColorChange } from './barchart-models';
+
 
 @Component({
   selector: 'app-parking-space-barchart',
@@ -11,7 +12,22 @@ import { BarChartData } from './barchart-models';
 export class ParkingSpaceBarchartComponent implements OnInit {
   @Input() data: BarChartData;
   @Input() title: string;
-  selectedColor = 'yellow';
+  // tslint:disable-next-line:no-input-rename
+  @Input('color') set selectedColor(color: string) {
+    console.log('setting color to ', color);
+    if (color === undefined || color === null) {
+      return;
+    }
+
+    this._selectedColor = color;
+  }
+
+  get selectedColor(): string {
+    return this._selectedColor;
+  }
+  @Output() colorChange = new EventEmitter<any>();
+
+  private _selectedColor: string = 'yellow';
 
   constructor() { }
 
@@ -20,5 +36,6 @@ export class ParkingSpaceBarchartComponent implements OnInit {
 
   onSelectedColorchange(eventData: MdSelectChange) {
     this.selectedColor = eventData.value;
+    this.colorChange.emit(new BarChartSelectedColorChange(eventData.value, this.title));
   }
 }

@@ -10,5 +10,5 @@
   </app-parking-space-toolbar-right-align>
 </app-parking-space-toolbar>
 <div *ngIf="barChartData">
-  <app-parking-space-barchart *ngFor="let data of barChartData" [data]="data.barChartData" [title]="data.name"></app-parking-space-barchart>
+  <app-parking-space-barchart *ngFor="let data of barChartData" [data]="data.barChartData" [title]="data.name" [color]="data.barChartColor" (colorChange)="onBarChartSelectedColorChange($event)"></app-parking-space-barchart>
 </div>
