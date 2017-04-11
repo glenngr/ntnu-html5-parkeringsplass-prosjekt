@@ -1,1 +1,11 @@
-<canvas width="800" height="350" [appBarChartData]="data" [appBarChartTitle]="title"></canvas>
+<div class="colorselect">
+    <md-select placeholder="Velg farge for denne serien" (change)="onSelectedColorchange($event)">
+        <md-option value="yellow" selected>Gul</md-option>
+        <md-option value="red">Rød</md-option>
+        <md-option value="purple">Lilla</md-option>
+        <md-option value="grey">Grå</md-option>
+        <md-option value="green">Grønn</md-option>
+    </md-select>
+</div>
+
+<canvas width="800" height="350" [appBarChartData]="data" [appBarChartTitle]="title" [appBarChartColor]="selectedColor"></canvas>

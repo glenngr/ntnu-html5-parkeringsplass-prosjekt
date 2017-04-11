@@ -13,6 +13,7 @@ import { BarChartData, BarChartDataCollection } from './barchart-models';
 export class BarchartDirective implements OnInit, OnChanges {
   // tslint:disable:no-input-rename
   @Input('appBarChartData') barChartdata: BarChartData[];
+  @Input('appBarChartColor') barColor: string;
   @Input('appBarChartTitle') title: string;
 
   private canvasWidth: number;
@@ -48,11 +49,12 @@ export class BarchartDirective implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['barChartdata'] && this.canvasContext) {
-      console.log('changes in barChartdata, redrawing');
+    if (!this.canvasContext) {
+      return;
+    }
+      console.log('changes in barChartdata, redrawing', this.barColor);
       this.configureCanvas();
       this.drawBarChart();
-    }
   }
 
   private configureCanvas() {
@@ -103,7 +105,7 @@ export class BarchartDirective implements OnInit, OnChanges {
 
     let barNumber = 0;
     this.barChartdata.forEach(element => {
-      this.addBarWithLabels(element.name, element.value, element.valueType, element.barColor, barNumber);
+      this.addBarWithLabels(element.name, element.value, element.valueType, this.barColor, barNumber);
       barNumber++;
     });
   }
