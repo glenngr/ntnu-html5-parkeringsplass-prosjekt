@@ -1,12 +1,12 @@
 <app-parking-space-toolbar [loading]="!parkingSpaces || loadingHistory">
   <app-parking-space-toolbar-left-align>
-    Velg parkingsplass å vise statistikk for: <button md-raised-button color="accent" *ngFor="let ps of parkingSpaces | async" (click)="onPsButtonClick(ps)">{{ps}}</button>
+    Velg parkingsplass å vise statistikk for: <button md-raised-button color="accent" *ngFor="let ps of parkingSpaces | async"
+      (click)="onPsButtonClick(ps)">{{ps}}</button>
   </app-parking-space-toolbar-left-align>
   <app-parking-space-toolbar-right-align>
     <button md-raised-button color="secondary" class="map-button" routerLink="/"><md-icon>trending_up</md-icon> Kart over parkeringsplasser</button>
   </app-parking-space-toolbar-right-align>
 </app-parking-space-toolbar>
-<div *ngIf="historyData">
-  {{historyData | json}}
+<div *ngIf="barChartData">
+  <canvas id="bar_cart" width="800" height="350" [appBarChartData]="barChartData" [appBarChartTitle]="barChartTitle"></canvas>
 </div>
-<canvas id="bar_cart" width="800" height="350" [appBarChartData]="barChartData"></canvas>

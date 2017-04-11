@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -14,6 +15,7 @@ import { BarChartData } from './barchart-models';
 export class ParkingSpaceStatsComponent implements OnInit {
   parkingSpaces: Observable<string[]>;
   barChartData: BarChartData[];
+  barChartTitle: string;
   loadingHistory: boolean;
   private historyDataSubscription: Subscription;
 
@@ -34,6 +36,7 @@ export class ParkingSpaceStatsComponent implements OnInit {
 
     this.historyDataSubscription = this.backendService
       .getHistory(paringSpaceName)
+      .do(data => this.barChartTitle = data.parkingSpaceName)
       .map(this.convertToBarChartData)
       .subscribe(data => {
         this.barChartData = data;
@@ -43,10 +46,13 @@ export class ParkingSpaceStatsComponent implements OnInit {
 
   private convertToBarChartData(data: HistoryCollection): BarChartData[] {
     const barData: BarChartData[] = [];
+    const converter = new DatePipe('nb-NO');
+
     data.history.forEach(historicData => {
-      barData.push(new BarChartData(historicData.date.toLocaleTimeString(), historicData.occupiedSpaces, 'plasser', 'blue'));
+      const date = converter.transform(historicData.date, 'd/MH:mm').replace('.', '');
+      barData.push(new BarChartData(date, historicData.occupiedSpaces, 'plasser', 'yellow'));
     });
+
     return barData;
   }
-
 }
