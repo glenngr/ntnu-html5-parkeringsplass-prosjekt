@@ -28,7 +28,7 @@ parkingspaceChangeLog["P4"] = [];
 
 var now = new Date().toLocaleString();
 for (ps of testData) {
-    addToParkingSpaceChangeLog(ps.name, now, ps.occupiedSpaces);
+    addToParkingSpaceChangeLog(ps.name, now, ps.occupiedSpaces, ps.totalSpaces);
 }
 
 
@@ -103,10 +103,12 @@ function serialize() {
     return JSON.stringify(testData);
 }
 
-function addToParkingSpaceChangeLog(parkingSpaceName, dateTime, occupiedSpaces) {
+function addToParkingSpaceChangeLog(parkingSpaceName, dateTime, occupiedSpaces, totalSpaces) {
     var obj = {};
     obj['date'] = dateTime;
     obj['occupiedSpaces'] = occupiedSpaces;
+    obj['freeSpaces'] = totalSpaces - occupiedSpaces;
+    obj['totalSpaces'] = totalSpaces;
     parkingspaceChangeLog[parkingSpaceName].push(obj);
 }
 
@@ -116,7 +118,7 @@ function applyRandomOccupiedSpaces(data) {
         if (shouldApplyRandomData(ps.name)) {
             var occupiedSpaces = randomIntFromBetween(0, ps.totalSpaces);
             ps.occupiedSpaces = occupiedSpaces;
-            addToParkingSpaceChangeLog(ps.name, now, ps.occupiedSpaces);
+            addToParkingSpaceChangeLog(ps.name, now, ps.occupiedSpaces, ps.totalSpaces);
         }
     }
 
