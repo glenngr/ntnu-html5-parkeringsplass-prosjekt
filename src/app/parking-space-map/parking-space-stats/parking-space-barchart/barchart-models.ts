@@ -1,7 +1,8 @@
 export class BarChartData {
     constructor(
-        public name: string,
+        public label: string,
         public value: number,
+        public valuePercent: number,
         public valueType: string,
     ) { }
 }

@@ -33,7 +33,14 @@ export class BarchartDirective implements OnInit, OnChanges {
   private barMaxHeight: number;
   private yLabelStartPoint: any;
 
+  private showPercentageFreeSpaces = false;
+
   constructor(private canvasElRef: ElementRef) { }
+  @HostListener('click') onMouseClick() {
+    console.log('clicked the canvas');
+    this.showPercentageFreeSpaces = !this.showPercentageFreeSpaces;
+    this.redrawCanvas();
+  }
 
   ngOnInit() {
     this.canvasWidth = this.canvasElRef.nativeElement.width;
@@ -43,8 +50,11 @@ export class BarchartDirective implements OnInit, OnChanges {
     this.xMargin = 10; // margin left and right and beetween bars
 
     this.configureCanvasFonts();
-    this.configureCanvas();
+    this.redrawCanvas();
+  }
 
+  redrawCanvas() {
+    this.configureCanvas();
     this.drawBarChart();
   }
 
@@ -52,14 +62,13 @@ export class BarchartDirective implements OnInit, OnChanges {
     if (!this.canvasContext) {
       return;
     }
-      console.log('changes in barChartdata, redrawing', this.barColor);
-      this.configureCanvas();
-      this.drawBarChart();
+    console.log('changes in barChartdata, redrawing', this.barColor);
+    this.redrawCanvas();
   }
 
   private configureCanvas() {
     const values = this.barChartdata.map(d => d.value);
-    this.biggestValue = values.sort()[values.length - 1];
+    this.biggestValue = this.showPercentageFreeSpaces ? 100 : Math.max(...values);
 
     this.barMaxHeight = this.canvasHeight - this.yMargin * 2; // maximum bar height depending on canvas height
     this.barWidth = (this.canvasWidth - (values.length + 2) * this.xMargin) / values.length; // width of bar depending on canvas width
@@ -105,20 +114,22 @@ export class BarchartDirective implements OnInit, OnChanges {
 
     let barNumber = 0;
     this.barChartdata.forEach(element => {
-      this.addBarWithLabels(element.name, element.value, element.valueType, this.barColor, barNumber);
+      this.addBarWithLabels(element, barNumber);
       barNumber++;
     });
   }
 
-  private addBarWithLabels(label: string, value: number, unit: string, color: string, barNumber) {
+  private addBarWithLabels(barChartData: BarChartData, barNumber) {
+    const value = this.showPercentageFreeSpaces ? barChartData.valuePercent : barChartData.value;
     const barHeight = (value / this.biggestValue) * this.barMaxHeight;
     const xMiddleOfBar = this.barWidth / 2 + this.xMargin + this.xMargin * barNumber + this.barWidth * barNumber;
     const yMiddleOfBar = this.yBarStartPoint - barHeight / 2;
     const xStartPoint = this.xMargin + this.xMargin * barNumber + this.barWidth * barNumber;
 
-    this.addLabelBelowBar(label, xMiddleOfBar);
-    this.drawSingleBar(color, xStartPoint, barHeight);
-    this.addValueTextToBar(value, unit, xMiddleOfBar, yMiddleOfBar);
+    this.addLabelBelowBar(barChartData.label, xMiddleOfBar);
+    this.drawSingleBar(this.barColor, xStartPoint, barHeight);
+    const valueToDisplay = this.showPercentageFreeSpaces ? Math.round(value) + '%' : value;
+    this.addValueTextToBar(valueToDisplay, barChartData.valueType, xMiddleOfBar, yMiddleOfBar);
   }
 
   private drawSingleBar(barColor: string, xStartPoint: number, barHeight: number) {
@@ -134,7 +145,7 @@ export class BarchartDirective implements OnInit, OnChanges {
     this.canvasContext.fillText(label, xMiddleOfBar, this.yLabelStartPoint);
   }
 
-  private addValueTextToBar(value: number, unit: string, xMiddleOfBar: number, yMiddleOfBar: number) {
+  private addValueTextToBar(value: string | number, unit: string, xMiddleOfBar: number, yMiddleOfBar: number) {
     this.canvasContext.fillStyle = this.textColor;
     this.canvasContext.font = this.barLabelFont;
     this.canvasContext.textBaseline = 'top';
