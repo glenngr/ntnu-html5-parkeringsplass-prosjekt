@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
-import { LocalStorage } from 'angular2-localstorage';
 
 @Component({
   selector: 'app-root',
