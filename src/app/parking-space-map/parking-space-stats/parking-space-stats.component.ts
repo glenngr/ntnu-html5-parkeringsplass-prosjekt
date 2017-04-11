@@ -48,7 +48,7 @@ export class ParkingSpaceStatsComponent implements OnInit {
       }
 
       const date = converter.transform(historicData.date, 'd/MH:mm').replace('.', '');
-      barData.push(new BarChartData(date, historicData.occupiedSpaces, 'plasser'));
+      barData.push(new BarChartData(date, historicData.freeSpaces, 'ledige'));
     };
 
     return barData;
