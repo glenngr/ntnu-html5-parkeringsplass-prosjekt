@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/operator/debounceTime';
+import { MdButtonToggleChange } from '@angular/material';
 
 import { ParkingSpaceBackendService } from '../parking-space-backend-service/';
 import { HistoryCollection } from '../models/history-collection.model';
-import { BarChartData } from './barchart-models';
+import { BarChartData, BarChartDataCollection } from './barchart-models';
 
 const MAXBARSFORONEPARKINGSPACE = 7;
 
@@ -16,10 +18,11 @@ const MAXBARSFORONEPARKINGSPACE = 7;
 })
 export class ParkingSpaceStatsComponent implements OnInit {
   parkingSpaces: Observable<string[]>;
-  barChartData: BarChartData[];
+  barChartData: BarChartDataCollection[] = [];
   barChartTitle: string;
   loadingHistory: boolean;
   private historyDataSubscription: Subscription;
+  private selectedParkingspaces: string[] = [];
 
   constructor(
     private backendService: ParkingSpaceBackendService,
@@ -29,21 +32,10 @@ export class ParkingSpaceStatsComponent implements OnInit {
     this.parkingSpaces = this.backendService.getParkingSpaceList();
   }
 
-  onPsButtonClick(paringSpaceName) {
-    console.log(paringSpaceName);
+  onPsButtonClick(parkingSpaceName) {
+    console.log(parkingSpaceName);
     this.loadingHistory = true;
-    if (this.historyDataSubscription) {
-      this.historyDataSubscription.unsubscribe();
-    }
 
-    this.historyDataSubscription = this.backendService
-      .getHistory(paringSpaceName)
-      .do(data => this.barChartTitle = data.parkingSpaceName)
-      .map(this.convertToBarChartData)
-      .subscribe(data => {
-        this.barChartData = data;
-        this.loadingHistory = false;
-      });
   }
 
   private convertToBarChartData(data: HistoryCollection): BarChartData[] {
@@ -60,5 +52,33 @@ export class ParkingSpaceStatsComponent implements OnInit {
     };
 
     return barData;
+  }
+
+  private getParkingSpaceData(parkingSpaceName: string) {
+    if (this.historyDataSubscription) {
+      this.historyDataSubscription.unsubscribe();
+    }
+
+    this.historyDataSubscription = this.backendService
+      .getHistory(parkingSpaceName)
+      .debounceTime(700)
+      .map(this.convertToBarChartData)
+      .subscribe(data => {
+        this.barChartData.push(new BarChartDataCollection(parkingSpaceName, data));
+        this.loadingHistory = false;
+      });
+  }
+
+  onSelectionChanged(e: MdButtonToggleChange) {
+    this.loadingHistory = true;
+
+    if (e.source.checked) {
+      this.selectedParkingspaces.push(e.value);
+      this.getParkingSpaceData(e.value);
+    } else {
+      this.selectedParkingspaces = this.selectedParkingspaces.filter(ps => ps !== e.value);
+      this.barChartData = this.barChartData.filter(bcd => bcd.name !== e.value);
+      this.loadingHistory = false;
+    }
   }
 }
