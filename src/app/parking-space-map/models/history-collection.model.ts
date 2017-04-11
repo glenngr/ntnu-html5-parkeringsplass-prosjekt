@@ -8,4 +8,6 @@ export class HistoryCollection {
 export class HistoryData {
     date: Date;
     occupiedSpaces: number;
+    totalSpaces: number;
+    freespaces: number;
 }
