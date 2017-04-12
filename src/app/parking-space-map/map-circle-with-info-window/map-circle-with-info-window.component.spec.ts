@@ -16,7 +16,7 @@ describe('MapCircleWithInfoWindowComponent', () => {
       declarations: [MapCircleWithInfoWindowComponent],
       providers: [CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

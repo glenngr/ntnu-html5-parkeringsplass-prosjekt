@@ -6,7 +6,7 @@ import { ParkingSpaceInfoDialogComponent } from '../parking-space-info-dialog/pa
 import { ParkingSpace } from '../models/parkingspace.model';
 
 @Component({
-  selector: 'gg-parking-space-info-circle',
+  selector: 'app-parking-space-info-circle',
   templateUrl: './parking-space-info-circle.component.html',
   styleUrls: ['./parking-space-info-circle.component.css']
 })

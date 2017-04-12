@@ -50,6 +50,5 @@ import { ParkingSpaceStatsModule } from './parking-space-stats/';
   entryComponents: [
     ParkingSpaceInfoDialogComponent,
   ],
-  //exports: [ParkingSpaceMapComponent, ParkingSpaceInfoComponent]
 })
 export class ParkingSpaceMapModule { }
