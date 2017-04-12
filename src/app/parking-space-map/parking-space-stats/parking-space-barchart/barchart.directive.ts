@@ -55,6 +55,9 @@ export class BarchartDirective implements OnInit, OnChanges {
   }
 
   redrawCanvas() {
+    if (!this.barChartdata) {
+      return;
+    }
     this.configureCanvas();
     this.drawBarChart();
   }
