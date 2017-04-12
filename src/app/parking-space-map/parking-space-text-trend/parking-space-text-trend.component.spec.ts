@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ParkingSpaceTextTrendComponent } from './parking-space-text-trend.component';
+import { ParkingSpaceMapModule } from '../';
 
 describe('ParkingSpaceTextTrendComponent', () => {
   let component: ParkingSpaceTextTrendComponent;
@@ -11,9 +12,9 @@ describe('ParkingSpaceTextTrendComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParkingSpaceTextTrendComponent ]
+      imports: [ParkingSpaceMapModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

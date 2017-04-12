@@ -14,7 +14,7 @@ describe('ParkingSpaceToolbarComponent', () => {
     TestBed.configureTestingModule({
       imports: [ParkingSpaceToolbarModule],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

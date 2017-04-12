@@ -2,11 +2,11 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { ParkingSpaceBackendService } from './parking-space-backend.service';
-
+import { ParkingSpaceBackendModule } from '.';
 describe('Service: ParkingSpaceBackend', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ParkingSpaceBackendService]
+      imports: [ParkingSpaceBackendModule]
     });
   });
 

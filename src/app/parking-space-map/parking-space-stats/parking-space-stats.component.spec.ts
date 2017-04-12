@@ -2,8 +2,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
+
+import { AppRoutingModule } from '../../app-routing.module';
+import { ParkingSpaceMapModule } from '../index';
 
 import { ParkingSpaceStatsComponent } from './parking-space-stats.component';
+import { ParkingSpaceStatsModule } from './';
+import { ParkingSpaceBackendModule } from '../parking-space-backend-service/';
 
 describe('ParkingSpaceStatsComponent', () => {
   let component: ParkingSpaceStatsComponent;
@@ -11,9 +17,10 @@ describe('ParkingSpaceStatsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParkingSpaceStatsComponent ]
+      imports: [ParkingSpaceStatsModule, ParkingSpaceBackendModule, AppRoutingModule, ParkingSpaceMapModule],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

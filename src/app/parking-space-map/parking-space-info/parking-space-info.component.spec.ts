@@ -2,6 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { MaterialModule } from '@angular/material';
 
 import { ParkingSpaceInfoComponent } from './parking-space-info.component';
 
@@ -11,9 +12,10 @@ describe('ParkingSpaceInfoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParkingSpaceInfoComponent ]
+      imports: [MaterialModule],
+      declarations: [ParkingSpaceInfoComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,3 +1,4 @@
-  <app-map-circle-with-info-window [latitude]="parkingSpace.location.lat" [longitude]="parkingSpace.location.long" [circleFillColor]="circleFillColor" [circleRadius]="parkingSpace.size" [infoWindowOpen]="infoWindowOpen" (circleClick)=onMapCircleClick()>
+<app-map-circle-with-info-window *ngIf="parkingSpace" [latitude]="parkingSpace.location.lat" [longitude]="parkingSpace.location.long"
+  [circleFillColor]="circleFillColor" [circleRadius]="parkingSpace.size" [infoWindowOpen]="infoWindowOpen" (circleClick)=onMapCircleClick()>
   <strong>{{parkingSpace.name}}</strong> Ledige plasser: <i>{{freeSpaces}}</i> av totalt <i>{{parkingSpace.totalSpaces}}</i>
-  </app-map-circle-with-info-window>
+</app-map-circle-with-info-window>

@@ -2,11 +2,12 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { HistoryService } from './history.service';
+import { ParkingSpaceBackendModule } from '../';
 
 describe('Service: History', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [HistoryService]
+      imports: [ParkingSpaceBackendModule]
     });
   });
 

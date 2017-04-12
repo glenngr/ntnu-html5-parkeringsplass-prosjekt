@@ -8,7 +8,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         AppModule
-        ],
+      ],
     }).compileComponents();
   }));
 
@@ -24,10 +24,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Oversikt over parkeringsplasser');
   }));
 
-  it('should render title in a h1 tag', async(() => {
+  it('should render title in a app-toolbar tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Oversikt over parkeringsplasser');
+    expect(compiled.querySelector('app-toolbar').textContent).toContain('Oversikt over parkeringsplasser');
   }));
 });

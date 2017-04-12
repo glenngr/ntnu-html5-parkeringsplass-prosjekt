@@ -58,7 +58,7 @@ export class ParkingSpaceStatsComponent implements OnInit {
   }
 
   private getParkingSpaceData(parkingSpaceName: string) {
-    if (this.historyDataSubscription) {
+    if (this.historyDataSubscription && !this.historyDataSubscription.closed) {
       this.historyDataSubscription.unsubscribe();
     }
 

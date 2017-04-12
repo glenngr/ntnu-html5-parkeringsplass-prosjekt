@@ -10,8 +10,7 @@ import { ChooseThemeDialogComponent } from '../choose-theme-dialog/choose-theme-
   styleUrls: ['./app-toolbar.component.css']
 })
 export class AppToolbarComponent {
-
-  @Input() appTitle;
+  @Input() appTitle: string;
   @LocalStorage() theme = 'default';
 
   constructor(public dialog: MdDialog) { }

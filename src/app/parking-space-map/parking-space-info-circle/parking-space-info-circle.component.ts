@@ -26,7 +26,7 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: { [key: string]: SimpleChange }) {
     if (changes['occupiedSpaces']) {
-      if (this.parkingSpace.occupiedSpaces === undefined || this.parkingSpace.totalSpaces === undefined) {
+      if (!this.parkingSpace || !this.parkingSpace.occupiedSpaces || !this.parkingSpace.totalSpaces) {
         return;
       }
 
@@ -36,14 +36,23 @@ export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
   }
 
   onMapCircleClick() {
+    if (!this.parkingSpace) {
+      return;
+    }
     this.circleClick.emit(this.parkingSpace.name);
   }
 
   private updateCircleFillColor() {
+    if (!this.parkingSpace) {
+      return;
+    }
     this.circleFillColor = this.colorService.getColor(this.parkingSpace.occupiedSpaces, this.parkingSpace.totalSpaces);
   }
 
   private updateFreeSpaces() {
-     this.freeSpaces = this.parkingSpace.totalSpaces - this.parkingSpace.occupiedSpaces;
+    if (!this.parkingSpace) {
+      return;
+    }
+    this.freeSpaces = this.parkingSpace.totalSpaces - this.parkingSpace.occupiedSpaces;
   }
 }

@@ -1,5 +1,5 @@
 <md-toolbar color="primary">
-  <span>{{appTitle}}</span>
+  <span *ngIf="appTitle">{{appTitle}}</span>
   <span class="fill-remaining-space"></span>
   <button md-icon-button [mdMenuTriggerFor]="menu">
   <md-icon>more_vert</md-icon>

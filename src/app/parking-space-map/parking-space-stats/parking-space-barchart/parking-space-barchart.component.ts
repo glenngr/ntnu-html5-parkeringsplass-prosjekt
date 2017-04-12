@@ -27,7 +27,7 @@ export class ParkingSpaceBarchartComponent implements OnInit {
   }
   @Output() colorChange = new EventEmitter<any>();
 
-  private _selectedColor: string = 'yellow';
+  private _selectedColor = 'yellow';
 
   constructor() { }
 
