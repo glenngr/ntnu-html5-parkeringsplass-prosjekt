@@ -36,8 +36,8 @@ export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   showSidenavParkingSpaceTrend = false;
   connectionError = false;
   sidenavData: ParkingSpace;
+  @LocalStorage() freeParkingSpacesLocalStorageValue = 0;
   private previousMapLocation: PreviousMapLocation;
-  @LocalStorage() private freeParkingSpacesLocalStorageValue = 0;
   @ViewChild(MdSidenav) private sideNav: MdSidenav;
 
   constructor(
