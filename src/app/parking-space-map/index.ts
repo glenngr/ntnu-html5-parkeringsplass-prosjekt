@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { MaterialDesignModule } from '../material-design/';
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -21,34 +21,34 @@ import { ParkingSpaceMapHomeComponent } from './parking-space-map-home.component
 import { ParkingSpaceStatsModule } from './parking-space-stats/';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD403ZxaQdODw0iVMMGG7ZparzGy2rEo8g'
-    }),
-    RangeFilterModule,
-    MaterialModule,
-    ParkingSpaceMapRoutingModule,
-    ParkingSpaceToolbarModule,
-    ParkingSpaceBackendModule,
-    ParkingSpaceStatsModule,
-  ],
-  providers: [
-    GeolocationService,
-    InfoCircleColorService,
-  ],
-  declarations: [
-    ParkingSpaceMapComponent,
-    MapCircleWithInfoWindowComponent,
-    ParkingSpaceInfoCircleComponent,
-    ParkingSpaceInfoDialogComponent,
-    ParkingSpaceInfoComponent,
-    ParkingSpaceTextTrendComponent,
-    ParkingSpaceMapHomeComponent,
-    ReverseArrayPipe,
-  ],
-  entryComponents: [
-    ParkingSpaceInfoDialogComponent,
-  ],
+    imports: [
+        CommonModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyD403ZxaQdODw0iVMMGG7ZparzGy2rEo8g'
+        }),
+        RangeFilterModule,
+        MaterialDesignModule,
+        ParkingSpaceMapRoutingModule,
+        ParkingSpaceToolbarModule,
+        ParkingSpaceBackendModule,
+        ParkingSpaceStatsModule,
+    ],
+    providers: [
+        GeolocationService,
+        InfoCircleColorService,
+    ],
+    declarations: [
+        ParkingSpaceMapComponent,
+        MapCircleWithInfoWindowComponent,
+        ParkingSpaceInfoCircleComponent,
+        ParkingSpaceInfoDialogComponent,
+        ParkingSpaceInfoComponent,
+        ParkingSpaceTextTrendComponent,
+        ParkingSpaceMapHomeComponent,
+        ReverseArrayPipe,
+    ],
+    entryComponents: [
+        ParkingSpaceInfoDialogComponent,
+    ],
 })
 export class ParkingSpaceMapModule { }

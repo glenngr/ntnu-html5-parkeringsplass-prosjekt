@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { MaterialDesignModule } from '../../material-design/';
 import { RouterModule } from '@angular/router';
 
 import { ParkingSpaceStatsComponent } from './parking-space-stats.component';
@@ -11,7 +11,7 @@ import { ParkingSpaceToolbarModule } from '../parking-space-toolbar/';
 @NgModule({
     imports: [
         ParkingSpaceToolbarModule,
-        MaterialModule,
+        MaterialDesignModule,
         CommonModule,
         RouterModule
     ],

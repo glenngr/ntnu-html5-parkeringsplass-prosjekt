@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { APP_BASE_HREF } from '@angular/common';
-import { MaterialModule } from '@angular/material';
+import { MaterialDesignModule } from './material-design/';
 import { WebStorageModule, LocalStorageService, WEBSTORAGE_CONFIG } from 'angular2-localstorage';
 WEBSTORAGE_CONFIG.prefix = '';
 
@@ -15,27 +15,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppToolbarComponent } from './app-toolbar/app-toolbar.component';
 
 @NgModule({
-  entryComponents: [
-    ChooseThemeDialogComponent
-  ],
-  declarations: [
-    AppComponent,
-    ChooseThemeDialogComponent,
-    AppToolbarComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    MaterialModule.forRoot(),
-    ParkingSpaceMapModule,
-    AppRoutingModule
-  ],
-  providers: [
-    LocalStorageService,
-    WebStorageModule,
-    { provide: APP_BASE_HREF, useValue: '/' }
-  ],
-  bootstrap: [AppComponent]
+    entryComponents: [
+        ChooseThemeDialogComponent
+    ],
+    declarations: [
+        AppComponent,
+        ChooseThemeDialogComponent,
+        AppToolbarComponent,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        MaterialDesignModule,
+        ParkingSpaceMapModule,
+        AppRoutingModule,
+    ],
+    providers: [
+        LocalStorageService,
+        { provide: APP_BASE_HREF, useValue: '/' }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

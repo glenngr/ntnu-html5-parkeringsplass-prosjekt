@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { MaterialDesignModule } from '../../material-design/';
 import { CommonModule } from '@angular/common';
 
 import { ParkingSpaceToolbarLeftAlignComponent } from './parking-space-toolbar-left-align.component';
@@ -9,7 +9,7 @@ import { ParkingSpaceToolbarComponent } from './parking-space-toolbar.component'
 
 @NgModule({
     imports: [
-        MaterialModule,
+        MaterialDesignModule,
         CommonModule,
     ],
     exports: [
