@@ -10,7 +10,7 @@ WEBSTORAGE_CONFIG.prefix = '';
 
 import { AppComponent } from './app.component';
 import { ChooseThemeDialogComponent } from './choose-theme-dialog/choose-theme-dialog.component';
-import { ParkingSpaceMapModule } from './parking-space-overview/';
+import { ParkingSpaceOverviewModule } from './parking-space-overview/';
 import { AppRoutingModule } from './app-routing.module';
 import { AppToolbarComponent } from './app-toolbar/app-toolbar.component';
 
@@ -28,7 +28,7 @@ import { AppToolbarComponent } from './app-toolbar/app-toolbar.component';
         FormsModule,
         HttpModule,
         MaterialDesignModule,
-        ParkingSpaceMapModule,
+        ParkingSpaceOverviewModule,
         AppRoutingModule,
     ],
     providers: [

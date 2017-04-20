@@ -14,8 +14,6 @@ import { RangeFilterModule } from '../range-filter/';
 import { ParkingSpaceToolbarModule } from './parking-space-toolbar/';
 import { ParkingSpaceInfoDialogComponent } from './parking-space-info-dialog/parking-space-info-dialog.component';
 import { ParkingSpaceInfoComponent } from './parking-space-info/parking-space-info.component';
-import { ParkingSpaceTextTrendComponent } from './parking-space-text-trend/parking-space-text-trend.component';
-import { ReverseArrayPipe } from '../reverse-array-pipe/reverse-array.pipe';
 import { ParkingSpaceMapRoutingModule } from './parking-space-overview-routing.module';
 import { ParkingSpaceMapHomeComponent } from './parking-space-overview.component';
 import { ParkingSpaceStatsModule } from './parking-space-stats/';
@@ -43,12 +41,10 @@ import { ParkingSpaceStatsModule } from './parking-space-stats/';
         ParkingSpaceInfoCircleComponent,
         ParkingSpaceInfoDialogComponent,
         ParkingSpaceInfoComponent,
-        ParkingSpaceTextTrendComponent,
         ParkingSpaceMapHomeComponent,
-        ReverseArrayPipe,
     ],
     entryComponents: [
         ParkingSpaceInfoDialogComponent,
     ],
 })
-export class ParkingSpaceMapModule { }
+export class ParkingSpaceOverviewModule { }

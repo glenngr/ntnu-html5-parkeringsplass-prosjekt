@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 
 import { ParkingSpaceMapComponent } from './parking-space-map.component';
-import { ParkingSpaceMapModule } from '../index';
+import { ParkingSpaceOverviewModule } from '../index';
 import { AppRoutingModule } from '../../app-routing.module';
 
 describe('ParkingSpaceMapComponent', () => {
@@ -15,7 +15,7 @@ describe('ParkingSpaceMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ParkingSpaceMapModule, AppRoutingModule],
+      imports: [ParkingSpaceOverviewModule, AppRoutingModule],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     })
       .compileComponents();

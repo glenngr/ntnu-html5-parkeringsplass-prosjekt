@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { HistoryCollection, HistoryData } from '../models/history-collection.model';
+import { HistoryCollection, HistoryData } from '../../models/history-collection.model';
 
 @Component({
   selector: 'app-parking-space-text-trend',
