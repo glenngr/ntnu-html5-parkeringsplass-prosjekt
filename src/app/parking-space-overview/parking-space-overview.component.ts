@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-parking-space-map-home',
-    templateUrl: 'parking-space-map-home.component.html'
+    selector: 'app-parking-space-overview',
+    templateUrl: 'parking-space-overview.component.html'
 })
 
 export class ParkingSpaceMapHomeComponent implements OnInit {

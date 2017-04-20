@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ParkingSpaceMapHomeComponent } from './parking-space-map/parking-space-map-home.component';
+import { ParkingSpaceMapHomeComponent } from './parking-space-overview/parking-space-overview.component';
 
 const appRoutes: Routes = [
     { path: '', component: ParkingSpaceMapHomeComponent, pathMatch: 'full' },

@@ -6,8 +6,8 @@ import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 
 import { ParkingSpaceMapComponent } from './parking-space-map.component';
-import { ParkingSpaceMapModule } from './index';
-import { AppRoutingModule } from '../app-routing.module';
+import { ParkingSpaceMapModule } from '../index';
+import { AppRoutingModule } from '../../app-routing.module';
 
 describe('ParkingSpaceMapComponent', () => {
   let component: ParkingSpaceMapComponent;

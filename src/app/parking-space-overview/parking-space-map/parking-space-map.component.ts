@@ -9,12 +9,12 @@ import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/takeUntil';
 import { LocalStorage } from 'angular2-localstorage';
 
-import { GeolocationService } from './geolocation-service/geolocation.service';
-import { ParkingSpaceBackendService } from './parking-space-backend-service/';
+import { GeolocationService } from '../geolocation-service/geolocation.service';
+import { ParkingSpaceBackendService } from '../parking-space-backend-service/';
 
-import { Location } from './models/location.model';
-import { ParkingSpace } from './models/parkingspace.model';
-import { HistoryCollection } from './models/history-collection.model';
+import { Location } from '../models/location.model';
+import { ParkingSpace } from '../models/parkingspace.model';
+import { HistoryCollection } from '../models/history-collection.model';
 
 @Component({
   selector: 'app-parking-space-map',
