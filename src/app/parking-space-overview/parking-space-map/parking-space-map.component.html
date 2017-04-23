@@ -19,9 +19,14 @@
   </md-sidenav>
   <agm-map [latitude]="lat" [longitude]="lng" [(zoom)]="mapZoom" (zoomChange)="mapZoomChanged($event)" [class.showingParkingSpaceToolbar]="toolbar.visible"
     #map>
-    <app-parking-space-info-circle *ngFor="let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces" (circleClick)="onCircleClick($event)"
-      [parkingSpace]="parkingSpace" [infoWindowOpen]="showAllInfowindows">
-    </app-parking-space-info-circle>
+    <ng-container *ngIf="mapZoom > 14">
+      <app-parking-space-info-circle *ngFor="let parkingSpace of parkingSpaces;trackBy: trackByIdAndOccupiedSpaces" (circleClick)="onCircleClick($event)"
+        [parkingSpace]="parkingSpace" [infoWindowOpen]="showAllInfowindows">
+      </app-parking-space-info-circle>
+    </ng-container>
+    <agm-marker *ngIf="mapZoom <= 14" [latitude]="lat" [longitude]="lng">
+      <agm-info-window [isOpen]="true">4 parkeringsplasser</agm-info-window>
+    </agm-marker>
     <agm-marker *ngIf="userGeoLocation" [latitude]="userGeoLocation.lat" [longitude]="userGeoLocation.long">
       <agm-info-window [isOpen]="true">Din omtrentlige plassering</agm-info-window>
     </agm-marker>
