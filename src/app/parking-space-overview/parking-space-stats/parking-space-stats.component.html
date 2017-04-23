@@ -1,4 +1,4 @@
-<!--<app-parking-space-toolbar [loading]="!parkingSpaces || loadingHistory">
+<app-parking-space-toolbar [loading]="!parkingSpaces || loadingHistory">
   <app-parking-space-toolbar-left-align>
     Velg parkingsplass å vise statistikk for:
     <md-button-toggle-group multiple>
@@ -8,7 +8,7 @@
   <app-parking-space-toolbar-right-align>
     <button md-raised-button color="secondary" class="map-button" routerLink="/map"><md-icon>map</md-icon> Kart over parkeringsplasser</button>
   </app-parking-space-toolbar-right-align>
-</app-parking-space-toolbar>-->
+</app-parking-space-toolbar>
 <div *ngIf="barChartData">
   <app-parking-space-barchart *ngFor="let data of barChartData" [data]="data.barChartData" [title]="data.name" [color]="data.barChartColor" (colorChange)="onBarChartSelectedColorChange($event)"></app-parking-space-barchart>
 </div>
