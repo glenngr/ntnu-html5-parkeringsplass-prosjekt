@@ -24,8 +24,8 @@
         [parkingSpace]="parkingSpace" [infoWindowOpen]="showAllInfowindows">
       </app-parking-space-info-circle>
     </ng-container>
-    <agm-marker *ngIf="mapZoom <= 14" [latitude]="lat" [longitude]="lng">
-      <agm-info-window [isOpen]="true">4 parkeringsplasser</agm-info-window>
+    <agm-marker *ngIf="mapZoom <= 14 && parkingSpaces" [latitude]="lat" [longitude]="lng">
+      <agm-info-window [isOpen]="true">{{parkingSpaces?.length}} parkeringsplass(er)</agm-info-window>
     </agm-marker>
     <agm-marker *ngIf="userGeoLocation" [latitude]="userGeoLocation.lat" [longitude]="userGeoLocation.long">
       <agm-info-window [isOpen]="true">Din omtrentlige plassering</agm-info-window>
