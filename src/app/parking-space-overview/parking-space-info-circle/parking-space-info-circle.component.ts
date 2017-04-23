@@ -2,7 +2,6 @@ import { Component, OnInit, Input, OnChanges, SimpleChange, EventEmitter, Output
 import { MdDialog, MdDialogRef } from '@angular/material';
 
 import { InfoCircleColorService } from './info-circle-color.service';
-import { ParkingSpaceInfoDialogComponent } from '../parking-space-info-dialog/parking-space-info-dialog.component';
 import { ParkingSpace } from '../models/parkingspace.model';
 
 @Component({

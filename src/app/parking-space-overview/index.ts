@@ -12,7 +12,6 @@ import { GeolocationService } from './geolocation-service/geolocation.service';
 import { ParkingSpaceBackendModule } from './parking-space-backend-service/';
 import { RangeFilterModule } from '../range-filter/';
 import { ParkingSpaceToolbarModule } from './parking-space-toolbar/';
-import { ParkingSpaceInfoDialogComponent } from './parking-space-info-dialog/parking-space-info-dialog.component';
 import { ParkingSpaceInfoComponent } from './parking-space-info/parking-space-info.component';
 import { ParkingSpaceMapRoutingModule } from './parking-space-overview-routing.module';
 import { ParkingSpaceMapHomeComponent } from './parking-space-overview.component';
@@ -39,12 +38,8 @@ import { ParkingSpaceStatsModule } from './parking-space-stats/';
         ParkingSpaceMapComponent,
         MapCircleWithInfoWindowComponent,
         ParkingSpaceInfoCircleComponent,
-        ParkingSpaceInfoDialogComponent,
         ParkingSpaceInfoComponent,
         ParkingSpaceMapHomeComponent,
-    ],
-    entryComponents: [
-        ParkingSpaceInfoDialogComponent,
     ],
 })
 export class ParkingSpaceOverviewModule { }
