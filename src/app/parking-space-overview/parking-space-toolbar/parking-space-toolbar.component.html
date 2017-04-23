@@ -1,4 +1,4 @@
-<md-toolbar *ngIf="visible">
+<md-toolbar *ngIf="visible; else showtoolbarbutton">
   <ng-content></ng-content>
   <ng-content select="app-parking-space-toolbar-left-align"></ng-content>
   <span class="fill-remaining-space"></span>
@@ -7,4 +7,6 @@
   <ng-content select="app-parking-space-toolbar-right-align"></ng-content>
   <button md-icon-button (click)="visible = false;" mdTooltip="Lukk"><md-icon>close</md-icon></button>
 </md-toolbar>
-<button *ngIf="!visible" class="show-toolbar" md-mini-fab mdTooltip="Vis verktøylinjen" mdTooltipPosition="before" (click)="visible = true;"><md-icon>expand_more</md-icon></button>
+<ng-template #showtoolbarbutton>
+  <button class="show-toolbar" md-mini-fab mdTooltip="Vis verktøylinjen" mdTooltipPosition="before" (click)="visible = true;"><md-icon>expand_more</md-icon></button>
+</ng-template>
