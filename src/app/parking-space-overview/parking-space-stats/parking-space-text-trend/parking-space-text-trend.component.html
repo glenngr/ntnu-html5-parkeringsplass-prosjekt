@@ -1,6 +1,8 @@
 <md-spinner *ngIf="!trendData"></md-spinner>
-<div *ngIf="trendData">
+<section *ngIf="trendData">
+  <header>
   <h6>Statistikk for {{(trendData | async)?.parkingSpaceName}}</h6>
+  </header>
   <hr>
   <div class="clearfix">
     <span class="date header">Dato/tid</span><span class="occupied-spaces header">Ledige plasser</span>
@@ -8,4 +10,4 @@
       <span class="date">{{data.date | date:'d/M y H:m'}}</span><span class="free-spaces">{{data.freeSpaces}}</span>
     </div>
   </div>
-</div>
+</section>
