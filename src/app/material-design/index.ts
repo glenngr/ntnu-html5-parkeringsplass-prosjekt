@@ -4,12 +4,14 @@ import {
     MdDialogModule, MdSidenavModule, MdProgressSpinnerModule, MdRadioModule,
     MdButtonModule, MdButtonToggleModule, MdSliderModule, MdSelectModule,
     MdOptionModule, MdTooltipModule, MdIconModule, MdMenuModule, MdToolbarModule,
+    MdCardModule
 } from '@angular/material';
 
 const MATERIAL_MODULES = [
     MdDialogModule, MdSidenavModule, MdProgressSpinnerModule, MdRadioModule,
     MdButtonModule, MdButtonToggleModule, MdSliderModule, MdSelectModule,
     MdOptionModule, MdTooltipModule, MdIconModule, MdMenuModule, MdToolbarModule,
+    MdCardModule
 ];
 
 @NgModule({
