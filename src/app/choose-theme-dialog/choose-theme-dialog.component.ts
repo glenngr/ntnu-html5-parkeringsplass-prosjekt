@@ -9,7 +9,7 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 export class ChooseThemeDialogComponent {
     selectedTheme: string;
     themes: string[] = [];
-    private themeDict = {};
+    themeDict = {};
 
     constructor(public dialogRef: MdDialogRef<ChooseThemeDialogComponent>) {
         this.themeDict['Default theme'] = 'default';
