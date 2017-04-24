@@ -13,7 +13,7 @@ import { ChooseThemeDialogComponent } from './choose-theme-dialog/choose-theme-d
 import { ParkingSpaceOverviewModule } from './parking-space-overview/';
 import { AppRoutingModule } from './app-routing.module';
 import { AppToolbarComponent } from './app-toolbar/app-toolbar.component';
-import { HelpAboutComponent } from './help-about/help-about.component';
+import { HelpAboutModule } from './help-about/';
 import { NotFound404Component } from './not-found-404/not-found-404.component';
 
 @NgModule({
@@ -24,8 +24,7 @@ import { NotFound404Component } from './not-found-404/not-found-404.component';
         AppComponent,
         ChooseThemeDialogComponent,
         AppToolbarComponent,
-        HelpAboutComponent,
-        NotFound404Component
+        NotFound404Component,
     ],
     imports: [
         BrowserModule,
@@ -34,6 +33,7 @@ import { NotFound404Component } from './not-found-404/not-found-404.component';
         MaterialDesignModule,
         ParkingSpaceOverviewModule,
         AppRoutingModule,
+        HelpAboutModule,
     ],
     providers: [
         LocalStorageService,

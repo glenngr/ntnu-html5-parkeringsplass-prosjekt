@@ -1,0 +1,69 @@
+md-card {
+    margin-bottom: 30px;
+}
+h5 {
+   text-decoration: underline;
+}
+
+.ribbon {
+  width: 100%;
+  height: 40vh;
+  background-color: #3F51B5;
+  flex-shrink: 0;
+}
+
+.page-header {
+    font-size: 300%;
+    padding-top: 40px;
+    @extend .container;
+}
+
+.main {
+  margin-top: -30vh;
+  flex-shrink: 0;
+}
+.container {
+  max-width: 1600px;
+  width: calc(100% - 16px);
+  margin: 0 auto;
+}
+
+.content {
+  border-radius: 2px;
+  padding: 80px 56px;
+  margin-bottom: 80px;
+}
+
+.color-guide {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.red, .blue {
+    color: white;
+    @extend .color-guide;
+}
+
+.yellow {
+  background-color: yellow;
+  @extend .color-guide;
+}
+
+app-show-me-how {
+   float:right;
+    display:block;
+    margin-right:0px;
+    clear:left;
+}
+
+p {
+  margin-bottom: 30px;
+}
