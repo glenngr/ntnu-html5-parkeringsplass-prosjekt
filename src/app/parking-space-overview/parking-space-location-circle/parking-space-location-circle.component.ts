@@ -1,22 +1,22 @@
 import { Component, OnInit, Input, OnChanges, SimpleChange, EventEmitter, Output } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 
-import { InfoCircleColorService } from './info-circle-color.service';
+import { LocationCircleColorService } from './location-circle-color.service';
 import { ParkingSpace } from '../models/parkingspace.model';
 
 @Component({
-  selector: 'app-parking-space-info-circle',
-  templateUrl: './parking-space-info-circle.component.html',
-  styleUrls: ['./parking-space-info-circle.component.css']
+  selector: 'app-parking-space-location-circle',
+  templateUrl: './parking-space-location-circle.component.html',
+  styleUrls: ['./parking-space-location-circle.component.css']
 })
-export class ParkingSpaceInfoCircleComponent implements OnInit, OnChanges {
+export class ParkingSpaceLocationCircleComponent implements OnInit, OnChanges {
   @Input() parkingSpace: ParkingSpace;
   @Input() infoWindowOpen = true;
   @Output() circleClick: EventEmitter<string> = new EventEmitter<string>();
   circleFillColor = 'red';
   freeSpaces: number;
 
-  constructor(private colorService: InfoCircleColorService, public dialog: MdDialog) { }
+  constructor(private colorService: LocationCircleColorService, public dialog: MdDialog) { }
 
   ngOnInit() {
     this.updateCircleFillColor();

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class InfoCircleColorService {
+export class LocationCircleColorService {
     private fullColor = 'red';
     private lowColor = 'yellow';
     private normalColor = 'blue';

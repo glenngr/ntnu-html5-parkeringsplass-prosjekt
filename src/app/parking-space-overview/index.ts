@@ -6,8 +6,8 @@ import { AgmCoreModule } from '@agm/core';
 
 import { ParkingSpaceMapComponent } from './parking-space-map/parking-space-map.component';
 import { MapCircleWithInfoWindowComponent } from './map-circle-with-info-window/map-circle-with-info-window.component';
-import { ParkingSpaceInfoCircleComponent } from './parking-space-info-circle/parking-space-info-circle.component';
-import { InfoCircleColorService } from './parking-space-info-circle/info-circle-color.service';
+import { ParkingSpaceLocationCircleComponent } from './parking-space-location-circle/parking-space-location-circle.component';
+import { LocationCircleColorService } from './parking-space-location-circle/location-circle-color.service';
 import { GeolocationService } from './geolocation-service/geolocation.service';
 import { ParkingSpaceBackendModule } from './parking-space-backend-service/';
 import { RangeFilterModule } from '../range-filter/';
@@ -32,12 +32,12 @@ import { ParkingSpaceStatsModule } from './parking-space-stats/';
     ],
     providers: [
         GeolocationService,
-        InfoCircleColorService,
+        LocationCircleColorService,
     ],
     declarations: [
         ParkingSpaceMapComponent,
         MapCircleWithInfoWindowComponent,
-        ParkingSpaceInfoCircleComponent,
+        ParkingSpaceLocationCircleComponent,
         ParkingSpaceInfoComponent,
         ParkingSpaceMapHomeComponent,
     ],

@@ -4,27 +4,27 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MaterialDesignModule } from '../../material-design/';
 
-import { ParkingSpaceInfoCircleComponent } from './parking-space-info-circle.component';
-import { InfoCircleColorService } from './info-circle-color.service';
+import { ParkingSpaceLocationCircleComponent } from './parking-space-location-circle.component';
+import { LocationCircleColorService } from './location-circle-color.service';
 import { MapCircleWithInfoWindowComponent } from '../map-circle-with-info-window/map-circle-with-info-window.component';
 
 import { AgmCoreModule, CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager, MapsAPILoader } from '@agm/core';
 
 describe('ParkingSpaceInfoCircleComponent', () => {
-    let component: ParkingSpaceInfoCircleComponent;
-    let fixture: ComponentFixture<ParkingSpaceInfoCircleComponent>;
+    let component: ParkingSpaceLocationCircleComponent;
+    let fixture: ComponentFixture<ParkingSpaceLocationCircleComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [AgmCoreModule.forRoot(), MaterialDesignModule],
-            declarations: [ParkingSpaceInfoCircleComponent, MapCircleWithInfoWindowComponent],
-            providers: [CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager, InfoCircleColorService, MapsAPILoader]
+            declarations: [ParkingSpaceLocationCircleComponent, MapCircleWithInfoWindowComponent],
+            providers: [CircleManager, GoogleMapsAPIWrapper, InfoWindowManager, MarkerManager, LocationCircleColorService, MapsAPILoader]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(ParkingSpaceInfoCircleComponent);
+        fixture = TestBed.createComponent(ParkingSpaceLocationCircleComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
