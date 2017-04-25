@@ -1,0 +1,62 @@
+Link til prosjektet på internett: https://glenngr.github.io/ntnu-html5-parkeringsplass-prosjekt/
+Velg "Hjelp og informasjon" fra menyknappen øverst til høyre for å få informasjon om hvordan nettsiden er bygget opp og hvor funksjonaliteten finnes.
+
+
+Info om prosjektet:
+Kildekoden til prosjektet er tilgjengelig på GitHub: https://github.com/glenngr/ntnu-html5-parkeringsplass-prosjekt
+Her kan man også se en endringslogg (https://github.com/glenngr/ntnu-html5-parkeringsplass-prosjekt/commits/master)
+
+Fremgangsmetode:
+Samtlige funksjoner som er beskrevet i punktlisten i prosjektbeskrivelsen er lagt inn i en backlog på GitHub.
+Denne er tilgjengelig her: https://github.com/glenngr/ntnu-html5-parkeringsplass-prosjekt/projects/1
+
+Alle funksjonene er implementert med følgende justeringer:
+
+* I stedet for å kunne velge bakgrunnsfarge på siden, kan man velge tema.
+* Jeg har implementert min egen node.js server som klienten web-appen seg opp til
+    * For å motta data om ledige plasser bruker jeg Websockets i stedet for Server Side Events.
+    * Node.js serveren sender melding til klienten når det er endring i perkeringsplassdata.
+    * Hvert 5 sekund sjekker serveren om det skal sendes ut nye data basert på en prosentvis sjanse for at det er endringer på hver parkeringsplass.
+    * Jeg har også valgt å la serveren ta vare på historiske data, siden dette er et mer virkelighetsnært design
+* Klienten henter historiske data fra Node.js serveren via et REST-api
+* Jeg har brukt Angular-rammeverket for å lage web-appen.
+    * Koden er skrevet i TypeScript, HTML og SASS/CSS
+
+
+Mappestruktur:
+* Jeg har brukt Angular-CLI for å opprette Angular-prosjektet.
+* Med unntak av denne LESMEG.txt filen og websocket-server.js (som er node.js-serveren min) er filene i rotmappen generert av Angular-CLI
+* Innholdet i mappen e2e er generert av Angular-Cli. Dette er E2E-tester (ui-tester). Jeg har ikke skrevet E2E-tester for dette prosjektet.
+* Innholdet i rotmappen av src samt undermappen environments er også generert av Angular-Cli. Dette er filene som er nødvendige for å "bootstrappe" applikasjonen
+    * Unntak: styles.scss, _variables.scss. Disse inneholder stiler definert av meg.
+* Mappen "app" inneholder koden jeg har skrevet selv.
+    * Mappestrukturen er avbildet under.
+    * Parking-space-overview inneholder alle komponenter som har med parkeringsplasser å gjøre
+    * De andre mappene er generelle komponenter som ikke nøvendigvis har med parkeringsplasser å gjøre.
+
+Beskrivelse                                     Mappe
+Komponent som utgjør hovedverktøylinjen         ├───app-toolbar
+Komponent for valg av fargetema                 ├───choose-theme-dialog
+Modul som inneholder hjelpesidekomponenter      ├───help-about
+                                                │   └───show-me-how
+Modul som importerer/eksporterer material design├───material-design
+Vises hvis en ikke-eksisterende URL skrives inn ├───not-found-404
+                                                ├───parking-space-overview
+Service som henter inn brukerens lokasjon       │   ├───geolocation-service
+Klasser som brukes i parking-space modulen      │   ├───models
+Modul og servicer som kommuniserer med server   │   ├───parking-space-backend-service
+Service som henter inn historiske data via HTTP │   │   ├───history-service
+Denne servicen brukes av komponenter. Videre-   │   │   │
+sender (nesten) bare kall til andre servicer    │   │   ├───parking-space-http-service
+Service som mottar data om                      │   │   │
+parkeringssplasser via websocket                │   │   └───websocket-service
+Viser info om parkeringsplasser i en sidemeny   │   ├───parking-space-info
+Komponent som lager sirkler og                  │   │
+tilhørende info-vindu på kartet                 │   ├───parking-space-location-circle
+Komponent for kartet                            │   ├───parking-space-map
+Komponent for statistikk (søylediagram)         │   ├───parking-space-stats
+                                                │   │   ├───parking-space-barchart
+                                                │   │   └───parking-space-text-trend
+Verktøylinje som vises over kart og statistikk  │   └───parking-space-toolbar
+Slider-filter for å filtrere parkeringsplasser  ├───range-filter
+Pipe for reversering av rekkefølgen i et array  └───reverse-array-pipe
