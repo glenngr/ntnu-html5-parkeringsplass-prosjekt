@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "ntnu-html5-parkeringsplass-prosjekt",
   "version": "0.0.1",
   "description": "Prosjekt i HTML5-faget ved NTNU våren 2017",
@@ -17,6 +17,7 @@
     "test:watch": "ng test --watch",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "publish": "gh-pages -d dist/ -b gh-pages -o github -n",
     "sass": "node-sass src -o src --include-path node_modules --output-style compressed -q",
     "sass:watch": "node-sass -w src -o src --include-path node_modules --output-style compressed -q"
   },
