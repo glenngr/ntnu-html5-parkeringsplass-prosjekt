@@ -5,7 +5,9 @@ import { MaterialDesignModule } from '../material-design/';
 import { AgmCoreModule } from '@agm/core';
 
 import { ParkingSpaceMapComponent } from './parking-space-map/parking-space-map.component';
-import { MapCircleWithInfoWindowComponent } from './map-circle-with-info-window/map-circle-with-info-window.component';
+import {
+    MapCircleWithInfoWindowComponent
+} from './parking-space-location-circle/map-circle-with-info-window/map-circle-with-info-window.component';
 import { ParkingSpaceLocationCircleComponent } from './parking-space-location-circle/parking-space-location-circle.component';
 import { LocationCircleColorService } from './parking-space-location-circle/location-circle-color.service';
 import { GeolocationService } from './geolocation-service/geolocation.service';
