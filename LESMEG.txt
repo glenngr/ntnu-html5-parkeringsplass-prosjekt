@@ -23,7 +23,7 @@ Alle funksjonene er implementert med følgende justeringer:
     * Koden er skrevet i TypeScript, HTML og SASS/CSS
 
 
-Mappestruktur:
+Fil og mappestruktur:
 * Jeg har brukt Angular-CLI for å opprette Angular-prosjektet.
 * Med unntak av denne LESMEG.txt filen og websocket-server.js (som er node.js-serveren min) er filene i rotmappen generert av Angular-CLI
 * Innholdet i mappen e2e er generert av Angular-Cli. Dette er E2E-tester (ui-tester). Jeg har ikke skrevet E2E-tester for dette prosjektet.
@@ -54,9 +54,20 @@ Viser info om parkeringsplasser i en sidemeny   │   ├───parking-space-
 Komponent som lager sirkler og                  │   │
 tilhørende info-vindu på kartet                 │   ├───parking-space-location-circle
 Komponent for kartet                            │   ├───parking-space-map
-Komponent for statistikk (søylediagram)         │   ├───parking-space-stats
-                                                │   │   ├───parking-space-barchart
-                                                │   │   └───parking-space-text-trend
+Modul for å vise statiskikk grafisk og tekstlig │   ├───parking-space-stats
+Komponent og direktiv for å lage søylediagram   │   │   ├───parking-space-barchart
+Komponent for å vise tekstlig statistikk        │   │   └───parking-space-text-trend
 Verktøylinje som vises over kart og statistikk  │   └───parking-space-toolbar
 Slider-filter for å filtrere parkeringsplasser  ├───range-filter
 Pipe for reversering av rekkefølgen i et array  └───reverse-array-pipe
+
+Filer:
+*.module.ts samt index.ts filer er moduler
+*.component.html er html templates som hører til en komponent
+*.component.ts er TypeScript filen for en Angular-komponent
+*.component.scss og *.component.css er stiler tihørende en komponent
+*.spec.ts er unit tester
+*.service.ts er TypeScript filen for en Angular Service
+*.model.ts er en TypeScript fil som inneholder klassedefinisjoner
+*.pipe.ts er en TypeScript fil for en Angular pipe
+*.directive.ts er en TypeScript fil for et Angular directive
