@@ -10,6 +10,8 @@ import { ParkingSpaceOverviewModule } from '../index';
 import { ParkingSpaceStatsComponent } from './parking-space-stats.component';
 import { ParkingSpaceStatsModule } from './';
 import { ParkingSpaceBackendModule } from '../parking-space-backend-service/';
+import { HelpAboutModule } from '../../help-about';
+import { NotFound404Component } from '../../not-found-404/not-found-404.component';
 
 describe('ParkingSpaceStatsComponent', () => {
   let component: ParkingSpaceStatsComponent;
@@ -17,7 +19,14 @@ describe('ParkingSpaceStatsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ParkingSpaceStatsModule, ParkingSpaceBackendModule, AppRoutingModule, ParkingSpaceOverviewModule],
+      imports: [
+        ParkingSpaceStatsModule,
+        ParkingSpaceBackendModule,
+        AppRoutingModule,
+        ParkingSpaceOverviewModule,
+        HelpAboutModule
+      ],
+      declarations: [ NotFound404Component],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
     })
       .compileComponents();
