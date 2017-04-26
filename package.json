@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "ntnu-html5-parkeringsplass-prosjekt",
   "version": "0.0.1",
   "description": "Prosjekt i HTML5-faget ved NTNU våren 2017",
@@ -43,7 +43,7 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0",
+    "@angular/cli": "^1.0.1",
     "@angular/compiler-cli": "^4.0.2",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
