@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  basehref: '/'
+  basehref: '/ntnu-html5-parkeringsplass-prosjekt/'
 };

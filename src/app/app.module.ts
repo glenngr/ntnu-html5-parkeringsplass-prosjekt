@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppToolbarComponent } from './app-toolbar/app-toolbar.component';
 import { HelpAboutModule } from './help-about/';
 import { NotFound404Component } from './not-found-404/not-found-404.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
     entryComponents: [
@@ -37,7 +38,7 @@ import { NotFound404Component } from './not-found-404/not-found-404.component';
     ],
     providers: [
         LocalStorageService,
-        { provide: APP_BASE_HREF, useValue: '/' }
+        { provide: APP_BASE_HREF, useValue: environment.basehref }
     ],
     bootstrap: [AppComponent]
 })

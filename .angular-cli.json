@@ -25,6 +25,7 @@
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
+        "ghpages": "environments/environment.ghpages.ts",
         "prod": "environments/environment.prod.ts"
       }
     }
