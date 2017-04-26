@@ -28,11 +28,11 @@
             siden før, vil alle parkeringsplasser vises. Hvis du har besøkt siden før, og du har brukt filteret som ligger
             over kartet på venstre side, vil ditt forrige filtervalg huskes.
           </p>
-          <app-show-me-how screenshotUrl="/assets/filter-howto.gif"></app-show-me-how>
+          <app-show-me-how [screenshotUrl]="filterHowtoGif"></app-show-me-how>
           <p>Hvis du kun ønsker å vise parkeringsplasser med et minimumsantall ledige parkeringsplasser, kan du bruke filteret
             over kartet på venstre side. Parkeringsplasser som har ferre plasser ledig enn du velger, vil automatisk bli
             fjernet fra kartet.</p>
-          <app-show-me-how screenshotUrl="/assets/mylocation-howto.gif"></app-show-me-how>
+          <app-show-me-how [screenshotUrl]="mylocationHowtoGif"></app-show-me-how>
           <p>Hvis du vil se hvor parkeringsplassene er plassert i forhold til din lokasjon, kan du trykke på "Vis min lokasjon",
             over kartet til høyre. Trykk på "Fjern min lokasjon" samme sted for å gå tilbake til parkeringsplassene.</p>
           <p>Du kan zoome inn og ut og bevege på kartet hvis du ønsker å få en mer nøyaktig beskrivelse av hvor parkeringsplassene
@@ -52,7 +52,7 @@
             <header>
               <h5>Se detaljer om en parkeringsplass</h5>
             </header>
-            <app-show-me-how screenshotUrl="/assets/details-howto.gif"></app-show-me-how>
+            <app-show-me-how [screenshotUrl]="detailsHowtoGif"></app-show-me-how>
             <p>Du kan klikke på sirkelen som representerer parkeringsplassen for å få frem mer informasjon. Her vil du se mer
               data om ledige plasser, totalt antall plasser og kostnad for parkering. Herfra kan du også få frem informasjon
               rundt hvor mange plasser som var ledige på de 20 siste målingene.</p>
@@ -60,26 +60,26 @@
             <header>
               <h5>Statistikk</h5>
             </header>
-            <app-show-me-how screenshotUrl="/assets/stats-navigate-howto.gif"></app-show-me-how>
+            <app-show-me-how [screenshotUrl]="statsNavigateHowtoGif"></app-show-me-how>
             <p>Bruk statistikk-siden hvis du ønsker å sammenlikne antall ledige plasser mellom flere parkeringsplasser over
               tid. Klikk på "Statistikk for parkeringsplasser"-knappen over kartet for å komme til denne siden</p>
 
-            <app-show-me-how screenshotUrl="/assets/stats-choose-howto.gif"></app-show-me-how>
+            <app-show-me-how [screenshotUrl]="statsChooseHowtoGif"></app-show-me-how>
             <p>Velg en eller flere parkeringsplasser for å starte sammenlikningen.</p>
 
-            <app-show-me-how screenshotUrl="/assets/stats-color-howto.gif"></app-show-me-how>
+            <app-show-me-how [screenshotUrl]="statsColorHowtoGif"></app-show-me-how>
             <p>Hvis du bruker statistikk-siden ofte, vil du kanskje velge en farge for hver parkeringsplass. Dette gjør at du
               lettere kjenner igjen parkeringsplassene når du kommer tilbake til siden. Vi husker på valget du har gjort
               helt til du tømmer cachen i nettleseren din.</p>
 
-            <app-show-me-how screenshotUrl="/assets/stats-percent-howto.gif"></app-show-me-how>
+            <app-show-me-how [screenshotUrl]="statsPercentHowtoGif"></app-show-me-how>
             <p>Noen liker bedre å få antall ledige plasser representert i prosent. Hvis du er en av dem, fortvil ikke, du kan
               klikke på syølediagrammet for å bytte til å vise prosent.</p>
             <hr>
             <header>
               <h5>Fargetema</h5>
             </header>
-            <app-show-me-how screenshotUrl="/assets/theme-howto.gif"></app-show-me-how>
+            <app-show-me-how [screenshotUrl]="themeHowtoGif"></app-show-me-how>
             <p>Siden tilbyr hele 4 ulike fargetema. Trykk på meny-ikonet øverst til høyre for å velge temaet du liker best.
               Vi husker valget ditt helt til du tømmer cachen i nettleseren din.</p>
         </article>
