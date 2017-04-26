@@ -2,7 +2,7 @@
   <app-parking-space-toolbar-left-align>
     Velg parkingsplass å vise statistikk for:
     <md-button-toggle-group multiple>
-      <md-button-toggle color="accent" *ngFor="let ps of parkingSpaces | async" (change)="onSelectionChanged($event)" [value]="ps">{{ps}}</md-button-toggle>
+      <md-button-toggle color="accent" *ngFor="let parkingSpace of parkingSpaces | async" (change)="onSelectionChanged($event)" [value]="parkingSpace">{{parkingSpace}}</md-button-toggle>
     </md-button-toggle-group>
   </app-parking-space-toolbar-left-align>
   <app-parking-space-toolbar-right-align>

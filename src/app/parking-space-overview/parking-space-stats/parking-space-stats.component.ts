@@ -18,13 +18,13 @@ const MAXBARSFORONEPARKINGSPACE = 7;
   styleUrls: ['./parking-space-stats.component.css']
 })
 export class ParkingSpaceStatsComponent implements OnInit {
-  parkingSpaces: Observable<string[]>;
-  barChartData: BarChartDataCollection[] = [];
-  barChartTitle: string;
-  loadingHistory: boolean;
+  public parkingSpaces: Observable<string[]>;
+  public barChartData: BarChartDataCollection[] = [];
+  public barChartTitle: string;
+  public loadingHistory: boolean;
+  @LocalStorage() public barChartColorPreferences: BarChartColorPreference[] = [];
   private historyDataSubscription: Subscription;
   private selectedParkingspaces: string[] = [];
-  @LocalStorage() public barChartColorPreferences: BarChartColorPreference[] = [];
 
   constructor(
     private backendService: ParkingSpaceBackendService,

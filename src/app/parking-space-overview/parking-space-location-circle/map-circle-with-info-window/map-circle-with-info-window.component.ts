@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Component, Input, Output, ViewChild, EventEmitter } from '@angular/core';
 import { AgmInfoWindow } from '@agm/core';
 
 @Component({
@@ -6,7 +6,7 @@ import { AgmInfoWindow } from '@agm/core';
   templateUrl: './map-circle-with-info-window.component.html',
   styleUrls: ['./map-circle-with-info-window.component.css']
 })
-export class MapCircleWithInfoWindowComponent implements OnInit {
+export class MapCircleWithInfoWindowComponent {
   @Input() latitude: number;
   @Input() longitude: number;
   @Input() infoWindowText: string;
@@ -16,14 +16,10 @@ export class MapCircleWithInfoWindowComponent implements OnInit {
   @Output() circleClick: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild(AgmInfoWindow) infoWindow: AgmInfoWindow;
 
-  constructor() { }
 
   onCircleClick() {
     this.infoWindow.open();
     this.infoWindowOpen = this.infoWindow.isOpen;
     this.circleClick.emit();
-  }
-
-  ngOnInit() {
   }
 }

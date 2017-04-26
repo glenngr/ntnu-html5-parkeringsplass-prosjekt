@@ -1,2 +1,4 @@
 <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="circleRadius" [fillColor]="circleFillColor" (circleClick)="onCircleClick()"></agm-circle>
-<agm-info-window #info [latitude]="latitude" [longitude]="longitude" [isOpen]="infoWindowOpen"><ng-content></ng-content></agm-info-window>
+<agm-info-window #info [latitude]="latitude" [longitude]="longitude" [isOpen]="infoWindowOpen">
+    <ng-content></ng-content>
+</agm-info-window>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { ParkingSpace } from '../models/parkingspace.model';
 
@@ -7,11 +7,6 @@ import { ParkingSpace } from '../models/parkingspace.model';
   templateUrl: './parking-space-info.component.html',
   styleUrls: ['./parking-space-info.component.css']
 })
-export class ParkingSpaceInfoComponent implements OnInit {
+export class ParkingSpaceInfoComponent {
   @Input() public parkingSpace: ParkingSpace;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 }
