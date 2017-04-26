@@ -9,3 +9,57 @@ Project in HTML5 course at NTNU spring 2017
 [circleci-badge-url]: https://circleci.com/gh/glenngr/ntnu-html5-parkeringsplass-prosjekt/tree/master.svg?style=shield&
 [dep-url]: https://david-dm.org/glenngr/ntnu-html5-parkeringsplass-prosjekt
 [dep-badge-url]: https://david-dm.org/glenngr/ntnu-html5-parkeringsplass-prosjekt/status.svg
+
+
+# How to use this project
+Download the repo or clone it and run `npm install`
+
+## npm serve
+Same as `ng serve`.
+Starts the web development server and listens on localhost:4200
+
+## npm start
+Starts the web development server and runs unit tests in parallel
+
+## npm build
+Same as `ng build`.
+Creates a JIT build.
+To create a prod build: `ng build --prod`
+To create a AOT prod build: `ng build -aot --prod`
+
+## npm serve:hmr
+Starts the web development server with Hot Module Replacement enabled.
+
+## npm test
+Same as `ng test`.
+Runs the unit tests (all files ending with .spec.ts)
+
+## npm e2e
+Same as `ng e2e`.
+Runs E2E-tests
+
+# Angular-CLI info
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
