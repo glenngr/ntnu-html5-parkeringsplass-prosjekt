@@ -13,6 +13,7 @@
     "start": "npm-run-all -p -r webdev test:watch sass:watch",
     "webdev": "ng serve",
     "build": "ng build",
+    "build:gh-pages": "ng build --prod -aot -bh /ntnu-html5-parkeringsplass-prosjekt/ --environment ghpages",
     "test": "ng test",
     "test:watch": "ng test --watch",
     "lint": "ng lint",
