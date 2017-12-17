@@ -4,7 +4,7 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 @Component({
     selector: 'app-theme-dialog',
     templateUrl: './choose-theme-dialog.component.html',
-    styleUrls: ['choose-theme-dialog.component.css']
+    styleUrls: ['choose-theme-dialog.component.scss']
 })
 export class ChooseThemeDialogComponent {
     selectedTheme: string;

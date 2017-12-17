@@ -7,7 +7,7 @@ import { BarChartData, BarChartSelectedColorChange } from './barchart-models';
 @Component({
   selector: 'app-parking-space-barchart',
   templateUrl: './parking-space-barchart.component.html',
-  styleUrls: ['./parking-space-barchart.component.css']
+  styleUrls: ['./parking-space-barchart.component.scss']
 })
 export class ParkingSpaceBarchartComponent {
   @Input() data: BarChartData;

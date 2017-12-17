@@ -6,7 +6,7 @@ import { HistoryCollection, HistoryData } from '../../models/history-collection.
 @Component({
   selector: 'app-parking-space-text-trend',
   templateUrl: './parking-space-text-trend.component.html',
-  styleUrls: ['./parking-space-text-trend.component.css']
+  styleUrls: ['./parking-space-text-trend.component.scss']
 })
 export class ParkingSpaceTextTrendComponent {
   @Input() trendData: Observable<HistoryCollection>;

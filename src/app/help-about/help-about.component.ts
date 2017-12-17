@@ -4,7 +4,7 @@ import { APP_BASE_HREF } from '@angular/common';
 @Component({
   selector: 'app-help-about',
   templateUrl: './help-about.component.html',
-  styleUrls: ['./help-about.component.css']
+  styleUrls: ['./help-about.component.scss']
 })
 export class HelpAboutComponent {
   private _assetsUrl: string;

@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-range-filter',
   templateUrl: './range-filter.component.html',
-  styleUrls: ['./range-filter.component.css']
+  styleUrls: ['./range-filter.component.scss']
 })
 export class RangeFilterComponent implements OnInit {
   @Input() minValue: number;

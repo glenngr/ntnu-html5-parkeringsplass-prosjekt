@@ -19,7 +19,7 @@ import { HistoryCollection } from '../models/history-collection.model';
 @Component({
   selector: 'app-parking-space-map',
   templateUrl: './parking-space-map.component.html',
-  styleUrls: ['./parking-space-map.component.css']
+  styleUrls: ['./parking-space-map.component.scss']
 })
 export class ParkingSpaceMapComponent implements OnInit, OnDestroy {
   sidenavTrend: Observable<HistoryCollection>;

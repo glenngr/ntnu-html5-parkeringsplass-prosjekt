@@ -7,7 +7,7 @@ import { ParkingSpace } from '../models/parkingspace.model';
 @Component({
   selector: 'app-parking-space-location-circle',
   templateUrl: './parking-space-location-circle.component.html',
-  styleUrls: ['./parking-space-location-circle.component.css']
+  styleUrls: ['./parking-space-location-circle.component.scss']
 })
 export class ParkingSpaceLocationCircleComponent implements OnInit, OnChanges {
   @Input() parkingSpace: ParkingSpace;

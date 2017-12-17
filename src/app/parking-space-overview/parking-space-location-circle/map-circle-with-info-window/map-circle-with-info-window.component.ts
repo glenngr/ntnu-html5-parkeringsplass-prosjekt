@@ -4,7 +4,7 @@ import { AgmInfoWindow } from '@agm/core';
 @Component({
   selector: 'app-map-circle-with-info-window',
   templateUrl: './map-circle-with-info-window.component.html',
-  styleUrls: ['./map-circle-with-info-window.component.css']
+  styleUrls: ['./map-circle-with-info-window.component.scss']
 })
 export class MapCircleWithInfoWindowComponent {
   @Input() latitude: number;

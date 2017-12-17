@@ -7,7 +7,7 @@ import { ChooseThemeDialogComponent } from '../choose-theme-dialog/choose-theme-
 @Component({
   selector: 'app-toolbar',
   templateUrl: './app-toolbar.component.html',
-  styleUrls: ['./app-toolbar.component.css']
+  styleUrls: ['./app-toolbar.component.scss']
 })
 export class AppToolbarComponent {
   @Input() appTitle: string;

@@ -15,7 +15,7 @@ const MAXBARSFORONEPARKINGSPACE = 7;
 @Component({
   selector: 'app-parking-space-stats',
   templateUrl: './parking-space-stats.component.html',
-  styleUrls: ['./parking-space-stats.component.css']
+  styleUrls: ['./parking-space-stats.component.scss']
 })
 export class ParkingSpaceStatsComponent implements OnInit {
   public parkingSpaces: Observable<string[]>;
