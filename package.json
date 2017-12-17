@@ -17,10 +17,8 @@
     "test": "ng test",
     "test:watch": "ng test --watch",
     "lint": "ng lint",
-    "e2e": "ng e2e",
     "publish": "gh-pages -d dist/ -b gh-pages -o github -n",
-    "sass": "node-sass src -o src --include-path node_modules --output-style compressed -q",
-    "sass:watch": "node-sass -w src -o src --include-path node_modules --output-style compressed -q"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -38,7 +36,6 @@
     "angular2-localstorage": "git+https://github.com/glenngr/angular2-localstorage.git#master",
     "core-js": "^2.4.1",
     "hammerjs": "^2.0.8",
-    "node-sass": "^4.5.1",
     "rxjs": "^5.1.0",
     "rxjs-websockets": "^0.8.1",
     "zone.js": "^0.8.4"
